@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="-42.399999999999999" y="118.29085457271366"/>
         </scene>
-        <!--List Of Friends Table View Controller-->
+        <!--You friends in Facebook-->
         <scene sceneID="pqZ-H3-Te7">
             <objects>
                 <tableViewController storyboardIdentifier="GoToSeeFriends" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zrd-VB-l6B" customClass="ListOfFriendsTableViewController" customModule="FriendsInFaceBook" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Jk7-du-9vF">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="Jk7-du-9vF" customClass="FriendTableViewCell" customModule="FriendsInFaceBook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jk7-du-9vF" id="cld-Fw-PxT">
@@ -77,10 +77,18 @@
                             <outlet property="delegate" destination="Zrd-VB-l6B" id="Fyb-ze-MOX"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="You friends in Facebook" id="NLe-gI-3Ov">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="y8p-kT-m3q">
+                            <color key="tintColor" red="1" green="0.16360715279999999" blue="0.17094731520000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="logOut" destination="y8p-kT-m3q" id="eGb-ba-aFO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hqa-kT-bxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="118"/>
+            <point key="canvasLocation" x="658" y="118"/>
         </scene>
     </scenes>
 </document>

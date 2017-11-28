@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
+		752FFAB11FCDE98C00ACA938 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */; };
 		75C1B4311FCDB06900496C7E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C1B42F1FCDB06900496C7E /* FBSDKLoginKit.framework */; };
 		75C1B4331FCDB07500496C7E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */; };
 		75C1B4341FCDB07500496C7E /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFriendsTableViewController.swift; sourceTree = "<group>"; };
+		752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		75C1B42F1FCDB06900496C7E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		75CFFC651FCC724300D99385 /* FriendsInFaceBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendsInFaceBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 				75CFFC681FCC724300D99385 /* AppDelegate.swift */,
 				75CFFC6A1FCC724300D99385 /* LoginViewController.swift */,
 				752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */,
+				752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */,
 				75CFFC6C1FCC724300D99385 /* Main.storyboard */,
 				75CFFC721FCC724300D99385 /* Assets.xcassets */,
 				75CFFC741FCC724300D99385 /* LaunchScreen.storyboard */,
@@ -241,6 +244,7 @@
 			files = (
 				752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */,
 				75CFFC711FCC724300D99385 /* FriendsInFaceBook.xcdatamodeld in Sources */,
+				752FFAB11FCDE98C00ACA938 /* FriendTableViewCell.swift in Sources */,
 				75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */,
 				75CFFC691FCC724300D99385 /* AppDelegate.swift in Sources */,
 			);

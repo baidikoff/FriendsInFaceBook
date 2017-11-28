@@ -7,45 +7,55 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import FBSDKCoreKit
 
 class ListOfFriendsTableViewController: UITableViewController {
 
+    @IBOutlet weak var logOut: UIBarButtonItem!
+    let friends = [1, 1, 3, 1, 1, 3, 1, 1, 3, 1]
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.fetchProfile()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func fetchProfile(){
+        let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
+        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start{ connection, result, error -> Void in
+            let dict: Dictionary = result! as! Dictionary<String, Any>
+            print(dict)
+            if let email = dict["email"] as? String{
+                print(email)
+                
+            }
+            if error != nil {
+                print(error)
+                return
+            }
+        }
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return friends.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell",
+                                                    for: indexPath) as? FriendTableViewCell {
+            let friend = friends[indexPath.row]
+            cell.textLabel?.text = String(friend)
+            return cell
+        }
+        return UITableViewCell()
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -91,5 +101,6 @@ class ListOfFriendsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }
