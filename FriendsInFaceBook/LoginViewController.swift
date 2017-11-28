@@ -10,22 +10,29 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
-//        let loginButton = FBSDKLoginButton()
-//        loginButton.center = view.center
-//        view.addSubview(loginButton as? UIView ?? UIView())
+        loginButton.delegate = self
+    }
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
-         
+    }
+    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) {
+        
+    }
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if let accessToken = FBSDKAccessToken.current() {
-            print("Token: ", accessToken)
+            print("Token: ", accessToken.tokenString)
+            print(accessToken.userID)
+             
         }
     }
     override func didReceiveMemoryWarning() {
