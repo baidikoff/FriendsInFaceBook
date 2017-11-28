@@ -13,7 +13,8 @@ import FBSDKCoreKit
 class ListOfFriendsTableViewController: UITableViewController {
 
     @IBOutlet weak var logOut: UIBarButtonItem!
-    let friends = [1, 1, 3, 1, 1, 3, 1, 1, 3, 1]
+    var friends1 = [1, 1, 3, 1, 1, 3, 1, 1, 3, 1]
+    var friends = [User]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,18 +22,34 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
 
     func fetchProfile(){
-        let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
-        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start{ connection, result, error -> Void in
-            let dict: Dictionary = result! as! Dictionary<String, Any>
-            print(dict)
-            if let email = dict["email"] as? String{
-                print(email)
-                
-            }
+        let parameters = ["fields": "name, picture.type(normal), gendar"]
+        FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
+            
             if error != nil {
                 print(error)
                 return
             }
+            guard let dict: Dictionary = users! as? Dictionary<String, Any> else {return print("Users is nil")}
+            if let friends = dict["data"] as? Array<Dictionary<String, Any>>{
+                for friend in friends{
+                    print(friend)
+                    if let userName = friend["name"] as? String{
+                        if let id = friend["id"] as? String{
+                            if let picture = friend["picture"] as? Dictionary<String, Any>{
+                                if let data = picture["data"] as? Dictionary<String, Any>{
+                                    if let imageUrl = data["url"] as? String{
+                                        print(imageUrl)
+                                        let user = User(name: userName, imageUrl: imageUrl, id: id)
+                                        self.friends.append(user)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                self.tableView.reloadData()
+            }
+            
         }
     }
 
@@ -50,7 +67,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell",
                                                     for: indexPath) as? FriendTableViewCell {
             let friend = friends[indexPath.row]
-            cell.textLabel?.text = String(friend)
+            cell.textLabel?.text = friend.name
             return cell
         }
         return UITableViewCell()
