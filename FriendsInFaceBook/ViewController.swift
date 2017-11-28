@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var loginButton: FBSDKLoginButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        let loginButton = FBSDKLoginButton()
+        loginButton.center = view.center
+        view.addSubview(loginButton as? UIView ?? UIView())
+        if (FBSDKAccessToken.current() != nil) {
+            print("ggg")
+        }
     }
 
     override func didReceiveMemoryWarning() {
