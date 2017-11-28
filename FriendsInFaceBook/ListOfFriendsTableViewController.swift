@@ -67,7 +67,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell",
                                                     for: indexPath) as? FriendTableViewCell {
             let friend = friends[indexPath.row]
-            cell.textLabel?.text = friend.name
+            cell.configureCell(user: friend)
             return cell
         }
         return UITableViewCell()
