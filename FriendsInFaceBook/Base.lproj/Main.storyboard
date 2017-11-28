@@ -24,9 +24,6 @@
                                     <constraint firstAttribute="height" constant="59" id="YxQ-8v-ATm"/>
                                 </constraints>
                                 <state key="normal" title="Log in"/>
-                                <connections>
-                                    <segue destination="Zrd-VB-l6B" kind="show" id="5NC-z0-Lrm"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi! This app allows you to see your friends in Facebook." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jF5-WT-Wfh">
                                 <rect key="frame" x="47" y="405" width="287" height="118"/>
@@ -57,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="-42.399999999999999" y="118.29085457271366"/>
         </scene>
-        <!--Table View Controller-->
+        <!--List Of Friends Table View Controller-->
         <scene sceneID="pqZ-H3-Te7">
             <objects>
-                <tableViewController id="Zrd-VB-l6B" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GoToSeeFriends" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zrd-VB-l6B" customClass="ListOfFriendsTableViewController" customModule="FriendsInFaceBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jmr-6M-2PP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
