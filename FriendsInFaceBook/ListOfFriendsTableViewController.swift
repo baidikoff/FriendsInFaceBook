@@ -34,6 +34,9 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     @IBAction func logoutButtonPressed(_ sender: FBSDKLoginButton) {
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+        self.present(loginViewController, animated:true, completion:nil)
     }
     func fetchProfile(){
         let parameters = ["fields": "name, picture.type(normal), gendar"]
