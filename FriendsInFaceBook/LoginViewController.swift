@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
     }
     func goToNextViewController(){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GoToSeeFriends") as! ListOfFriendsTableViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GoToSeeFriends") as! UINavigationController
         self.present(nextViewController, animated:true, completion:nil)
     }
 
