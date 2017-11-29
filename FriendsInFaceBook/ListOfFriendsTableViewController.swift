@@ -23,7 +23,8 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     var friends = [User]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchProfile()
+        self.getFriendsFromStorage()
+        self.requestFriends()
     }
 
  
@@ -41,10 +42,21 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
         }))
         present(refreshAlert, animated: true, completion: nil)
     }
-    func fetchProfile(){
+    func getFriendsFromStorage(){
+        do {
+            let realm = try Realm()
+            //self.friends
+            let users = realm.objects(User.self)
+            for user in users{
+                self.friends.append(user)
+            }
+        } catch let error {
+            fatalError("\(error)")
+        }
+    }
+    func requestFriends(){
         let parameters = ["fields": "name, picture.type(normal), gendar"]
         FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
-    
             if error != nil {
                 print(error)
                 return
@@ -70,14 +82,13 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
                 }
                 self.tableView.reloadData()
             }
-            
+
         }
     }
     func writeUserInRealm(user: User){
         do {
             let realm = try Realm()
             let isUserInDB = realm.objects(User.self).filter("name = %@", user.name)
-            print(isUserInDB.first?.name)
             if isUserInDB.first?.name == nil{
                 try realm.write {
                     realm.add(user)
