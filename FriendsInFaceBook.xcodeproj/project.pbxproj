@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750C14711FCF2DFA0055F6D1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750C146F1FCF2DFA0055F6D1 /* RealmSwift.framework */; };
+		750C14721FCF2DFF0055F6D1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750C146E1FCF2DFA0055F6D1 /* Realm.framework */; };
+		750C14731FCF2DFF0055F6D1 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 750C146E1FCF2DFA0055F6D1 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		750C14751FCF2DFF0055F6D1 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 750C146F1FCF2DFA0055F6D1 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
 		752FFAB11FCDE98C00ACA938 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */; };
 		752FFAB31FCDEDB000ACA938 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
@@ -40,7 +44,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				750C14731FCF2DFF0055F6D1 /* Realm.framework in Embed Frameworks */,
 				75C1B4361FCDB07500496C7E /* FBSDKLoginKit.framework in Embed Frameworks */,
+				750C14751FCF2DFF0055F6D1 /* RealmSwift.framework in Embed Frameworks */,
 				75C1B4341FCDB07500496C7E /* FBSDKCoreKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -49,6 +55,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		750C146E1FCF2DFA0055F6D1 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		750C146F1FCF2DFA0055F6D1 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFriendsTableViewController.swift; sourceTree = "<group>"; };
 		752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		752FFAB21FCDEDB000ACA938 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -73,7 +81,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				75C1B4311FCDB06900496C7E /* FBSDKLoginKit.framework in Frameworks */,
+				750C14711FCF2DFA0055F6D1 /* RealmSwift.framework in Frameworks */,
 				75C1B4331FCDB07500496C7E /* FBSDKCoreKit.framework in Frameworks */,
+				750C14721FCF2DFF0055F6D1 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +145,8 @@
 		75CFFC8B1FCC766700D99385 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				750C146E1FCF2DFA0055F6D1 /* Realm.framework */,
+				750C146F1FCF2DFA0055F6D1 /* RealmSwift.framework */,
 				75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */,
 				75C1B42F1FCDB06900496C7E /* FBSDKLoginKit.framework */,
 			);
@@ -152,6 +164,7 @@
 				75CFFC621FCC724300D99385 /* Frameworks */,
 				75CFFC631FCC724300D99385 /* Resources */,
 				75C1B42E1FCDAE9200496C7E /* Embed Frameworks */,
+				750C14761FCF2E180055F6D1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -239,6 +252,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		750C14761FCF2E180055F6D1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		75CFFC611FCC724300D99385 /* Sources */ = {
@@ -409,6 +440,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"~/Documents/FacebookSDK",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = FriendsInFaceBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -429,6 +461,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"~/Documents/FacebookSDK",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = FriendsInFaceBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

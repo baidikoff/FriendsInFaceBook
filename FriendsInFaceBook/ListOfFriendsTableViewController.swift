@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 import FBSDKLoginKit
 import FBSDKCoreKit
 
@@ -43,7 +44,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     func fetchProfile(){
         let parameters = ["fields": "name, picture.type(normal), gendar"]
         FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
-            
+    
             if error != nil {
                 print(error)
                 return
@@ -60,6 +61,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
                                         print(imageUrl)
                                         let user = User(name: userName, imageUrl: imageUrl, id: id)
                                         self.friends.append(user)
+                                        self.writeUserInRealm(user: user)
                                     }
                                 }
                             }
@@ -71,14 +73,25 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
             
         }
     }
-
+    func writeUserInRealm(user: User){
+        do {
+            let realm = try Realm()
+            let isUserInDB = realm.objects(User.self).filter("name = %@", user.name)
+            print(isUserInDB.first?.name)
+            if isUserInDB.first?.name == nil{
+                try realm.write {
+                    realm.add(user)
+                }
+            }
+        } catch let error {
+            fatalError("\(error)")
+        }
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return friends.count
     }
 

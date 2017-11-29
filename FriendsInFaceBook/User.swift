@@ -7,11 +7,14 @@
 //
 
 import Foundation
-class User {
-    var name: String!
-    var imageUrl: String!
-    var id: String!
-    init(name: String, imageUrl: String, id: String) {
+import RealmSwift
+
+class User: Object {
+    @objc dynamic var name: String!
+    @objc dynamic var imageUrl: String!
+    @objc dynamic var id: String!
+    convenience init(name: String, imageUrl: String, id: String) {
+        self.init()
         self.name = name
         self.imageUrl = imageUrl
         self.id = id
