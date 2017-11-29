@@ -10,10 +10,18 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 
-class ListOfFriendsTableViewController: UITableViewController {
+class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonDelegate {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+       print("1111")
+    }
+    
 
 
-    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var logoutButton: FBSDKLoginButton!
     var friends1 = [1, 1, 3, 1, 1, 3, 1, 1, 3, 1]
     var friends = [User]()
     override func viewDidLoad() {
@@ -23,8 +31,9 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
 
  
-    @IBAction func logoutButtonPressed(_ sender: Any) {
-       
+    @IBAction func logoutButtonPressed(_ sender: FBSDKLoginButton) {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
     }
     func fetchProfile(){
         let parameters = ["fields": "name, picture.type(normal), gendar"]
