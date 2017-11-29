@@ -48,8 +48,8 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     func getFriendsFromStorage(){
         do {
             let realm = try Realm()
-            //self.friends
             self.friends = realm.objects(User.self)
+            tableView.reloadData()
             
         } catch let error {
             fatalError("\(error)")
@@ -68,19 +68,18 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
         }
     }
     func requestFriends(){
-        do {
-            let realm = try Realm()
-            try realm.write {
-                realm.deleteAll()
-                realm.refresh()
-            }
-            self.configureRealmNotification()
-        } catch let error {
-            fatalError("\(error)")
-        }
-
         let parameters = ["fields": "name, picture.type(normal), gendar"]
         FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
+            do {
+                let realm = try Realm()
+                try realm.write {
+                    realm.deleteAll()
+                    realm.refresh()
+                }
+                self.configureRealmNotification()
+            } catch let error {
+                fatalError("\(error)")
+            }
             if error != nil {
                 print(error)
                 return
@@ -103,8 +102,8 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
                         }
                     }
                 }
+                print(self.friends)
                 self.getFriendsFromStorage()
-                self.tableView.reloadData()
             }
 
         }
@@ -112,12 +111,9 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     func writeUserInRealm(user: User){
         do {
             let realm = try Realm()
-//            let isUserInDB = realm.objects(User.self).filter("name = %@", user.name)
-//            if isUserInDB.first?.name == nil{
                 try realm.write {
                     realm.add(user)
                 }
-//            }
         } catch let error {
             fatalError("\(error)")
         }
@@ -127,13 +123,13 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        return self.friends.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell",
                                                     for: indexPath) as? FriendTableViewCell {
-            let friend = friends[indexPath.row]
+            let friend = self.friends[indexPath.row]
             cell.configureCell(user: friend)
             return cell
         }
