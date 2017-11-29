@@ -13,7 +13,8 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginButton: FBSDKLoginButton!
-
+    @IBOutlet weak var welcomeLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,8 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if let accessToken = FBSDKAccessToken.current() {
-            loginButton.isHidden = true
+            self.loginButton.isHidden = true
+            self.welcomeLabel.isHidden = true
             print("Token: ", accessToken.tokenString)
             print(accessToken.userID)
             self.goToNextViewController()

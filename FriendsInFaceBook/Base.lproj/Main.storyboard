@@ -48,6 +48,7 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="Tc1-hL-xNZ" id="7MH-wK-Y1R"/>
+                        <outlet property="welcomeLabel" destination="jF5-WT-Wfh" id="LqM-yh-DmA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

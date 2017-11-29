@@ -14,29 +14,31 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
     }
-    
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
        print("1111")
     }
-    
-
 
     @IBOutlet weak var logoutButton: FBSDKLoginButton!
-    var friends1 = [1, 1, 3, 1, 1, 3, 1, 1, 3, 1]
     var friends = [User]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.fetchProfile()
     }
 
  
     @IBAction func logoutButtonPressed(_ sender: FBSDKLoginButton) {
-        let loginManager = FBSDKLoginManager()
-        loginManager.logOut()
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-        self.present(loginViewController, animated:true, completion:nil)
+        let refreshAlert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.alert)
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            self.present(loginViewController, animated:true, completion:nil)
+        }))
+        refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Cancel")
+        }))
+        present(refreshAlert, animated: true, completion: nil)
     }
     func fetchProfile(){
         let parameters = ["fields": "name, picture.type(normal), gendar"]
