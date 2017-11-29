@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="-42.399999999999999" y="118.29085457271366"/>
         </scene>
-        <!--List Of Friends Table View Controller-->
+        <!--Friends-->
         <scene sceneID="pqZ-H3-Te7">
             <objects>
                 <tableViewController storyboardIdentifier="GoToSeeFriends1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zrd-VB-l6B" customClass="ListOfFriendsTableViewController" customModule="FriendsInFaceBook" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,26 +108,25 @@
                             <outlet property="delegate" destination="Zrd-VB-l6B" id="Fyb-ze-MOX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="0HV-Ne-zJN"/>
+                    <navigationItem key="navigationItem" title="Friends" id="0HV-Ne-zJN">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="OrO-pr-Gg5">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v9o-Ec-WcF">
+                                <rect key="frame" x="304" y="7" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="Zrd-VB-l6B" eventType="touchUpInside" id="1cD-mw-lIo"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="logoutButton" destination="v9o-Ec-WcF" id="Z23-jx-3L7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hqa-kT-bxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1674.4000000000001" y="117.39130434782609"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="6cm-oc-Mg2">
-            <objects>
-                <viewController id="CTF-4k-kcy" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pM4-Og-rKh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="8c0-BO-fhN"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6bi-rf-bY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2436" y="82.3088455772114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6xj-sO-sp5">

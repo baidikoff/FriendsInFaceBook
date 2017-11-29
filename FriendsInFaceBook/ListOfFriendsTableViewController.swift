@@ -12,7 +12,8 @@ import FBSDKCoreKit
 
 class ListOfFriendsTableViewController: UITableViewController {
 
-    @IBOutlet weak var logOut: UIBarButtonItem!
+
+    @IBOutlet weak var logoutButton: UIButton!
     var friends1 = [1, 1, 3, 1, 1, 3, 1, 1, 3, 1]
     var friends = [User]()
     override func viewDidLoad() {
@@ -21,6 +22,10 @@ class ListOfFriendsTableViewController: UITableViewController {
         self.fetchProfile()
     }
 
+ 
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+       
+    }
     func fetchProfile(){
         let parameters = ["fields": "name, picture.type(normal), gendar"]
         FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
