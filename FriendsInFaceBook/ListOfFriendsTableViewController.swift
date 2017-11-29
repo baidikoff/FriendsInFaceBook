@@ -20,11 +20,14 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     }
 
     @IBOutlet weak var logoutButton: FBSDKLoginButton!
-    var friends = [User]()
+    var friends: Results<User>!
+    fileprivate var notificationToken: NotificationToken? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getFriendsFromStorage()
         self.requestFriends()
+        
     }
 
  
@@ -46,15 +49,36 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
         do {
             let realm = try Realm()
             //self.friends
-            let users = realm.objects(User.self)
-            for user in users{
-                self.friends.append(user)
-            }
+            self.friends = realm.objects(User.self)
+            
         } catch let error {
             fatalError("\(error)")
         }
     }
+    func configureRealmNotification() {
+        self.notificationToken = self.friends.observe { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial,.update:
+                self?.tableView.reloadData()
+                break
+            case .error(let error):
+                fatalError("\(error)")
+                break
+            }
+        }
+    }
     func requestFriends(){
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.deleteAll()
+                realm.refresh()
+            }
+            self.configureRealmNotification()
+        } catch let error {
+            fatalError("\(error)")
+        }
+
         let parameters = ["fields": "name, picture.type(normal), gendar"]
         FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
             if error != nil {
@@ -72,7 +96,6 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
                                     if let imageUrl = data["url"] as? String{
                                         print(imageUrl)
                                         let user = User(name: userName, imageUrl: imageUrl, id: id)
-                                        self.friends.append(user)
                                         self.writeUserInRealm(user: user)
                                     }
                                 }
@@ -80,6 +103,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
                         }
                     }
                 }
+                self.getFriendsFromStorage()
                 self.tableView.reloadData()
             }
 
@@ -88,12 +112,12 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     func writeUserInRealm(user: User){
         do {
             let realm = try Realm()
-            let isUserInDB = realm.objects(User.self).filter("name = %@", user.name)
-            if isUserInDB.first?.name == nil{
+//            let isUserInDB = realm.objects(User.self).filter("name = %@", user.name)
+//            if isUserInDB.first?.name == nil{
                 try realm.write {
                     realm.add(user)
                 }
-            }
+//            }
         } catch let error {
             fatalError("\(error)")
         }
