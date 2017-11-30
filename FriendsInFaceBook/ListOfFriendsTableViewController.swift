@@ -143,7 +143,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let friendsVC = storyBoard.instantiateViewController(withIdentifier: "TableView") as! ListOfFriendsTableViewController
-        self.present(friendsVC, animated:true, completion:nil)
+        self.navigationController?.pushViewController(friendsVC, animated: true)
     }
     
     /*
