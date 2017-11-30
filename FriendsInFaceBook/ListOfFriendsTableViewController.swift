@@ -11,13 +11,8 @@ import RealmSwift
 import FBSDKLoginKit
 import FBSDKCoreKit
 
-class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonDelegate {
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        
-    }
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("1111")
-    }
+class ListOfFriendsTableViewController: UITableViewController {
+  
     
     @IBOutlet weak var logoutButton: FBSDKLoginButton!
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -76,7 +71,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
         let parameters = ["fields": "name, picture.type(normal), gendar"]
         FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
             if error != nil {
-                let errorRefreshAlert = UIAlertController(title: "Error", message: "Please check your internet connection", preferredStyle: UIAlertControllerStyle.alert)
+                let errorRefreshAlert = UIAlertController(title: "There is no Internet connection", message: "Please check the network cables, modem, router and connection to Wi-Fi", preferredStyle: UIAlertControllerStyle.alert)
                 errorRefreshAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: { (action: UIAlertAction!) in
                         self.refreshControl?.endRefreshing()
                     }))
