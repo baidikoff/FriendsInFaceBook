@@ -12,8 +12,7 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 
 class ListOfFriendsTableViewController: UITableViewController {
-  
-    
+
     @IBOutlet weak var logoutButton: FBSDKLoginButton!
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     var friends: Results<User>!
@@ -24,7 +23,6 @@ class ListOfFriendsTableViewController: UITableViewController {
         self.getFriendsFromStorage()
         self.requestFriends()
         self.configurePullToRefresh()
-        
     }
     
     @IBAction func logoutButtonPressed(_ sender: FBSDKLoginButton) {
@@ -35,7 +33,7 @@ class ListOfFriendsTableViewController: UITableViewController {
             let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             self.present(loginViewController, animated:true, completion:nil)
         }))
-        logout.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+        logout.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Cancel")
         }))
         present(logout, animated: true, completion: nil)
@@ -82,7 +80,6 @@ class ListOfFriendsTableViewController: UITableViewController {
                 let realm = try Realm()
                 try realm.write {
                     realm.deleteAll()
-                    realm.refresh()
                 }
                 self.configureRealmNotification()
             } catch let error {
