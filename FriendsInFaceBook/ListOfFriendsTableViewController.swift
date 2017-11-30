@@ -20,6 +20,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
     }
     
     @IBOutlet weak var logoutButton: FBSDKLoginButton!
+    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     var friends: Results<User>!
     fileprivate var notificationToken: NotificationToken? = nil
     
@@ -36,8 +37,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
         logout.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             self.present(loginViewController, animated:true, completion:nil)
         }))
         logout.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -141,8 +141,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
         return UITableViewCell()
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let friendsVC = storyBoard.instantiateViewController(withIdentifier: "TableView") as! ListOfFriendsTableViewController
+        let friendsVC = self.storyBoard.instantiateViewController(withIdentifier: "TableView") as! ListOfFriendsTableViewController
         self.navigationController?.pushViewController(friendsVC, animated: true)
     }
     
@@ -181,15 +180,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
      }
      */
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
     
     
 }
