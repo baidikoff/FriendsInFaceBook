@@ -94,7 +94,7 @@ class ListOfFriendsTableViewController: UITableViewController {
                                 if let data = picture["data"] as? Dictionary<String, Any>{
                                     if let imageUrl = data["url"] as? String{
                                         let user = User(name: userName, imageUrl: imageUrl, id: id)
-                                        self.writeUserInRealm(user: user)
+                                        self.writeUserToRealm(user: user)
                                     }
                                 }
                             }
@@ -105,7 +105,7 @@ class ListOfFriendsTableViewController: UITableViewController {
             }
         }
     }
-    func writeUserInRealm(user: User){
+    func writeUserToRealm(user: User){
         do {
             let realm = try Realm()
             try realm.write {
