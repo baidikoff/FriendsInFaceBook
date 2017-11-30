@@ -26,8 +26,6 @@ class LoginViewController: UIViewController {
         if let accessToken = FBSDKAccessToken.current() {
             self.loginButton.isHidden = true
             self.welcomeLabel.isHidden = true
-            print("Token: ", accessToken.tokenString)
-            print(accessToken.userID)
             self.goToNextViewController()
         }
     }

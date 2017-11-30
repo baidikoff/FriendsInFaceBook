@@ -11,15 +11,10 @@ import RealmSwift
 import FBSDKLoginKit
 import FBSDKCoreKit
 
-class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonDelegate {
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        
-    }
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("1111")
-    }
-    
+class ListOfFriendsTableViewController: UITableViewController {
+
     @IBOutlet weak var logoutButton: FBSDKLoginButton!
+    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     var friends: Results<User>!
     fileprivate var notificationToken: NotificationToken? = nil
     
@@ -28,7 +23,6 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
         self.getFriendsFromStorage()
         self.requestFriends()
         self.configurePullToRefresh()
-        
     }
     
     @IBAction func logoutButtonPressed(_ sender: FBSDKLoginButton) {
@@ -36,11 +30,10 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
         logout.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             self.present(loginViewController, animated:true, completion:nil)
         }))
-        logout.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+        logout.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Cancel")
         }))
         present(logout, animated: true, completion: nil)
@@ -76,7 +69,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
         let parameters = ["fields": "name, picture.type(normal), gendar"]
         FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
             if error != nil {
-                let errorRefreshAlert = UIAlertController(title: "Error", message: "Please check your internet connection", preferredStyle: UIAlertControllerStyle.alert)
+                let errorRefreshAlert = UIAlertController(title: "There is no Internet connection", message: "Please check the network cables, modem, router and connection to Wi-Fi", preferredStyle: UIAlertControllerStyle.alert)
                 errorRefreshAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: { (action: UIAlertAction!) in
                         self.refreshControl?.endRefreshing()
                     }))
@@ -87,7 +80,6 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
                 let realm = try Realm()
                 try realm.write {
                     realm.deleteAll()
-                    realm.refresh()
                 }
                 self.configureRealmNotification()
             } catch let error {
@@ -102,7 +94,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
                                 if let data = picture["data"] as? Dictionary<String, Any>{
                                     if let imageUrl = data["url"] as? String{
                                         let user = User(name: userName, imageUrl: imageUrl, id: id)
-                                        self.writeUserInRealm(user: user)
+                                        self.writeUserToRealm(user: user)
                                     }
                                 }
                             }
@@ -113,7 +105,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
             }
         }
     }
-    func writeUserInRealm(user: User){
+    func writeUserToRealm(user: User){
         do {
             let realm = try Realm()
             try realm.write {
@@ -140,7 +132,10 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
         }
         return UITableViewCell()
     }
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let friendsVC = self.storyBoard.instantiateViewController(withIdentifier: "TableView") as! ListOfFriendsTableViewController
+        self.navigationController?.pushViewController(friendsVC, animated: true)
+    }
     
     /*
      // Override to support conditional editing of the table view.
@@ -177,15 +172,7 @@ class ListOfFriendsTableViewController: UITableViewController, FBSDKLoginButtonD
      }
      */
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
     
     
 }
