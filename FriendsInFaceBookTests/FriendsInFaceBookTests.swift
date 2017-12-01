@@ -11,7 +11,7 @@ import XCTest
 @testable import FriendsInFaceBook
 
 class FriendsInFaceBookTests: XCTestCase {
-    let listOfFriends = ListOfFriendsTableViewController()
+    //let listOfFriends = ListOfFriendsTableViewController()
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,8 +22,8 @@ class FriendsInFaceBookTests: XCTestCase {
         super.tearDown()
     }
     
-    func isServerError50() {
-       
+    func testisServerError50() {
+       let y = "g"
     }
     
     func testPerformanceExample() {
