@@ -7,7 +7,13 @@
 //
 
 import Foundation
-//class RequestUsers{
-//   func 
-//}
+import FBSDKCoreKit
+import FBSDKLoginKit
+
+class RequestUsers{
+    func getTokenFromFacebook() -> String{
+        return FBSDKAccessToken.current().description
+    }
+        
+}
 
