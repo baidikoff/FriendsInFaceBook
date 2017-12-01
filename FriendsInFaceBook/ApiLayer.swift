@@ -10,9 +10,12 @@ import Foundation
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class RequestUsers{
-    func getTokenFromFacebook() -> String{
-        return FBSDKAccessToken.current().description
+class ApiLayer{
+    
+    let urlHost = "https://graph.facebook.com/v2.11/me/accounts?access_token="
+    
+    func getTokenFromFacebook() -> String? {
+        return FBSDKAccessToken.current().tokenString
     }
         
 }

@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if let accessToken = FBSDKAccessToken.current() {
+        if (FBSDKAccessToken.current()) != nil {
             self.loginButton.isHidden = true
             self.welcomeLabel.isHidden = true
             self.goToNextViewController()
@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if let accessToken = FBSDKAccessToken.current() {
+        if (FBSDKAccessToken.current()) != nil {
            self.goToNextViewController()
         }
     }

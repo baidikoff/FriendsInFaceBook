@@ -22,7 +22,7 @@ class FriendTableViewCell: UITableViewCell {
             DispatchQueue.global(qos: .userInitiated).async{
                 let data = NSData(contentsOf: url!)
                 DispatchQueue.main.async{
-                    if let imageData = data {
+                    if data != nil {
                         self.userPhoto.image = UIImage(data: data! as Data)
                     }
                 }

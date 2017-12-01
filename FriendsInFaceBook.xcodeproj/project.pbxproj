@@ -12,7 +12,7 @@
 		752FFAB31FCDEDB000ACA938 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
 		754078291FD1AD8500A6E01C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555D4D31FD1A18400FCA77A /* Realm.framework */; };
 		7540782A1FD1AD8700A6E01C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555D4D21FD1A18400FCA77A /* RealmSwift.framework */; };
-		7540782C1FD1AF1900A6E01C /* RequestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540782B1FD1AF1900A6E01C /* RequestUser.swift */; };
+		7540782C1FD1AF1900A6E01C /* ApiLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540782B1FD1AF1900A6E01C /* ApiLayer.swift */; };
 		7555D4D61FD1A18E00FCA77A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555D4D31FD1A18400FCA77A /* Realm.framework */; };
 		7555D4D71FD1A18E00FCA77A /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555D4D31FD1A18400FCA77A /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7555D4D81FD1A18E00FCA77A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555D4D21FD1A18400FCA77A /* RealmSwift.framework */; };
@@ -60,7 +60,7 @@
 		752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFriendsTableViewController.swift; sourceTree = "<group>"; };
 		752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		752FFAB21FCDEDB000ACA938 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7540782B1FD1AF1900A6E01C /* RequestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUser.swift; sourceTree = "<group>"; };
+		7540782B1FD1AF1900A6E01C /* ApiLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLayer.swift; sourceTree = "<group>"; };
 		7555D4D21FD1A18400FCA77A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		7555D4D31FD1A18400FCA77A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		75C1B42F1FCDB06900496C7E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 				752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */,
 				752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */,
 				752FFAB21FCDEDB000ACA938 /* User.swift */,
-				7540782B1FD1AF1900A6E01C /* RequestUser.swift */,
+				7540782B1FD1AF1900A6E01C /* ApiLayer.swift */,
 				75CFFC6C1FCC724300D99385 /* Main.storyboard */,
 				75CFFC721FCC724300D99385 /* Assets.xcassets */,
 				75CFFC741FCC724300D99385 /* LaunchScreen.storyboard */,
@@ -298,7 +298,7 @@
 			files = (
 				752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */,
 				752FFAB31FCDEDB000ACA938 /* User.swift in Sources */,
-				7540782C1FD1AF1900A6E01C /* RequestUser.swift in Sources */,
+				7540782C1FD1AF1900A6E01C /* ApiLayer.swift in Sources */,
 				752FFAB11FCDE98C00ACA938 /* FriendTableViewCell.swift in Sources */,
 				75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */,
 				75CFFC691FCC724300D99385 /* AppDelegate.swift in Sources */,
