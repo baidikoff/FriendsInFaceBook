@@ -35,18 +35,16 @@ class ServiceForData{
             fatalError("\(error)")
         }
     }
-    func getDataFromStorage() -> Promise<Results<User>>{
-        return Promise<Results<User>>{ fulfill, reject in
-            do {
-                let realm = try Realm()
-                let dataFromStorame = realm.objects(User.self)
-                fulfill(dataFromStorame)
-            } catch let error {
-                fatalError("\(error)")
-                reject(error)
-            }
+    func getDataFromStorage() -> Results<User>{
+        var users: Results<User>?
+        do {
+            let realm = try Realm()
+            users = realm.objects(User.self)
+        } catch let error {
+            fatalError("\(error)")
         }
+        return users!
     }
-   
+    
     
 }

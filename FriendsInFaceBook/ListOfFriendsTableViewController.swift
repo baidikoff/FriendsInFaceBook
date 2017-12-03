@@ -43,11 +43,10 @@ class ListOfFriendsTableViewController: UITableViewController {
         self.tableView?.insertSubview(refreshControl!, at: 0)
     }
     func getFriendsFromStorage(){
-        ServiceForData.shared.getDataFromStorage().then{ [weak self] users -> Void in
-            self?.friends = users
-            self?.tableView.reloadData()
-            self?.refreshControl?.endRefreshing()
-        }
+        self.friends = ServiceForData.shared.getDataFromStorage()
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+     
     }
     func configureRealmNotification() {
         self.notificationToken = self.friends?.observe { [weak self] (changes: RealmCollectionChange) in
@@ -77,7 +76,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.friends!.count
+        return (self.friends?.count)!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
