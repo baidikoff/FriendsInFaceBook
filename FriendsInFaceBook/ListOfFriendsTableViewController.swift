@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import FBSDKLoginKit
 import FBSDKCoreKit
+import PromiseKit
 
 class ListOfFriendsTableViewController: UITableViewController {
 
@@ -17,14 +18,15 @@ class ListOfFriendsTableViewController: UITableViewController {
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     var friends: Results<User>!
     fileprivate var notificationToken: NotificationToken? = nil
+    let api = ApiLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getFriendsFromStorage()
+        self.h()
 //        self.requestFriends()
 //        self.configurePullToRefresh()
-        let api = ApiLayer()
-        api.requestUsers()
+        
     }
     
     @IBAction func logoutButtonPressed(_ sender: FBSDKLoginButton) {
@@ -67,49 +69,45 @@ class ListOfFriendsTableViewController: UITableViewController {
             }
         }
     }
+    func h(){
+        firstly{
+            ApiLayer.shared.requestUsersPromise()
+            }.then{  [weak self] users -> Void in
+                self?.reloadStorage(user: users)
+        }
+    }
     @objc func requestFriends(){
         let parameters = ["fields": "name, picture.type(normal), gendar"]
         FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
-            if error != nil {
-                let errorRefreshAlert = UIAlertController(title: "There is no Internet connection", message: "Please check the network cables, modem, router and connection to Wi-Fi", preferredStyle: UIAlertControllerStyle.alert)
-                errorRefreshAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: { (action: UIAlertAction!) in
-                        self.refreshControl?.endRefreshing()
-                    }))
-                self.present(errorRefreshAlert, animated: true, completion: nil)
-                return
-            }
-            do {
-                let realm = try Realm()
-                try realm.write {
-                    realm.deleteAll()
-                }
-                self.configureRealmNotification()
-            } catch let error {
-                fatalError("\(error)")
-            }
-            guard let dict: Dictionary = users! as? Dictionary<String, Any> else {return print("Users is nil")}
-            if let friends = dict["data"] as? Array<Dictionary<String, Any>>{
-                for friend in friends{
-                    if let userName = friend["name"] as? String{
-                        if let id = friend["id"] as? String{
-                            if let picture = friend["picture"] as? Dictionary<String, Any>{
-                                if let data = picture["data"] as? Dictionary<String, Any>{
-                                    if let imageUrl = data["url"] as? String{
-                                        let user = User(name: userName, imageUrl: imageUrl, id: id)
-                                        self.writeUserToRealm(user: user)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                self.getFriendsFromStorage()
-            }
+            
+            
+//            guard let dict: Dictionary = users! as? Dictionary<String, Any> else {return print("Users is nil")}
+//            if let friends = dict["data"] as? Array<Dictionary<String, Any>>{
+//                for friend in friends{
+//                    if let userName = friend["name"] as? String{
+//                        if let id = friend["id"] as? String{
+//                            if let picture = friend["picture"] as? Dictionary<String, Any>{
+//                                if let data = picture["data"] as? Dictionary<String, Any>{
+//                                    if let imageUrl = data["url"] as? String{
+//                                        let user = User(name: userName, imageUrl: imageUrl, id: id)
+//                                       // self.writeUserToRealm(user: user)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//                self.getFriendsFromStorage()
+//            }
         }
     }
-    func writeUserToRealm(user: User){
+    func reloadStorage(user: Array<User>){
         do {
             let realm = try Realm()
+            try realm.write {
+                realm.deleteAll()
+            }
+            self.configureRealmNotification()
             try realm.write {
                 realm.add(user)
             }

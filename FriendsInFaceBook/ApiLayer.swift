@@ -16,13 +16,12 @@ class ApiLayer{
     
     let urlHost = "https://graph.facebook.com/"
     let urlPath = "v2.11/me/accounts?access_token="
+    static let shared = ApiLayer()
     func getTokenFromFacebook() -> String? {
         return FBSDKAccessToken.current().tokenString
     }
-    init() {
 
-    }
-    func requestUsers() -> Promise<Array<User>>{
+    func requestUsersPromise() -> Promise<Array<User>>{
         return Promise<Array<User>>{ fulfill, reject in
             let parameters = ["fields": "name, picture.type(normal), gendar"]
             FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
