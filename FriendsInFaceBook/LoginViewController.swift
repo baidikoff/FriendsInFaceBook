@@ -12,20 +12,20 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var loginButton: FBSDKLoginButton!
-    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var loginButton: FBSDKLoginButton?
+    @IBOutlet weak var welcomeLabel: UILabel?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        self.loginButton?.readPermissions = ["public_profile", "email", "user_friends"]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if (FBSDKAccessToken.current()) != nil {
-            self.loginButton.isHidden = true
-            self.welcomeLabel.isHidden = true
+            self.loginButton?.isHidden = true
+            self.welcomeLabel?.isHidden = true
             self.goToNextViewController()
         }
     }

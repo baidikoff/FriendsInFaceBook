@@ -17,6 +17,7 @@ class ApiLayer{
     let urlHost = "https://graph.facebook.com/"
     let urlPath = "v2.11/me/accounts?access_token="
     static let shared = ApiLayer()
+    
     func getTokenFromFacebook() -> String? {
         return FBSDKAccessToken.current().tokenString
     }

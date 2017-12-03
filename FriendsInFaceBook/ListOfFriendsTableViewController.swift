@@ -14,11 +14,10 @@ import PromiseKit
 
 class ListOfFriendsTableViewController: UITableViewController {
 
-    @IBOutlet weak var logoutButton: FBSDKLoginButton!
+    @IBOutlet weak var logoutButton: FBSDKLoginButton?
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-    var friends: Results<User>!
+    var friends: Results<User>?
     fileprivate var notificationToken: NotificationToken? = nil
-    let api = ApiLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +56,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         }
     }
     func configureRealmNotification() {
-        self.notificationToken = self.friends.observe { [weak self] (changes: RealmCollectionChange) in
+        self.notificationToken = self.friends?.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial,.update:
                 self?.tableView.reloadData()
@@ -95,13 +94,13 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.friends.count
+        return self.friends!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell",
                                                     for: indexPath) as? FriendTableViewCell {
-            let friend = self.friends[indexPath.row]
+            let friend = self.friends![indexPath.row]
             cell.configureCell(user: friend)
             return cell
         }
