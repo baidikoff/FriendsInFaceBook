@@ -24,6 +24,9 @@
                                     <constraint firstAttribute="height" constant="59" id="YxQ-8v-ATm"/>
                                 </constraints>
                                 <state key="normal" title="Log in"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qdr-mY-SkL"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi! This app allows you to see your friends in Facebook." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jF5-WT-Wfh">
                                 <rect key="frame" x="47" y="405" width="287" height="118"/>

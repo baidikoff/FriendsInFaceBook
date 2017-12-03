@@ -8,13 +8,11 @@
 
 import UIKit
 import RealmSwift
-import FBSDKLoginKit
-import FBSDKCoreKit
 import PromiseKit
 
 class ListOfFriendsTableViewController: UITableViewController {
 
-    @IBOutlet weak var logoutButton: FBSDKLoginButton?
+    @IBOutlet weak var logoutButton: UIButton?
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     var friends: Results<User>?
     fileprivate var notificationToken: NotificationToken? = nil
@@ -27,11 +25,10 @@ class ListOfFriendsTableViewController: UITableViewController {
         
     }
     
-    @IBAction func logoutButtonPressed(_ sender: FBSDKLoginButton) {
+    @IBAction func logoutButtonPressed(_ sender: UIButton) {
         let logout = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.alert)
         logout.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-            let loginManager = FBSDKLoginManager()
-            loginManager.logOut()
+            ApiLayer.shared.logoutUser()
             let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             self.present(loginViewController, animated:true, completion:nil)
         }))
@@ -46,13 +43,10 @@ class ListOfFriendsTableViewController: UITableViewController {
         self.tableView?.insertSubview(refreshControl!, at: 0)
     }
     func getFriendsFromStorage(){
-        do {
-            let realm = try Realm()
-            self.friends = realm.objects(User.self)
-            tableView.reloadData()
-            self.refreshControl?.endRefreshing()
-        } catch let error {
-            fatalError("\(error)")
+        ServiceForData.shared.getDataFromStorage().then{ [weak self] users -> Void in
+            self?.friends = users
+            self?.tableView.reloadData()
+            self?.refreshControl?.endRefreshing()
         }
     }
     func configureRealmNotification() {
@@ -71,24 +65,13 @@ class ListOfFriendsTableViewController: UITableViewController {
         firstly{
             ApiLayer.shared.requestUsersPromise()
             }.then{  [weak self] users -> Void in
-                self?.reloadStorage(user: users)
+                ServiceForData.shared.deleteAllDataInStorage()
+                self?.configureRealmNotification()
+                ServiceForData.shared.writeDataInStorage(users: users)
         }
     }
   
-    func reloadStorage(user: Array<User>){
-        do {
-            let realm = try Realm()
-            try realm.write {
-                realm.deleteAll()
-            }
-            self.configureRealmNotification()
-            try realm.write {
-                realm.add(user)
-            }
-        } catch let error {
-            fatalError("\(error)")
-        }
-    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

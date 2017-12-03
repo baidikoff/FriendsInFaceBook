@@ -14,18 +14,20 @@ import PromiseKit
 
 class ApiLayer{
     
-    let urlHost = "https://graph.facebook.com/"
-    let urlPath = "v2.11/me/accounts?access_token="
+    
     static let shared = ApiLayer()
     
-    func getTokenFromFacebook() -> String? {
-        return FBSDKAccessToken.current().tokenString
+    func alreadyLoggedIn() -> Bool {
+        if FBSDKAccessToken.current() != nil{
+            return true
+        } else {
+            return false
+        }
     }
-
+    
     func requestUsersPromise() -> Promise<Array<User>>{
         return Promise<Array<User>>{ fulfill, reject in
-            let parameters = ["fields": "name, picture.type(normal), gendar"]
-            FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
+            FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: [UrlType.parametersKey: UrlType.parametersValue]).start{ connection, users, error -> Void in
                 if error != nil {
                     print("Error: ", error)
                     reject(error!)
@@ -37,8 +39,22 @@ class ApiLayer{
                 }
             }
         }
-        }
-        
-        
+    }
+    
+    func logoutUser(){
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+    }
+    
+    func loginUser(){
+        let loginManager = FBSDKLoginManager()
+        loginManager.loginBehavior = FBSDKLoginBehavior.systemAccount
+        loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], handler: { result, error in
+            if (error == nil){
+                print("Log in successfully")
+            }
+        })
+    }
+    
 }
 
