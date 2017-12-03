@@ -31,6 +31,8 @@
 		75CFFC731FCC724300D99385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75CFFC721FCC724300D99385 /* Assets.xcassets */; };
 		75CFFC761FCC724300D99385 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75CFFC741FCC724300D99385 /* LaunchScreen.storyboard */; };
 		75CFFC811FCC724300D99385 /* FriendsInFaceBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC801FCC724300D99385 /* FriendsInFaceBookTests.swift */; };
+		75D292A51FD419E60032F9BD /* ListTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A41FD419E60032F9BD /* ListTransform.swift */; };
+		75D292A71FD426110032F9BD /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A61FD426110032F9BD /* Friends.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		75CFFC7C1FCC724300D99385 /* FriendsInFaceBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendsInFaceBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75CFFC801FCC724300D99385 /* FriendsInFaceBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsInFaceBookTests.swift; sourceTree = "<group>"; };
 		75CFFC821FCC724300D99385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75D292A41FD419E60032F9BD /* ListTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransform.swift; sourceTree = "<group>"; };
+		75D292A61FD426110032F9BD /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,11 +142,13 @@
 				752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */,
 				752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */,
 				752FFAB21FCDEDB000ACA938 /* User.swift */,
+				75D292A61FD426110032F9BD /* Friends.swift */,
 				7540782B1FD1AF1900A6E01C /* ApiLayer.swift */,
 				75CFFC6C1FCC724300D99385 /* Main.storyboard */,
 				75CFFC721FCC724300D99385 /* Assets.xcassets */,
 				75CFFC741FCC724300D99385 /* LaunchScreen.storyboard */,
 				75CFFC771FCC724300D99385 /* Info.plist */,
+				75D292A41FD419E60032F9BD /* ListTransform.swift */,
 			);
 			path = FriendsInFaceBook;
 			sourceTree = "<group>";
@@ -311,6 +317,8 @@
 				752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */,
 				752FFAB31FCDEDB000ACA938 /* User.swift in Sources */,
 				7540782C1FD1AF1900A6E01C /* ApiLayer.swift in Sources */,
+				75D292A71FD426110032F9BD /* Friends.swift in Sources */,
+				75D292A51FD419E60032F9BD /* ListTransform.swift in Sources */,
 				752FFAB11FCDE98C00ACA938 /* FriendTableViewCell.swift in Sources */,
 				75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */,
 				75CFFC691FCC724300D99385 /* AppDelegate.swift in Sources */,

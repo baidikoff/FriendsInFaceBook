@@ -12,9 +12,10 @@ import ObjectMapper
 
 class User: Object, Mappable {
     
-    @objc dynamic var name: String!
-    @objc dynamic var imageUrl: String!
-    @objc dynamic var id: String!
+    @objc dynamic var name: String?
+    @objc dynamic var imageUrl: String?
+    @objc dynamic var id: String?
+    
     convenience init(name: String, imageUrl: String, id: String) {
         self.init()
         self.name = name
@@ -26,6 +27,7 @@ class User: Object, Mappable {
     }
 
     func mapping(map: Map) {
-        //??//
+            name       <- map["name"]
+            id     <- map["id"]
     }
 }

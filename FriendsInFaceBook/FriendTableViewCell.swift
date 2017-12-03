@@ -15,7 +15,7 @@ class FriendTableViewCell: UITableViewCell {
     
     func configureCell(user: User) {
         userName.text = user.name
-        fetchImage(imageUrl: user.imageUrl)
+        fetchImage(imageUrl: user.imageUrl!)
     }
     func fetchImage(imageUrl: String){
         let url = URL(string: imageUrl)

@@ -21,8 +21,10 @@ class ListOfFriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getFriendsFromStorage()
-        self.requestFriends()
-        self.configurePullToRefresh()
+//        self.requestFriends()
+//        self.configurePullToRefresh()
+        let api = ApiLayer()
+        api.requestUsers()
     }
     
     @IBAction func logoutButtonPressed(_ sender: FBSDKLoginButton) {
