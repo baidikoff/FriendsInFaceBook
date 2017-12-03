@@ -8,8 +8,10 @@
 
 import Foundation
 import RealmSwift
+import ObjectMapper
 
-class User: Object {
+class User: Object, Mappable {
+    
     @objc dynamic var name: String!
     @objc dynamic var imageUrl: String!
     @objc dynamic var id: String!
@@ -18,5 +20,12 @@ class User: Object {
         self.name = name
         self.imageUrl = imageUrl
         self.id = id
+    }
+    required convenience init?(map: Map) {
+        self.init()
+    }
+
+    func mapping(map: Map) {
+        //??//
     }
 }

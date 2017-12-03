@@ -17,6 +17,10 @@
 		7555D4D71FD1A18E00FCA77A /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555D4D31FD1A18400FCA77A /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7555D4D81FD1A18E00FCA77A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555D4D21FD1A18400FCA77A /* RealmSwift.framework */; };
 		7555D4D91FD1A18E00FCA77A /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555D4D21FD1A18400FCA77A /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		756C72A71FD40C0F00FCB5D0 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756C72A51FD40C0E00FCB5D0 /* ObjectMapper.framework */; };
+		756C72AA1FD40C1400FCB5D0 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 756C72A51FD40C0E00FCB5D0 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		756C72AB1FD40C1400FCB5D0 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756C72A61FD40C0E00FCB5D0 /* PromiseKit.framework */; };
+		756C72AC1FD40C1400FCB5D0 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 756C72A61FD40C0E00FCB5D0 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75C1B4311FCDB06900496C7E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C1B42F1FCDB06900496C7E /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		75C1B4331FCDB07500496C7E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */; };
 		75C1B4341FCDB07500496C7E /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -48,6 +52,8 @@
 			files = (
 				7555D4D71FD1A18E00FCA77A /* Realm.framework in Embed Frameworks */,
 				75C1B4361FCDB07500496C7E /* FBSDKLoginKit.framework in Embed Frameworks */,
+				756C72AA1FD40C1400FCB5D0 /* ObjectMapper.framework in Embed Frameworks */,
+				756C72AC1FD40C1400FCB5D0 /* PromiseKit.framework in Embed Frameworks */,
 				7555D4D91FD1A18E00FCA77A /* RealmSwift.framework in Embed Frameworks */,
 				75C1B4341FCDB07500496C7E /* FBSDKCoreKit.framework in Embed Frameworks */,
 			);
@@ -63,6 +69,8 @@
 		7540782B1FD1AF1900A6E01C /* ApiLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLayer.swift; sourceTree = "<group>"; };
 		7555D4D21FD1A18400FCA77A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		7555D4D31FD1A18400FCA77A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		756C72A51FD40C0E00FCB5D0 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		756C72A61FD40C0E00FCB5D0 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		75C1B42F1FCDB06900496C7E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		75CFFC651FCC724300D99385 /* FriendsInFaceBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendsInFaceBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,9 +91,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				75C1B4311FCDB06900496C7E /* FBSDKLoginKit.framework in Frameworks */,
+				756C72A71FD40C0F00FCB5D0 /* ObjectMapper.framework in Frameworks */,
 				7555D4D81FD1A18E00FCA77A /* RealmSwift.framework in Frameworks */,
 				75C1B4331FCDB07500496C7E /* FBSDKCoreKit.framework in Frameworks */,
 				7555D4D61FD1A18E00FCA77A /* Realm.framework in Frameworks */,
+				756C72AB1FD40C1400FCB5D0 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +159,8 @@
 		75CFFC8B1FCC766700D99385 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				756C72A51FD40C0E00FCB5D0 /* ObjectMapper.framework */,
+				756C72A61FD40C0E00FCB5D0 /* PromiseKit.framework */,
 				7555D4D31FD1A18400FCA77A /* Realm.framework */,
 				7555D4D21FD1A18400FCA77A /* RealmSwift.framework */,
 				75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */,
