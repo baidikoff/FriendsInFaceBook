@@ -23,9 +23,8 @@ class ListOfFriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getFriendsFromStorage()
-        self.h()
-//        self.requestFriends()
-//        self.configurePullToRefresh()
+        self.requestFriends()
+        self.configurePullToRefresh()
         
     }
     
@@ -69,38 +68,14 @@ class ListOfFriendsTableViewController: UITableViewController {
             }
         }
     }
-    func h(){
+    @objc func requestFriends(){
         firstly{
             ApiLayer.shared.requestUsersPromise()
             }.then{  [weak self] users -> Void in
                 self?.reloadStorage(user: users)
         }
     }
-    @objc func requestFriends(){
-        let parameters = ["fields": "name, picture.type(normal), gendar"]
-        FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: parameters).start{ connection, users, error -> Void in
-            
-            
-//            guard let dict: Dictionary = users! as? Dictionary<String, Any> else {return print("Users is nil")}
-//            if let friends = dict["data"] as? Array<Dictionary<String, Any>>{
-//                for friend in friends{
-//                    if let userName = friend["name"] as? String{
-//                        if let id = friend["id"] as? String{
-//                            if let picture = friend["picture"] as? Dictionary<String, Any>{
-//                                if let data = picture["data"] as? Dictionary<String, Any>{
-//                                    if let imageUrl = data["url"] as? String{
-//                                        let user = User(name: userName, imageUrl: imageUrl, id: id)
-//                                       // self.writeUserToRealm(user: user)
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//                self.getFriendsFromStorage()
-//            }
-        }
-    }
+  
     func reloadStorage(user: Array<User>){
         do {
             let realm = try Realm()
