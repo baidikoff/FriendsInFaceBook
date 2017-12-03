@@ -32,18 +32,27 @@ class User: Object, Mappable {
             imageUrl    <- map["data"]
     }
 }
-class UserImage{
-    @objc dynamic var url: String?
-    
-    convenience init(url: String) {
-        self.init()
-        self.url = url
-    }
-    required convenience init?(map: Map) {
-        self.init()
-    }
-    
-    func mapping(map: Map) {
-        url       <- map["url"]
-    }
-}
+//class UserWithData: UserWithoutImage{
+//
+//    var urlData: User?
+//    required convenience override init?(map: Map) {
+//        self.init(map: map)
+//    }
+//
+//    override func mapping(map: Map) {
+//       // super.mapping(map: map)
+//        urlData       <- map["data"]
+//    }
+//}
+//class User: UserWithData{
+//    @objc dynamic var url: String?
+//
+//    required convenience init?(map: Map) {
+//        self.init(map: map)
+//    }
+//
+//    override func mapping(map: Map) {
+//        super.mapping(map: map)
+//        url       <- map["url"]
+//    }
+//}
