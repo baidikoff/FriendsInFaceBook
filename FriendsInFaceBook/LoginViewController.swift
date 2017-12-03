@@ -8,17 +8,17 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+public class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton?
     @IBOutlet weak var welcomeLabel: UILabel?
     
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if ApiLayer.shared.alreadyLoggedIn() == true {
             self.loginButton?.isHidden = true
@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
             self.goToNextViewController()
         }
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if ApiLayer.shared.alreadyLoggedIn() == true {
            self.goToNextViewController()
