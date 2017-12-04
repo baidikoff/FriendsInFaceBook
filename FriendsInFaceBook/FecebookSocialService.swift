@@ -12,12 +12,11 @@ import FBSDKLoginKit
 import ObjectMapper
 import PromiseKit
 
-public class ApiLayer{
+class FecebookSocialService: SocialService{
+
+    static let shared = FecebookSocialService()
     
-    
-    public static let shared = ApiLayer()
-    
-    public func alreadyLoggedIn() -> Bool {
+    func alreadyLoggedIn() -> Bool {
         if FBSDKAccessToken.current() != nil{
             return true
         } else {
@@ -25,7 +24,7 @@ public class ApiLayer{
         }
     }
     
-    func requestUsersPromise() -> Promise<Array<User>>{
+     func requestUsers() -> Promise<Array<User>>{
         return Promise<Array<User>>{ fulfill, reject in
             FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: [UrlType.parametersKey: UrlType.parametersValue]).start{ connection, users, error -> Void in
                 if error != nil {
@@ -41,12 +40,12 @@ public class ApiLayer{
         }
     }
     
-    func logoutUser(){
+     func logoutUser(){
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
     }
     
-    func loginUser(){
+     func loginUser(){
         let loginManager = FBSDKLoginManager()
         loginManager.loginBehavior = FBSDKLoginBehavior.systemAccount
         loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], handler: { result, error in

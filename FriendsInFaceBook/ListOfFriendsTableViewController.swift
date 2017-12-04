@@ -28,7 +28,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
         let logout = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.alert)
         logout.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-            ApiLayer.shared.logoutUser()
+            FecebookSocialService.shared.logoutUser()
             let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             self.present(loginViewController, animated:true, completion:nil)
         }))
@@ -62,7 +62,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     @objc func requestFriends(){
         firstly{
-            ApiLayer.shared.requestUsersPromise()
+            FecebookSocialService.shared.requestUsers()
             }.then{  [weak self] users -> Void in
                 ServiceForData.shared.deleteAllDataInStorage()
                 self?.configureRealmNotification()

@@ -16,7 +16,11 @@ class User: Object, Mappable {
     @objc dynamic var imageUrl: String?
     @objc dynamic var id: String?
     
-  
+    convenience init(name: String, imageUrl: String) {
+        self.init()
+        self.name = name
+        self.imageUrl = imageUrl
+    }
     required convenience init?(map: Map) {
         self.init()
     }
