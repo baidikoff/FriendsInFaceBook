@@ -16,6 +16,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     var friends: Results<User>?
     fileprivate var notificationToken: NotificationToken? = nil
+    var facebookSocialService: SocialService = FecebookSocialService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     func configurePullToRefresh() {
         refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(requestFriends), for: UIControlEvents.valueChanged)
+        refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
         self.tableView?.insertSubview(refreshControl!, at: 0)
     }
     func getFriendsFromStorage(){
@@ -60,14 +61,21 @@ class ListOfFriendsTableViewController: UITableViewController {
             }
         }
     }
-    @objc func requestFriends(){
-        firstly{
-            FecebookSocialService.shared.requestUsers()
-            }.then{  [weak self] users -> Void in
-                ServiceForData.shared.deleteAllDataInStorage()
-                self?.configureRealmNotification()
-                ServiceForData.shared.writeDataInStorage(users: users)
+    @objc func requestObjects(){
+        self.requestFriends()
+    }
+    func requestFriends() -> Promise<String>{
+        return Promise<String>{ fulfill,_ in
+            firstly{
+                self.facebookSocialService.requestUsers()
+                }.then{  [weak self] users -> Void in
+                    ServiceForData.shared.deleteAllDataInStorage()
+                    self?.configureRealmNotification()
+                    ServiceForData.shared.writeDataInStorage(users: users)
+                    fulfill("Success")
+            }
         }
+        
     }
   
 

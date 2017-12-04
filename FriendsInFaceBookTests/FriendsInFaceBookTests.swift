@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import PromiseKit
 
 @testable import FriendsInFaceBook
 
@@ -24,11 +25,22 @@ class FriendsInFaceBookTests: XCTestCase {
         super.tearDown()
         controllerUnderTest = nil
     }
-    func testRequestUsers(){
+    func testRequestUsers(){ //method requests users and write its to DB
+        let myExpectation = self.expectation(description: "myExpectation")
         
+        self.controllerUnderTest?.facebookSocialService = MockSocialService()
+        self.controllerUnderTest?.requestFriends().then{_ -> Void in
+            myExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        let usersInDB = ServiceForData.shared.getDataFromStorage()
+        XCTAssertEqual(usersInDB.first!.name, MockSocialService.users[0].name)
+        XCTAssertEqual(usersInDB.count, MockSocialService.users.count)
+ 
     }
     
-   
+    
     
 }
 
