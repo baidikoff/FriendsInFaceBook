@@ -12,12 +12,12 @@ import FBSDKLoginKit
 import ObjectMapper
 import PromiseKit
 
-class ApiLayer{
+public class ApiLayer{
     
     
-    static let shared = ApiLayer()
+    public static let shared = ApiLayer()
     
-    func alreadyLoggedIn() -> Bool {
+    public func alreadyLoggedIn() -> Bool {
         if FBSDKAccessToken.current() != nil{
             return true
         } else {

@@ -7,11 +7,17 @@
 //
 import UIKit
 import XCTest
+import  ObjectMapper
+import PromiseKit
+import RealmSwift
+import FBSDKLoginKit
+import FBSDKCoreKit
+
 import FriendsInFaceBook
 
 class FriendsInFaceBookUITests: XCTestCase {
     var app: XCUIApplication!
-    //var viewController = LoginViewController()
+    
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
@@ -23,13 +29,18 @@ class FriendsInFaceBookUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+    func testfe(){
+        
+    }
     func testLogoutButton() {
+        if ApiLayer.shared.alreadyLoggedIn(){
+            self.app.navigationBars["Friends"].buttons["Log Out"].tap()
+            self.app.alerts["Log Out"].buttons["Yes"].tap()
+            XCTAssertFalse(ApiLayer.shared.alreadyLoggedIn())
+        }
         
         
-        self.app.navigationBars["Friends"].buttons["Log Out"].tap()
-        self.app.alerts["Log Out"].buttons["Yes"].tap()
-       
+        
     }
     
 }
