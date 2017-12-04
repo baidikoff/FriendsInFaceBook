@@ -20,7 +20,7 @@ public class LoginViewController: UIViewController {
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if FecebookSocialService.shared.alreadyLoggedIn() == true {
+        if FacebookSocialService.shared.alreadyLoggedIn() == true {
             self.loginButton?.isHidden = true
             self.welcomeLabel?.isHidden = true
             self.goToNextViewController()
@@ -28,12 +28,12 @@ public class LoginViewController: UIViewController {
     }
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if FecebookSocialService.shared.alreadyLoggedIn() == true {
+        if FacebookSocialService.shared.alreadyLoggedIn() == true {
            self.goToNextViewController()
         }
     }
     @IBAction func loginButtonPressed(_ sender: Any) {
-        FecebookSocialService.shared.loginUser()
+        FacebookSocialService.shared.loginUser()
     }
     func goToNextViewController(){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)

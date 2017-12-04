@@ -16,7 +16,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     var friends: Results<User>?
     fileprivate var notificationToken: NotificationToken? = nil
-    var facebookSocialService: SocialService = FecebookSocialService()
+    var facebookSocialService: SocialService = FacebookSocialService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
         let logout = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.alert)
         logout.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-            FecebookSocialService.shared.logoutUser()
+            FacebookSocialService.shared.logoutUser()
             let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             self.present(loginViewController, animated:true, completion:nil)
         }))
@@ -72,6 +72,7 @@ class ListOfFriendsTableViewController: UITableViewController {
                     ServiceForData.shared.deleteAllDataInStorage()
                     self?.configureRealmNotification()
                     ServiceForData.shared.writeDataInStorage(users: users)
+                    self?.refreshControl?.endRefreshing()
                     fulfill("Success")
             }
         }

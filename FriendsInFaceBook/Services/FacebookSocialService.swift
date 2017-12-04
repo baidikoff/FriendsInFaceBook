@@ -12,9 +12,9 @@ import FBSDKLoginKit
 import ObjectMapper
 import PromiseKit
 
-class FecebookSocialService: SocialService{
+class FacebookSocialService: SocialService{
 
-    static let shared = FecebookSocialService()
+    static let shared = FacebookSocialService()
     
     func alreadyLoggedIn() -> Bool {
         if FBSDKAccessToken.current() != nil{
