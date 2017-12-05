@@ -202,6 +202,7 @@
 		757BAC731FD5B667004FDD82 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7569165A1FD6A75800808890 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,7 +269,6 @@
 				75CFFC6C1FCC724300D99385 /* Main.storyboard */,
 				75CFFC771FCC724300D99385 /* Info.plist */,
 				75CFFC741FCC724300D99385 /* LaunchScreen.storyboard */,
-				7569165A1FD6A75800808890 /* LoginView.swift */,
 			);
 			path = FriendsInFaceBook;
 			sourceTree = "<group>";

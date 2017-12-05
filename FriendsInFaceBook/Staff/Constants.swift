@@ -20,6 +20,7 @@ class Constants{
     case urlPath
     case parametersKey
     case parametersValue
+    case graphPath
     
     public var rawValue: String {
         switch self{
@@ -31,6 +32,8 @@ class Constants{
             return "fields"
         case .parametersValue:
             return "name, picture.type(normal), gendar"
+        case .graphPath:
+            return "me/taggable_friends"
         }
     }
     public init(rawValue: String) {
@@ -43,6 +46,8 @@ class Constants{
             self = .parametersKey
         case "name, picture.type(normal), gendar":
             self = .parametersValue
+        case "me/taggable_friends":
+            self = .graphPath
         default:
             self = .urlHost
         }
