@@ -24,6 +24,11 @@
 		756C72AA1FD40C1400FCB5D0 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 756C72A51FD40C0E00FCB5D0 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		756C72AB1FD40C1400FCB5D0 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756C72A61FD40C0E00FCB5D0 /* PromiseKit.framework */; };
 		756C72AC1FD40C1400FCB5D0 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 756C72A61FD40C0E00FCB5D0 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		75BEBB8B1FD5F0D200ADE937 /* ServiceForData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508DFD01FD4760C00A62241 /* ServiceForData.swift */; };
+		75BEBB8C1FD5F0D200ADE937 /* FacebookSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540782B1FD1AF1900A6E01C /* FacebookSocialService.swift */; };
+		75BEBB8D1FD5F0D200ADE937 /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFC1FD59ECE00CCDB9F /* SocialService.swift */; };
+		75BEBB8E1FD5F0D200ADE937 /* MockSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */; };
+		75BEBB8F1FD5F11300ADE937 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A81FD450D70032F9BD /* Constants.swift */; };
 		75C1B4311FCDB06900496C7E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C1B42F1FCDB06900496C7E /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		75C1B4331FCDB07500496C7E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */; };
 		75C1B4341FCDB07500496C7E /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -493,6 +498,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75BEBB8F1FD5F11300ADE937 /* Constants.swift in Sources */,
+				75BEBB8B1FD5F0D200ADE937 /* ServiceForData.swift in Sources */,
+				75BEBB8C1FD5F0D200ADE937 /* FacebookSocialService.swift in Sources */,
+				75BEBB8D1FD5F0D200ADE937 /* SocialService.swift in Sources */,
+				75BEBB8E1FD5F0D200ADE937 /* MockSocialService.swift in Sources */,
 				75FB1B891FD52C960066DCF2 /* LoginViewController.swift in Sources */,
 				75FB1B8A1FD52C960066DCF2 /* ListOfFriendsTableViewController.swift in Sources */,
 				75FB1B8B1FD52C960066DCF2 /* FriendTableViewCell.swift in Sources */,
@@ -564,6 +574,131 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		75BEBB901FD6043100ADE937 /* Tests */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Tests;
+		};
+		75BEBB911FD6043100ADE937 /* Tests */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/FacebookSDK",
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = FriendsInFaceBook/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.FriendsInFaceBookv1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = all;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "";
+			};
+			name = Tests;
+		};
+		75BEBB921FD6043100ADE937 /* Tests */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = FriendsInFaceBookTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.FriendsInFaceBookTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FriendsInFaceBook.app/FriendsInFaceBook";
+			};
+			name = Tests;
+		};
+		75BEBB931FD6043100ADE937 /* Tests */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/FacebookSDK",
+				);
+				INFOPLIST_FILE = FriendsInFaceBookUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.FriendsInFaceBookUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FriendsInFaceBook;
+			};
+			name = Tests;
+		};
 		75CF4AB41FD49DF4009AE207 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -710,6 +845,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -814,6 +950,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75CF4AB41FD49DF4009AE207 /* Debug */,
+				75BEBB931FD6043100ADE937 /* Tests */,
 				75CF4AB51FD49DF4009AE207 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -823,6 +960,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75CFFC831FCC724300D99385 /* Debug */,
+				75BEBB901FD6043100ADE937 /* Tests */,
 				75CFFC841FCC724300D99385 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -832,6 +970,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75CFFC861FCC724300D99385 /* Debug */,
+				75BEBB911FD6043100ADE937 /* Tests */,
 				75CFFC871FCC724300D99385 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -841,6 +980,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75CFFC891FCC724300D99385 /* Debug */,
+				75BEBB921FD6043100ADE937 /* Tests */,
 				75CFFC8A1FCC724300D99385 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

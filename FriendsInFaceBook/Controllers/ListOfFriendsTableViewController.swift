@@ -11,7 +11,7 @@ import RealmSwift
 import PromiseKit
 
 class ListOfFriendsTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var logoutButton: UIButton?
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     var friends: Results<User>?
@@ -38,7 +38,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         }))
         present(logout, animated: true, completion: nil)
     }
-    func configurePullToRefresh() {
+    func configurePullToRefresh(){
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
         self.tableView?.insertSubview(refreshControl!, at: 0)
@@ -47,7 +47,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         self.friends = ServiceForData.shared.getDataFromStorage()
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
-     
+        
     }
     func configureRealmNotification() {
         self.notificationToken = self.friends?.observe { [weak self] (changes: RealmCollectionChange) in
@@ -62,7 +62,10 @@ class ListOfFriendsTableViewController: UITableViewController {
         }
     }
     @objc func requestObjects(){
-        self.requestFriends()
+        self.requestFriends().then{ _ -> Void in 
+            self.getFriendsFromStorage()
+            self.refreshControl?.endRefreshing()
+        }
     }
     func requestFriends() -> Promise<String>{
         return Promise<String>{ fulfill,_ in
@@ -72,14 +75,14 @@ class ListOfFriendsTableViewController: UITableViewController {
                     ServiceForData.shared.deleteAllDataInStorage()
                     self?.configureRealmNotification()
                     ServiceForData.shared.writeDataInStorage(users: users)
-                    self?.refreshControl?.endRefreshing()
+                    
                     fulfill("Success")
             }
         }
         
     }
-  
-
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
