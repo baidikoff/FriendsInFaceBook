@@ -26,7 +26,7 @@ class FacebookSocialService: SocialService{
     
      func requestUsers() -> Promise<Array<User>>{
         return Promise<Array<User>>{ fulfill, reject in
-            FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: [UrlType.parametersKey: UrlType.parametersValue]).start{ connection, users, error -> Void in
+            FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue]).start{ connection, users, error -> Void in
                 if error != nil {
                     print("Error: ", error)
                     reject(error!)
