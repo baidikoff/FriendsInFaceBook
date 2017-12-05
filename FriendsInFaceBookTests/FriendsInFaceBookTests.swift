@@ -7,47 +7,40 @@
 //
 
 import XCTest
+import PromiseKit
 
 @testable import FriendsInFaceBook
 
 class FriendsInFaceBookTests: XCTestCase {
-    var sessionUnderTest = URLSession(configuration: URLSessionConfiguration.default)
-    let requestUserObject = ApiLayer()
+    
+    var controllerUnderTest: ListOfFriendsTableViewController?
+    
     override func setUp() {
         super.setUp()
+        self.controllerUnderTest = UIStoryboard(name: "Main",
+                                            bundle: nil).instantiateViewController(withIdentifier: "TableView") as! ListOfFriendsTableViewController
     }
     
     override func tearDown() {
         super.tearDown()
+        controllerUnderTest = nil
     }
-    
-    func testFacebookApi() {
-        let token = self.requestUserObject.getTokenFromFacebook()
-        let urlHost = self.requestUserObject.urlHost
-        let url = URL(string: urlHost + token!)
-        let promise = expectation(description: "Status code: 200")
+    func testRequestUsers(){ //method requests users and write its to DB
+        let myExpectation = self.expectation(description: "myExpectation")
         
-        let dataTask = sessionUnderTest.dataTask(with: url!) { data, response, error in
-            if let error = error {
-                XCTFail("Error: \(error.localizedDescription)")
-                return
-            } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                if statusCode == 200 {
-                    promise.fulfill()
-                } else {
-                    XCTFail("Status code: \(statusCode)")
-                }
-            }
+        self.controllerUnderTest?.facebookSocialService = MockSocialService()
+        self.controllerUnderTest?.requestFriends().then{_ -> Void in
+            myExpectation.fulfill()
         }
-        dataTask.resume()
-        waitForExpectations(timeout: 5, handler: nil)
-    }
-    func testGetTokenFromFacebook(){
-        let token = requestUserObject.getTokenFromFacebook()
-        XCTAssertTrue(token is String)
-        XCTAssertNotNil(token)
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        let usersInDB = ServiceForData.shared.getDataFromStorage()
+        XCTAssertEqual(usersInDB.first!.name, MockSocialService.users[0].name)
+        XCTAssertEqual(usersInDB.count, MockSocialService.users.count)
+ 
     }
     
-   
+    
     
 }
+

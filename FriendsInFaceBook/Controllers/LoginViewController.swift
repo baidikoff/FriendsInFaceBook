@@ -7,33 +7,33 @@
 //
 
 import UIKit
-import FBSDKCoreKit
-import FBSDKLoginKit
 
-class LoginViewController: UIViewController {
+public class LoginViewController: UIViewController {
 
-    @IBOutlet weak var loginButton: FBSDKLoginButton!
-    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton?
+    @IBOutlet weak var welcomeLabel: UILabel?
     
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
-        self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if (FBSDKAccessToken.current()) != nil {
-            self.loginButton.isHidden = true
-            self.welcomeLabel.isHidden = true
+        if FacebookSocialService.shared.alreadyLoggedIn() == true {
+            self.loginButton?.isHidden = true
+            self.welcomeLabel?.isHidden = true
             self.goToNextViewController()
         }
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if (FBSDKAccessToken.current()) != nil {
+        if FacebookSocialService.shared.alreadyLoggedIn() == true {
            self.goToNextViewController()
         }
+    }
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        FacebookSocialService.shared.loginUser()
     }
     func goToNextViewController(){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
