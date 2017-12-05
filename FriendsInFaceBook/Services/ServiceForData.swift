@@ -25,7 +25,7 @@ class ServiceForData{
             fatalError("\(error)")
         }
     }
-    func writeDataInStorage(users: Array<User>) {
+    func writeDataInStorage(users: User) {
         do {
             let realm = try Realm()
             try realm.write {

@@ -13,8 +13,8 @@ class Constants{
     static let urlHost = "https://graph.facebook.com/"
     static let urlPath = "v2.11/me/accounts?access_token="
     static let parameters = ["fields": "name, picture.type(normal), gendar"]
-    
 }
+
 @objc public enum UrlType: Int {
     case urlHost
     case urlPath
