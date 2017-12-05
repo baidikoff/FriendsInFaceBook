@@ -18,43 +18,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tc1-hL-xNZ" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="120" y="543" width="134" height="59"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2g-N9-Q6j" customClass="LoginView" customModule="FriendsInFaceBook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tc1-hL-xNZ" customClass="FBSDKLoginButton">
+                                        <rect key="frame" x="120" y="505" width="134" height="59"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="59" id="NSH-nl-Tui"/>
+                                        </constraints>
+                                        <state key="normal" title="Log in"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="dbu-Pl-c76" eventType="touchUpInside" id="xtd-Pq-A3e"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi! This app allows you to see your friends in Facebook." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jF5-WT-Wfh">
+                                        <rect key="frame" x="44" y="382" width="287" height="118"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="118" id="dkI-pW-wXn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="YxQ-8v-ATm"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tc1-hL-xNZ" secondAttribute="bottom" constant="83" id="6BB-1y-Z5E"/>
+                                    <constraint firstItem="Tc1-hL-xNZ" firstAttribute="leading" secondItem="W2g-N9-Q6j" secondAttribute="leading" constant="120" id="6ET-Ac-Z7T"/>
+                                    <constraint firstAttribute="trailing" secondItem="jF5-WT-Wfh" secondAttribute="trailing" constant="44" id="QTG-GC-p7v"/>
+                                    <constraint firstItem="jF5-WT-Wfh" firstAttribute="leading" secondItem="W2g-N9-Q6j" secondAttribute="leading" constant="44" id="X51-ay-Zd9"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tc1-hL-xNZ" secondAttribute="trailing" constant="121" id="afv-U5-mT6"/>
+                                    <constraint firstItem="Tc1-hL-xNZ" firstAttribute="top" secondItem="jF5-WT-Wfh" secondAttribute="bottom" constant="5" id="fPt-gw-ePz"/>
                                 </constraints>
-                                <state key="normal" title="Log in"/>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qdr-mY-SkL"/>
+                                    <outlet property="loginButton" destination="Tc1-hL-xNZ" id="taL-gs-C5E"/>
+                                    <outlet property="welcomeLabel" destination="jF5-WT-Wfh" id="8DQ-of-oOP"/>
                                 </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi! This app allows you to see your friends in Facebook." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jF5-WT-Wfh">
-                                <rect key="frame" x="47" y="405" width="287" height="118"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="118" id="RjQ-ha-UR1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tc1-hL-xNZ" secondAttribute="bottom" constant="65" id="EdV-Vk-05l"/>
-                            <constraint firstItem="Tc1-hL-xNZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="I06-Qq-4wf"/>
-                            <constraint firstItem="Tc1-hL-xNZ" firstAttribute="top" secondItem="jF5-WT-Wfh" secondAttribute="bottom" constant="20" id="Kwp-7c-loF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tc1-hL-xNZ" secondAttribute="trailing" constant="121" id="TyA-4Q-BAm"/>
-                            <constraint firstItem="jF5-WT-Wfh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="VBt-kK-dSj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jF5-WT-Wfh" secondAttribute="trailing" constant="41" id="Wv6-zD-P3V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W2g-N9-Q6j" secondAttribute="trailing" id="5BV-Mz-iL6"/>
+                            <constraint firstItem="W2g-N9-Q6j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gTw-18-dfV"/>
+                            <constraint firstItem="W2g-N9-Q6j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lRc-vL-7DZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="W2g-N9-Q6j" secondAttribute="bottom" id="vMH-la-aNQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="loginButton" destination="Tc1-hL-xNZ" id="7MH-wK-Y1R"/>
-                        <outlet property="welcomeLabel" destination="jF5-WT-Wfh" id="LqM-yh-DmA"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="dbu-Pl-c76" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-42.399999999999999" y="118.29085457271366"/>
         </scene>
