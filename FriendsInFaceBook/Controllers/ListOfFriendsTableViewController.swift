@@ -12,21 +12,25 @@ import PromiseKit
 
 class ListOfFriendsTableViewController: UITableViewController {
     
-    @IBOutlet weak var logoutButton: UIButton?
+    var logoutButton: UIBarButtonItem?
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     var friends: Results<User>?
     fileprivate var notificationToken: NotificationToken? = nil
     var facebookSocialService: SocialService = FacebookSocialService()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getFriendsFromStorage()
         self.requestFriends()
         self.configurePullToRefresh()
-        
+        self.configureNavigationItems()
     }
     
-    @IBAction func logoutButtonPressed(_ sender: UIButton) {
+    func configureNavigationItems()  {
+        self.logoutButton = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logoutButtonPressed))
+        navigationItem.rightBarButtonItem = self.logoutButton
+    }
+    @objc func logoutButtonPressed(_ sender: UIButton) {
         let logout = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.alert)
         logout.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             FacebookSocialService.shared.logoutUser()

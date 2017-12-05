@@ -8,33 +8,30 @@
 
 import UIKit
 
-public class LoginViewController: UIViewController {
+class LoginViewController: UIViewController {
 
-    @IBOutlet weak var loginButton: UIButton?
-    @IBOutlet weak var welcomeLabel: UILabel?
+    let loginView = LoginView()
     
-    
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addSubview(loginView)
     }
     
-    override public func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if FacebookSocialService.shared.alreadyLoggedIn() == true {
-            self.loginButton?.isHidden = true
-            self.welcomeLabel?.isHidden = true
+           self.loginView.loginButton?.isHidden = true
+            self.loginView.welcomeLabel?.isHidden = true
             self.goToNextViewController()
         }
     }
-    override public func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if FacebookSocialService.shared.alreadyLoggedIn() == true {
            self.goToNextViewController()
         }
     }
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        FacebookSocialService.shared.loginUser()
-    }
+
     func goToNextViewController(){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GoToSeeFriends") as! UINavigationController

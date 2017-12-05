@@ -1,0 +1,22 @@
+//
+//  loginView.swift
+//  FriendsInFaceBook
+//
+//  Created by Viktoria on 12/5/17.
+//  Copyright © 2017 Victoria Kravets. All rights reserved.
+//
+
+import UIKit
+
+class LoginView: UIView {
+    
+   
+    
+    @IBOutlet weak var loginButton: UIButton?
+    @IBOutlet weak var welcomeLabel: UILabel?
+   
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        FacebookSocialService.shared.loginUser()
+        
+    }
+}

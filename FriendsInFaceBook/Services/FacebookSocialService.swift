@@ -27,6 +27,10 @@ class FacebookSocialService: SocialService{
      func requestUsers() -> Promise<Array<User>>{
         return Promise<Array<User>>{ fulfill, reject in
             FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue]).start{ connection, users, error -> Void in
+                let testMode = ProcessInfo.processInfo.arguments.contains("testMode")
+                if testMode{
+                    fulfill(MockSocialService.users)
+                }
                 if error != nil {
                     print("Error: ", error)
                     reject(error!)
@@ -36,6 +40,7 @@ class FacebookSocialService: SocialService{
                     let listOfFriends: Array<User> = (object?.friends)!
                     fulfill(listOfFriends)
                 }
+                
             }
         }
     }
