@@ -14,7 +14,7 @@ class User: Object, Mappable {
     
     @objc dynamic var name: String?
     @objc dynamic var id: String?
-    var image: UserWithData?
+    @objc dynamic var image: UserWithData?
     
     convenience init(name: String) {
         self.init()
@@ -30,11 +30,11 @@ class User: Object, Mappable {
             image    <- map["picture"]
     }
 }
-class UserWithData: Mappable{
+class UserWithData: Object, Mappable {
 
-    var urlData: Image?
-    required init?(map: Map) {
-      //  self.init()
+    @objc dynamic var urlData: Image?
+    required convenience init?(map: Map) {
+        self.init()
     }
     
     func mapping(map: Map) {
@@ -42,11 +42,11 @@ class UserWithData: Mappable{
         urlData       <- map["data"]
     }
 }
-class Image: Mappable{
+class Image: Object, Mappable{
     @objc dynamic var url: String?
 
-    required  init?(map: Map) {
-       // self.init(map: map)
+    required convenience init?(map: Map) {
+        self.init()
     }
 
     func mapping(map: Map) {
