@@ -34,7 +34,6 @@ class FacebookSocialService: SocialService{
                 if users != nil{
                     let object = Mapper<Friends>().map(JSON: users as! [String : Any])
                     let listOfFriends: Array<User> = (object?.friends)!
-                    print(listOfFriends[0].image?.urlData?.url)
                     fulfill(listOfFriends)
                 }
             }

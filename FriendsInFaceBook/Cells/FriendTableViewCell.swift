@@ -15,11 +15,11 @@ class FriendTableViewCell: UITableViewCell {
     
     func configureCell(user: User) {
         userName?.text = user.name
-        //fetchImage(imageUrl: user.image!)
+        fetchImage(imageUrl: user.image)
     }
-    func fetchImage(imageUrl: UserWithData){
-        let image = imageUrl.urlData
-        let url = URL(string: (image?.url)!)
+    func fetchImage(imageUrl: UserImageData?){
+        if let image = imageUrl?.urlData{
+            let url = URL(string: (image.url)!)
             DispatchQueue.global(qos: .userInitiated).async{
                 let data = NSData(contentsOf: url!)
                 DispatchQueue.main.async{
@@ -29,5 +29,7 @@ class FriendTableViewCell: UITableViewCell {
                 }
             }
         }
+    }
+        
 
 }
