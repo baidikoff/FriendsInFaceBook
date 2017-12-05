@@ -130,15 +130,9 @@
                                 <rect key="frame" x="304" y="7" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="logoutButtonPressed:" destination="Zrd-VB-l6B" eventType="touchUpInside" id="1cD-mw-lIo"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="logoutButton" destination="v9o-Ec-WcF" id="Z23-jx-3L7"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hqa-kT-bxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
