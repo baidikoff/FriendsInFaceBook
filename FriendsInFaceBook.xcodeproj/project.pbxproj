@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7508DFD11FD4760C00A62241 /* ServiceForData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508DFD01FD4760C00A62241 /* ServiceForData.swift */; };
+		752C52121FD6D6CC0077B370 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7569165A1FD6A75800808890 /* LoginView.swift */; };
+		752C52131FD6D6CC0077B370 /* FriendsInFaceBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC801FCC724300D99385 /* FriendsInFaceBookTests.swift */; };
 		752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
 		752FFAB11FCDE98C00ACA938 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */; };
 		752FFAB31FCDEDB000ACA938 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
@@ -501,6 +503,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				752C52121FD6D6CC0077B370 /* LoginView.swift in Sources */,
+				752C52131FD6D6CC0077B370 /* FriendsInFaceBookTests.swift in Sources */,
 				75BEBB8F1FD5F11300ADE937 /* Constants.swift in Sources */,
 				75BEBB8B1FD5F0D200ADE937 /* ServiceForData.swift in Sources */,
 				75BEBB8C1FD5F0D200ADE937 /* FacebookSocialService.swift in Sources */,
