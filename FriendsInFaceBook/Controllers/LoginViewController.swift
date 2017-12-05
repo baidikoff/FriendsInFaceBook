@@ -10,21 +10,18 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-//    @IBOutlet weak var loginButton: UIButton?
-//    @IBOutlet weak var welcomeLabel: UILabel?
     let loginView = LoginView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.addSubview(loginView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if FacebookSocialService.shared.alreadyLoggedIn() == true {
-         //  self.login
-//            self.loginButton?.isHidden = true
-//            self.welcomeLabel?.isHidden = true
+           self.loginView.loginButton?.isHidden = true
+            self.loginView.welcomeLabel?.isHidden = true
             self.goToNextViewController()
         }
     }
@@ -34,9 +31,7 @@ class LoginViewController: UIViewController {
            self.goToNextViewController()
         }
     }
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        FacebookSocialService.shared.loginUser()
-    }
+
     func goToNextViewController(){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GoToSeeFriends") as! UINavigationController
