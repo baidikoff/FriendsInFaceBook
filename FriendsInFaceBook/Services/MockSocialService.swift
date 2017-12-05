@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 class MockSocialService: SocialService{
-    static let users = [User(name: "Ivan Ivanov", imageUrl: "https://pbs.twimg.com/profile_images/437015947/Camel_Jordanian_Desert_400x400.jpg"), User(name: "Vasiliy Vasichkin", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc3y2SzpwIZ1COygocjVLdfMX1lsmdyZ381zABwFNpJu42hIk4")]
+    static let users = [User(name: "Ivan Ivanov"), User(name: "Vasiliy Vasichkin")]
     
     
     func requestUsers() -> Promise<Array<User>> {

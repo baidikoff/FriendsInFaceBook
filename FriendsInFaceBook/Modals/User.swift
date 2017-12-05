@@ -13,13 +13,12 @@ import ObjectMapper
 class User: Object, Mappable {
     
     @objc dynamic var name: String?
-    @objc dynamic var imageUrl: String?
     @objc dynamic var id: String?
+    var image: UserWithData?
     
-    convenience init(name: String, imageUrl: String) {
+    convenience init(name: String) {
         self.init()
         self.name = name
-        self.imageUrl = imageUrl
     }
     required convenience init?(map: Map) {
         self.init()
@@ -28,30 +27,31 @@ class User: Object, Mappable {
     func mapping(map: Map) {
             name       <- map["name"]
             id     <- map["id"]
-            imageUrl    <- map["data"]
+            image    <- map["picture"]
     }
 }
-//class UserWithData: UserWithoutImage{
-//
-//    var urlData: User?
-//    required convenience override init?(map: Map) {
-//        self.init(map: map)
-//    }
-//
-//    override func mapping(map: Map) {
-//       // super.mapping(map: map)
-//        urlData       <- map["data"]
-//    }
-//}
-//class User: UserWithData{
-//    @objc dynamic var url: String?
-//
-//    required convenience init?(map: Map) {
-//        self.init(map: map)
-//    }
-//
-//    override func mapping(map: Map) {
-//        super.mapping(map: map)
-//        url       <- map["url"]
-//    }
-//}
+class UserWithData: Mappable{
+
+    var urlData: Image?
+    required init?(map: Map) {
+      //  self.init()
+    }
+    
+    func mapping(map: Map) {
+       // super.mapping(map: map)
+        urlData       <- map["data"]
+    }
+}
+class Image: Mappable{
+    @objc dynamic var url: String?
+
+    required  init?(map: Map) {
+       // self.init(map: map)
+    }
+
+    func mapping(map: Map) {
+       // super.mapping(map: map)
+        url       <- map["url"]
+    }
+}
+

@@ -72,6 +72,7 @@ class ListOfFriendsTableViewController: UITableViewController {
             firstly{
                 self.facebookSocialService.requestUsers()
                 }.then{  [weak self] users -> Void in
+                    print(users)
                     ServiceForData.shared.deleteAllDataInStorage()
                     self?.configureRealmNotification()
                     ServiceForData.shared.writeDataInStorage(users: users)
