@@ -24,7 +24,7 @@ class UserCell: UITableViewCell {
     // MARK: Open
     
     open func fill(with model: User?) {
-        self.nameLabel?.text = user?.name
+        self.nameLabel?.text = self.user?.name
         self.user.do(self.fillPhoto)
     }
     
@@ -47,14 +47,14 @@ class UserCell: UITableViewCell {
     
     private func fetchImageAndFillPhoto(at url: URL) {
         let user = self.user
-        
+
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             let image = NSData(contentsOf: url)
                 .flatMap(cast)
                 .flatMap(UIImage.init(data:))
             
             DispatchQueue.main.async {
-                if user.id == self?.user?.id {
+                if user?.id == self?.user?.id {
                     self?.photoImageView?.image = image
                 }
             }

@@ -11,7 +11,7 @@
 		752C52121FD6D6CC0077B370 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7569165A1FD6A75800808890 /* LoginView.swift */; };
 		752C52131FD6D6CC0077B370 /* FriendsInFaceBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC801FCC724300D99385 /* FriendsInFaceBookTests.swift */; };
 		752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
-		752FFAB11FCDE98C00ACA938 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */; };
+		752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
 		752FFAB31FCDEDB000ACA938 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
 		754078291FD1AD8500A6E01C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555D4D31FD1A18400FCA77A /* Realm.framework */; };
 		7540782A1FD1AD8700A6E01C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555D4D21FD1A18400FCA77A /* RealmSwift.framework */; };
@@ -50,7 +50,7 @@
 		75D292A91FD450D70032F9BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A81FD450D70032F9BD /* Constants.swift */; };
 		75FB1B891FD52C960066DCF2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC6A1FCC724300D99385 /* LoginViewController.swift */; };
 		75FB1B8A1FD52C960066DCF2 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
-		75FB1B8B1FD52C960066DCF2 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */; };
+		75FB1B8B1FD52C960066DCF2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
 		75FB1B8C1FD52C960066DCF2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
 		75FB1B8D1FD52C960066DCF2 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A61FD426110032F9BD /* Friends.swift */; };
 		75FB1B8F1FD52C960066DCF2 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC771FCC724300D99385 /* Info.plist */; };
@@ -63,6 +63,8 @@
 		75FB1B9A1FD52F430066DCF2 /* RealmSwift.framework in Resources */ = {isa = PBXBuildFile; fileRef = 7555D4D21FD1A18400FCA77A /* RealmSwift.framework */; };
 		75FB1B9B1FD52F430066DCF2 /* FBSDKCoreKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */; };
 		75FB1B9C1FD52F430066DCF2 /* FBSDKLoginKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 75C1B42F1FCDB06900496C7E /* FBSDKLoginKit.framework */; };
+		75FE3E4A1FD8296600399B9C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
+		75FE3E4B1FD8296600399B9C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
 		D70103571FD73B84002D0E6C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
 /* End PBXBuildFile section */
@@ -106,7 +108,7 @@
 /* Begin PBXFileReference section */
 		7508DFD01FD4760C00A62241 /* ServiceForData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceForData.swift; sourceTree = "<group>"; };
 		752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFriendsTableViewController.swift; sourceTree = "<group>"; };
-		752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		752FFAB01FCDE98C00ACA938 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		752FFAB21FCDEDB000ACA938 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7540782B1FD1AF1900A6E01C /* FacebookSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookSocialService.swift; sourceTree = "<group>"; };
 		75449BFC1FD59ECE00CCDB9F /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
@@ -179,7 +181,7 @@
 		7577A2671FD5E2020082F9A8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				752FFAB01FCDE98C00ACA938 /* FriendTableViewCell.swift */,
+				752FFAB01FCDE98C00ACA938 /* UserCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -525,6 +527,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75FE3E4A1FD8296600399B9C /* Optional+Extensions.swift in Sources */,
+				75FE3E4B1FD8296600399B9C /* Functions.swift in Sources */,
 				752C52121FD6D6CC0077B370 /* LoginView.swift in Sources */,
 				752C52131FD6D6CC0077B370 /* FriendsInFaceBookTests.swift in Sources */,
 				75BEBB8F1FD5F11300ADE937 /* Constants.swift in Sources */,
@@ -534,7 +538,7 @@
 				75BEBB8E1FD5F0D200ADE937 /* MockSocialService.swift in Sources */,
 				75FB1B891FD52C960066DCF2 /* LoginViewController.swift in Sources */,
 				75FB1B8A1FD52C960066DCF2 /* ListOfFriendsTableViewController.swift in Sources */,
-				75FB1B8B1FD52C960066DCF2 /* FriendTableViewCell.swift in Sources */,
+				75FB1B8B1FD52C960066DCF2 /* UserCell.swift in Sources */,
 				75FB1B8C1FD52C960066DCF2 /* User.swift in Sources */,
 				75FB1B8D1FD52C960066DCF2 /* Friends.swift in Sources */,
 				75FB1B8F1FD52C960066DCF2 /* Info.plist in Sources */,
@@ -553,7 +557,7 @@
 				D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */,
 				7540782C1FD1AF1900A6E01C /* FacebookSocialService.swift in Sources */,
 				75D292A71FD426110032F9BD /* Friends.swift in Sources */,
-				752FFAB11FCDE98C00ACA938 /* FriendTableViewCell.swift in Sources */,
+				752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */,
 				75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */,
 				75449BFD1FD59ECE00CCDB9F /* SocialService.swift in Sources */,
 				7508DFD11FD4760C00A62241 /* ServiceForData.swift in Sources */,

@@ -12,12 +12,12 @@ public extension Optional {
             transform.map { $0(value) }
         }
     }
-    
-    public func apply<Value, Result>(_ value: Value?) -> Result?
-        where Wrapped == (Value) -> Result
-    {
-        return value.apply(self)
-    }
+
+//    public func apply<Value, Result>(_ value: Value?) -> Result?
+//        where Wrapped == (Value) -> Result
+//    {
+//        return value.apply(self)
+//    }
     
     public func flatten<Result>() -> Result?
         where Wrapped == Result?

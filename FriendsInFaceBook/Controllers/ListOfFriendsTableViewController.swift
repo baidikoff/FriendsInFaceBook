@@ -21,7 +21,6 @@ class ListOfFriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getFriendsFromStorage()
-        self.requestFriends()
         self.configurePullToRefresh()
         self.configureNavigationItems()
     }
@@ -66,7 +65,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         }
     }
     @objc func requestObjects(){
-        self.requestFriends().then{ _ -> Void in 
+        self.requestFriends().then{ _ -> Void in
             self.getFriendsFromStorage()
             self.refreshControl?.endRefreshing()
         }
@@ -78,22 +77,23 @@ class ListOfFriendsTableViewController: UITableViewController {
                 }.then{  [weak self] users -> Void in
                     ServiceForData.shared.deleteAllDataInStorage()
                     self?.configureRealmNotification()
-                    ServiceForData.shared.writeDataInStorage(users: users)                    
+                    ServiceForData.shared.writeDataInStorage(users: users)
                     fulfill("Success")
             }
         }
-        
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.friends?.count ?? 0
+        print(self.friends!)
+        return (self.friends?.count)!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell",
-                                                    for: indexPath) as? FriendTableViewCell {
+                                                    for: indexPath) as? UserCell {
             let friend = self.friends![indexPath.row]
-            cell.configureCell(user: friend)
+            cell.user = friend
             return cell
         }
         return UITableViewCell()
