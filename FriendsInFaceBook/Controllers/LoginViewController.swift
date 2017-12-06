@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if FacebookSocialService.shared.alreadyLoggedIn() == true {
-           self.loginView.loginButton?.isHidden = true
+            self.loginView.loginButton?.isHidden = true
             self.loginView.welcomeLabel?.isHidden = true
             self.goToNextViewController()
         }
@@ -37,8 +37,5 @@ class LoginViewController: UIViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GoToSeeFriends") as! UINavigationController
         self.present(nextViewController, animated:true, completion:nil)
     }
-
-    
-
 }
 

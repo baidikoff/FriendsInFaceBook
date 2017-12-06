@@ -8,28 +8,56 @@
 
 import UIKit
 
-class FriendTableViewCell: UITableViewCell {
+class UserCell: UITableViewCell {
 
-    @IBOutlet weak var userName: UILabel?
-    @IBOutlet weak var userPhoto: UIImageView?
+    // MARK: -
+    // MARK: Properties
     
-    func configureCell(user: User) {
-        userName?.text = user.name
-        fetchImage(imageUrl: user.image)
+    @IBOutlet private(set) var nameLabel: UILabel?
+    @IBOutlet private(set) var photoImageView: UIImageView?
+    
+    var user: User? {
+        didSet { self.fill(with: user) }
     }
-    func fetchImage(imageUrl: UserImageData?){
-        if let image = imageUrl?.urlData{
-            let url = URL(string: (image.url)!)
-            DispatchQueue.global(qos: .userInitiated).async{
-                let data = NSData(contentsOf: url!)
-                DispatchQueue.main.async{
-                    if data != nil {
-                        self.userPhoto?.image = UIImage(data: data! as Data)
-                    }
+    
+    // MARK: -
+    // MARK: Open
+    
+    open func fill(with model: User?) {
+        self.nameLabel?.text = user?.name
+        self.user.do(self.fillPhoto)
+    }
+    
+    open override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.nameLabel?.text = nil
+        self.photoImageView?.image = nil
+    }
+    
+    // MARK: -
+    // MARK: Private
+    
+    private func fillPhoto(with user: User) {
+        let urlString = user.image?.urlData?.url
+        urlString
+            .flatMap(URL.init(string:))
+            .do(self.fetchImageAndFillPhoto)
+    }
+    
+    private func fetchImageAndFillPhoto(at url: URL) {
+        let user = self.user
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let image = NSData(contentsOf: url)
+                .flatMap(cast)
+                .flatMap(UIImage.init(data:))
+            
+            DispatchQueue.main.async {
+                if user.id == self?.user?.id {
+                    self?.photoImageView?.image = image
                 }
             }
         }
     }
-        
-
 }
