@@ -54,9 +54,7 @@
 		75FB1B8C1FD52C960066DCF2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
 		75FB1B8D1FD52C960066DCF2 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A61FD426110032F9BD /* Friends.swift */; };
 		75FB1B8F1FD52C960066DCF2 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC771FCC724300D99385 /* Info.plist */; };
-		75FB1B931FD52CC30066DCF2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75FB1B921FD52CC30066DCF2 /* Bolts.framework */; };
 		75FB1B941FD52CF90066DCF2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */; };
-		75FB1B961FD52F430066DCF2 /* Bolts.framework in Resources */ = {isa = PBXBuildFile; fileRef = 75FB1B921FD52CC30066DCF2 /* Bolts.framework */; };
 		75FB1B971FD52F430066DCF2 /* ObjectMapper.framework in Resources */ = {isa = PBXBuildFile; fileRef = 756C72A51FD40C0E00FCB5D0 /* ObjectMapper.framework */; };
 		75FB1B981FD52F430066DCF2 /* PromiseKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 756C72A61FD40C0E00FCB5D0 /* PromiseKit.framework */; };
 		75FB1B991FD52F430066DCF2 /* Realm.framework in Resources */ = {isa = PBXBuildFile; fileRef = 7555D4D31FD1A18400FCA77A /* Realm.framework */; };
@@ -67,6 +65,7 @@
 		75FE3E4B1FD8296600399B9C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
 		D70103571FD73B84002D0E6C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
+		D7C3E0101FD9B759006ACA47 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C3E00F1FD9B74F006ACA47 /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,9 +134,9 @@
 		75CFFC821FCC724300D99385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75D292A61FD426110032F9BD /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		75D292A81FD450D70032F9BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		75FB1B921FD52CC30066DCF2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Carthage/Build/iOS/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
 		D70103541FD727CB002D0E6C /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		D70103561FD73B84002D0E6C /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		D7C3E00F1FD9B74F006ACA47 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +145,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				75CF4ABB1FD49EED009AE207 /* Realm.framework in Frameworks */,
-				75FB1B931FD52CC30066DCF2 /* Bolts.framework in Frameworks */,
 				75FB1B941FD52CF90066DCF2 /* FBSDKCoreKit.framework in Frameworks */,
 				75CF4ABC1FD49EED009AE207 /* RealmSwift.framework in Frameworks */,
 				75CF4ABE1FD4A0DB009AE207 /* FBSDKLoginKit.framework in Frameworks */,
@@ -157,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C3E0101FD9B759006ACA47 /* Bolts.framework in Frameworks */,
 				75C1B4311FCDB06900496C7E /* FBSDKLoginKit.framework in Frameworks */,
 				756C72A71FD40C0F00FCB5D0 /* ObjectMapper.framework in Frameworks */,
 				7555D4D81FD1A18E00FCA77A /* RealmSwift.framework in Frameworks */,
@@ -292,7 +291,7 @@
 		75CFFC8B1FCC766700D99385 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				75FB1B921FD52CC30066DCF2 /* Bolts.framework */,
+				D7C3E00F1FD9B74F006ACA47 /* Bolts.framework */,
 				756C72A51FD40C0E00FCB5D0 /* ObjectMapper.framework */,
 				756C72A61FD40C0E00FCB5D0 /* PromiseKit.framework */,
 				7555D4D31FD1A18400FCA77A /* Realm.framework */,
@@ -432,7 +431,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75FB1B961FD52F430066DCF2 /* Bolts.framework in Resources */,
 				75FB1B971FD52F430066DCF2 /* ObjectMapper.framework in Resources */,
 				75FB1B981FD52F430066DCF2 /* PromiseKit.framework in Resources */,
 				75FB1B991FD52F430066DCF2 /* Realm.framework in Resources */,
@@ -658,7 +656,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -670,7 +668,6 @@
 		75BEBB911FD6043100ADE937 /* Tests */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
@@ -678,7 +675,6 @@
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS/FacebookSDK",
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
@@ -827,7 +823,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -878,7 +874,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
@@ -890,7 +886,6 @@
 		75CFFC861FCC724300D99385 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
@@ -898,7 +893,6 @@
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS/FacebookSDK",
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
@@ -916,7 +910,6 @@
 		75CFFC871FCC724300D99385 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
@@ -924,7 +917,6 @@
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS/FacebookSDK",
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
