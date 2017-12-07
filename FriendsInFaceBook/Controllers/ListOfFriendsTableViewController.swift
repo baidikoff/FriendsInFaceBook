@@ -42,9 +42,11 @@ class ListOfFriendsTableViewController: UITableViewController {
         present(logout, animated: true, completion: nil)
     }
     func configurePullToRefresh(){
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
-        self.tableView?.insertSubview(refreshControl!, at: 0) ////////!
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
+        self.refreshControl.do({ refresh in
+             self.tableView?.insertSubview(refresh, at: 0)
+        })
     }
     func getFriendsFromStorage(){
         self.friends = ServiceForData.shared.getDataFromStorage()
@@ -85,22 +87,27 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.friends!)
-        return (self.friends?.count)! //// ?? 0
+        return self.friends?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell",
                                                     for: indexPath) as? UserCell {
-            let friend = self.friends![indexPath.row] ////////?
-            cell.user = friend
+            self.friends.do({ friends in
+                let friend = friends[indexPath.row]
+                cell.user = friend
+            })
             return cell
         }
-        return UITableViewCell()
+        
+       return UITableViewCell()
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let friendsVC = self.storyBoard.instantiateViewController(withIdentifier: "TableView") as! ListOfFriendsTableViewController ////////
-        self.navigationController?.pushViewController(friendsVC, animated: true)
+        let friendsVC = self.storyBoard.instantiateViewController(withIdentifier: "TableView") as? ListOfFriendsTableViewController
+        friendsVC.do({ friendsVC in
+            self.navigationController?.pushViewController(friendsVC, animated: true)
+        })
+        
     }
     
 }
