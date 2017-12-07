@@ -10,7 +10,8 @@ import UIKit
 
 class LoginView: UIView {
     
-   
+    // MARK: -
+    // MARK: Properties
     
     @IBOutlet weak var loginButton: UIButton?
     @IBOutlet weak var welcomeLabel: UILabel?
