@@ -12,6 +12,9 @@ import ObjectMapper
 
 class User: Object, Mappable {
     
+    // MARK: -
+    // MARK: Properties
+    
     @objc dynamic var name: String?
     @objc dynamic var id: String?
     @objc dynamic var image: UserImageData?

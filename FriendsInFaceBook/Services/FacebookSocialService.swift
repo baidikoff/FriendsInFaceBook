@@ -16,18 +16,20 @@ class FacebookSocialService: SocialService{
 
     static let shared = FacebookSocialService()
     
-    func alreadyLoggedIn() -> Bool {
-
+    // MARK: -
+    // MARK: Open
+    
+    open func alreadyLoggedIn() -> Bool {
         if let token = FBSDKAccessToken.current() {
             return true
         } else {
             return false
         }
     }
-    func returnTrue() -> Bool{
+    open func returnTrue() -> Bool{
         return true
     }
-     func requestUsers() -> Promise<Array<User>>{
+    open func requestUsers() -> Promise<Array<User>>{
         return Promise<Array<User>>{ fulfill, reject in
             FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue]).start{ connection, users, error -> Void in
                 let testMode = ProcessInfo.processInfo.arguments.contains("testMode")
@@ -44,15 +46,12 @@ class FacebookSocialService: SocialService{
         }
     }
     
-    func o(){
-        
-    }
-     func logoutUser(){
+    open func logoutUser(){
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
     }
     
-     func loginUser(){
+    open func loginUser(){
         let loginManager = FBSDKLoginManager()
         loginManager.loginBehavior = FBSDKLoginBehavior.systemAccount
         loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], handler: { result, error in

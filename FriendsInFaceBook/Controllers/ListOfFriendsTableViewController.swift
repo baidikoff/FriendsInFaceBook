@@ -12,6 +12,9 @@ import PromiseKit
 
 class ListOfFriendsTableViewController: UITableViewController {
     
+    // MARK: -
+    // MARK: Properties
+    
     var logoutButton: UIBarButtonItem?
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
     var friends: Results<User>?
@@ -25,11 +28,15 @@ class ListOfFriendsTableViewController: UITableViewController {
         self.configureNavigationItems()
     }
     
-    func configureNavigationItems()  {
+    // MARK: -
+    // MARK: Private
+    
+    private func configureNavigationItems()  {
         self.logoutButton = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logoutButtonPressed))
         navigationItem.rightBarButtonItem = self.logoutButton
     }
-    @objc func logoutButtonPressed(_ sender: UIButton) {
+    
+    @objc private func logoutButtonPressed(_ sender: UIButton) {
         let logout = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.alert)
         logout.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction?) in
             FacebookSocialService.shared.logoutUser()
@@ -43,20 +50,23 @@ class ListOfFriendsTableViewController: UITableViewController {
         }))
         present(logout, animated: true, completion: nil)
     }
-    func configurePullToRefresh(){
+    
+    private func configurePullToRefresh(){
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
         self.refreshControl.do({ refresh in
              self.tableView?.insertSubview(refresh, at: 0) //how I avoided "!"
         })
     }
-    func getFriendsFromStorage(){
+    
+    private func getFriendsFromStorage(){
         self.friends = ServiceForData.shared.getDataFromStorage()
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
         
     }
-    func configureRealmNotification() {
+    
+    private func configureRealmNotification() {
         self.notificationToken = self.friends?.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial,.update:
@@ -68,13 +78,15 @@ class ListOfFriendsTableViewController: UITableViewController {
             }
         }
     }
-    @objc func requestObjects(){
+    
+    @objc private func requestObjects(){
         self.requestFriends().then{ _ -> Void in
             self.getFriendsFromStorage()
             self.refreshControl?.endRefreshing()
         }
     }
-    func requestFriends() -> Promise<String>{
+    
+    private func requestFriends() -> Promise<String>{
         return Promise<String>{ fulfill,_ in
             firstly{
                 self.facebookSocialService.requestUsers()
@@ -85,8 +97,10 @@ class ListOfFriendsTableViewController: UITableViewController {
                     fulfill("Success")
             }
         }
-
     }
+    
+    // MARK: -
+    // MARK: TableView
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.friends?.count ?? 0
@@ -101,7 +115,6 @@ class ListOfFriendsTableViewController: UITableViewController {
             })
             return cell
         }
-        
        return UITableViewCell()
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -109,7 +122,6 @@ class ListOfFriendsTableViewController: UITableViewController {
         friendsVC.do({ friendsVC in
             self.navigationController?.pushViewController(friendsVC, animated: true)
         })
-        
     }
     
 }

@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-class Constants{
+// MARK: -
+// MARK: Public
+
+public class Constants{
     static let urlHost = "https://graph.facebook.com/"
     static let urlPath = "v2.11/me/accounts?access_token="
     static let parameters = ["fields": "name, picture.type(normal), gendar"]
