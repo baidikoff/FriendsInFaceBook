@@ -86,7 +86,10 @@ class ListOfFriendsTableViewController: UITableViewController {
         }
     }
     
-    private func requestFriends() -> Promise<String>{
+    // MARK: -
+    // MARK: Open
+    
+    open func requestFriends() -> Promise<String>{
         return Promise<String>{ fulfill,_ in
             firstly{
                 self.facebookSocialService.requestUsers()
