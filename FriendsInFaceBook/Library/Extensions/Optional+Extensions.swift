@@ -7,17 +7,22 @@
 //
 
 public extension Optional {
+//    public func apply<Result>(_ transform: ((Wrapped) -> Result)?) -> Result? {
+//        return self.flatMap { value in
+//            transform.map { $0(value) }
+//        }
+//    }
+//
+//    public func apply<Value, Result>(_ value: Value?) -> Result?
+//        where Wrapped == (Value) -> Result
+//    {
+//        return value.apply(self) //опциональная функция применяется к опциональному значению
+//    }
     public func apply<Result>(_ transform: ((Wrapped) -> Result)?) -> Result? {
         return self.flatMap { value in
             transform.map { $0(value) }
         }
     }
-
-//    public func apply<Value, Result>(_ value: Value?) -> Result?
-//        where Wrapped == (Value) -> Result
-//    {
-//        return value.apply(self)
-//    }
     
     public func flatten<Result>() -> Result?
         where Wrapped == Result?

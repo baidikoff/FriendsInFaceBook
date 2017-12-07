@@ -17,7 +17,8 @@ class FacebookSocialService: SocialService{
     static let shared = FacebookSocialService()
     
     func alreadyLoggedIn() -> Bool {
-        if FBSDKAccessToken.current() != nil{
+        
+        if let token = FBSDKAccessToken.current() {
             return true
         } else {
             return false
@@ -31,13 +32,11 @@ class FacebookSocialService: SocialService{
                 if testMode{
                     fulfill(MockSocialService.users)
                 }
-                if error != nil {
-                    print("Error: ", error)
-                    reject(error!)
-                }
-                if users != nil{
-                    let object = Mapper<Friends>().map(JSON: users as! [String : Any])
-                    let listOfFriends: Array<User> = (object?.friends)!
+                error.do(reject)
+                
+                if users != nil{ /////////?
+                let object = Mapper<Friends>().map(JSON: users.flatMap(cast)!)
+                    let listOfFriends: Array<User> = (object?.friends)! //////////?
                     fulfill(listOfFriends)
                 }
                 
@@ -45,6 +44,9 @@ class FacebookSocialService: SocialService{
         }
     }
     
+    func o(){
+        
+    }
      func logoutUser(){
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
@@ -54,7 +56,7 @@ class FacebookSocialService: SocialService{
         let loginManager = FBSDKLoginManager()
         loginManager.loginBehavior = FBSDKLoginBehavior.systemAccount
         loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], handler: { result, error in
-            if (error == nil){
+            if (error == nil){ //////////?
                 print("Log in successfully")
             }
         })

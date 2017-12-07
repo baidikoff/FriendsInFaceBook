@@ -6,6 +6,6 @@
 //  Copyright © 2017 Victoria Kravets. All rights reserved.
 //
 
-func cast<Value, Result>(_ value: Value) -> Result? {
+public func cast<Value, Result>(_ value: Value) -> Result? {
     return value as? Result
 }
