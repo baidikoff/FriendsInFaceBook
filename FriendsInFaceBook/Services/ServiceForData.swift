@@ -34,16 +34,12 @@ class ServiceForData{
             }
         })
     }
-    open func getDataFromStorage() -> Results<User>{
+    open func getDataFromStorage() -> Results<User>?{
         var users: Results<User>? = nil
         let realm = try? Realm()
-        
         realm.do({ realm in
             users = realm.objects(User.self)
         })
-        
-        return users!/////////
+        return users
     }
-    
-    
 }

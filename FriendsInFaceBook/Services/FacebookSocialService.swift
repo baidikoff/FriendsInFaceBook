@@ -20,15 +20,9 @@ class FacebookSocialService: SocialService{
     // MARK: Open
     
     open func alreadyLoggedIn() -> Bool {
-        if let token = FBSDKAccessToken.current() {
-            return true
-        } else {
-            return false
-        }
+        return (FBSDKAccessToken.current() != nil) ?? false
     }
-    open func returnTrue() -> Bool{
-        return true
-    }
+
     open func requestUsers() -> Promise<Array<User>>{
         return Promise<Array<User>>{ fulfill, reject in
             FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue]).start{ connection, users, error -> Void in
@@ -37,15 +31,15 @@ class FacebookSocialService: SocialService{
                     fulfill(MockSocialService.users)
                 }
                 error.do(reject)
-                if users != nil{ 
-                    let object = Mapper<Friends>().map(JSON: users as! [String : Any])
-                    let listOfFriends: Array<User> = (object?.friends)!
-                    fulfill(listOfFriends)
-                }
+                let result = users.apply{ _ -> Friends? in
+                    let object = Mapper<Friends>().map(JSON: users.flatMap(cast)!) ///////????????
+                    return object
+                    }.flatten()
+                result?.friends.do(fulfill)
             }
         }
     }
-    
+
     open func logoutUser(){
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()

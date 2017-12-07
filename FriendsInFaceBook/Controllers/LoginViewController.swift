@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     // MARK: Properties
     
     let loginView = LoginView()
-    let hasToken = FacebookSocialService.shared.alreadyLoggedIn()
+    var hasToken = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(loginView)
@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.hasToken = FacebookSocialService.shared.alreadyLoggedIn()
         if hasToken {
             self.loginView.loginButton?.isHidden = true
             self.loginView.welcomeLabel?.isHidden = true
