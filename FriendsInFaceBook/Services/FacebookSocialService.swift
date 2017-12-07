@@ -35,7 +35,7 @@ class FacebookSocialService: SocialService{
                     fulfill(MockSocialService.users)
                 }
                 error.do(reject)
-                if users != nil{
+                if users != nil{ 
                     let object = Mapper<Friends>().map(JSON: users as! [String : Any])
                     let listOfFriends: Array<User> = (object?.friends)!
                     fulfill(listOfFriends)

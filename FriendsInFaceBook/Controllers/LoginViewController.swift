@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if FacebookSocialService.shared.alreadyLoggedIn() == true { ////
+        if FacebookSocialService.shared.alreadyLoggedIn(){
             self.loginView.loginButton?.isHidden = true
             self.loginView.welcomeLabel?.isHidden = true
             self.goToNextViewController()
@@ -27,15 +27,18 @@ class LoginViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if FacebookSocialService.shared.alreadyLoggedIn() == true { ////
+        if FacebookSocialService.shared.alreadyLoggedIn(){
            self.goToNextViewController()
         }
     }
 
     func goToNextViewController(){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GoToSeeFriends") as! UINavigationController ///////?
-        self.present(nextViewController, animated:true, completion:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GoToSeeFriends") as? UINavigationController
+        nextViewController.do({ nextVC in
+             self.present(nextVC, animated:true, completion:nil)
+        })
+       
     }
 }
 

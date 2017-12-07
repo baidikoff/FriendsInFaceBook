@@ -31,12 +31,14 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     @objc func logoutButtonPressed(_ sender: UIButton) {
         let logout = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.alert)
-        logout.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+        logout.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction?) in
             FacebookSocialService.shared.logoutUser()
-            let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-            self.present(loginViewController, animated:true, completion:nil)
+            let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController
+            loginViewController.do{ loginVC in
+                self.present(loginVC, animated:true, completion:nil)
+            }
         }))
-        logout.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        logout.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction?) in
             print("Cancel")
         }))
         present(logout, animated: true, completion: nil)
@@ -45,7 +47,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
         self.refreshControl.do({ refresh in
-             self.tableView?.insertSubview(refresh, at: 0)
+             self.tableView?.insertSubview(refresh, at: 0) //how I avoided "!"
         })
     }
     func getFriendsFromStorage(){
