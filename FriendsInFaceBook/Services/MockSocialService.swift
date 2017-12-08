@@ -10,18 +10,20 @@ import Foundation
 import PromiseKit
 
 class MockSocialService: SocialService{
-    static let users = [User(name: "Ivan Ivanov", image: UserImageData(urlData: UserImage(url: "https://cdn.pixabay.com/photo/2016/12/09/12/24/giraffe-1894778_960_720.jpg"))), User(name: "Vasiliy Vasichkin", image: UserImageData(urlData: UserImage(url: "https://cdn.pixabay.com/photo/2016/12/09/12/24/giraffe-1894778_960_720.jpg")))]
     
-    func requestUsers() -> Promise<Array<User>> {
-        return Promise<Array<User>>{ fulfill,_ in 
-            fulfill(MockSocialService.users)
+    // MARK: -
+    // MARK: Open
+    
+    open func requestUsers() -> Promise<[User]> {
+        return Promise<[User]>{ fulfill,_ in 
+            fulfill(Constants.users)
         }
     }
-    func loginUser() {
+    open func loginUser() {
         
     }
     
-    func logoutUser() {
+    open func logoutUser() {
         
     }
     

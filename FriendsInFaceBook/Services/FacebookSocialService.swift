@@ -16,47 +16,40 @@ class FacebookSocialService: SocialService{
 
     static let shared = FacebookSocialService()
     
-    func alreadyLoggedIn() -> Bool {
-        if FBSDKAccessToken.current() != nil{
-            return true
-        } else {
-            return false
-        }
-    }
+    // MARK: -
+    // MARK: Open
     
-     func requestUsers() -> Promise<Array<User>>{
-        return Promise<Array<User>>{ fulfill, reject in
+    open func alreadyLoggedIn() -> Bool {
+        return (FBSDKAccessToken.current() != nil)
+    }
+
+    open func requestUsers() -> Promise<[User]>{
+        return Promise<[User]>{ fulfill, reject in
             FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue]).start{ connection, users, error -> Void in
-                let testMode = ProcessInfo.processInfo.arguments.contains("testMode")
+                let testMode = ProcessInfo.processInfo.arguments.contains(Constants.testMode)
                 if testMode{
-                    fulfill(MockSocialService.users)
+                    fulfill(Constants.users)
                 }
-                if error != nil {
-                    print("Error: ", error)
-                    reject(error!)
+                error.do(reject)
+                let users:[String: Any]? = users.flatMap(cast)
+                users.do{ users in
+                    let resultUsers = Mapper<Friends>().map(JSON:users)
+                    resultUsers?.friends.do(fulfill)
                 }
-                if users != nil{
-                    let object = Mapper<Friends>().map(JSON: users as! [String : Any])
-                    let listOfFriends: Array<User> = (object?.friends)!
-                    fulfill(listOfFriends)
-                }
-                
             }
         }
     }
     
-     func logoutUser(){
+    open func logoutUser(){
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
     }
     
-     func loginUser(){
+    open func loginUser(){
         let loginManager = FBSDKLoginManager()
         loginManager.loginBehavior = FBSDKLoginBehavior.systemAccount
-        loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], handler: { result, error in
-            if (error == nil){
-                print("Log in successfully")
-            }
+        loginManager.logIn(withReadPermissions: [Constants.publicProfile, Constants.email, Constants.userFriends], handler: { result, error in
+            result.do({_ in print(Constants.successLogin)})
         })
     }
     

@@ -13,6 +13,9 @@ import ObjectMapper
 
 class Friends: Mappable {
     
+    // MARK: -
+    // MARK: Properties
+    
     var friends: [User]?
 
     required init?(map: Map) {

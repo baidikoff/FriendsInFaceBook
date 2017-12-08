@@ -13,11 +13,13 @@ public extension Optional {
         }
     }
 
-//    public func apply<Value, Result>(_ value: Value?) -> Result?
-//        where Wrapped == (Value) -> Result
-//    {
-//        return value.apply(self)
-//    }
+    public func apply<Value, Result>(_ value: Value?) -> Result?
+        where Wrapped == (Value) -> Result
+    {
+        // ERROR: swiftc 4.0 too stupid, check back later
+        // return value.apply(self)
+        return self.flatMap { value.map($0) }
+    }
     
     public func flatten<Result>() -> Result?
         where Wrapped == Result?

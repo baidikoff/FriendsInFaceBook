@@ -9,10 +9,29 @@
 import Foundation
 import UIKit
 
-class Constants{
+// MARK: -
+// MARK: Public
+
+public class Constants{
     static let urlHost = "https://graph.facebook.com/"
     static let urlPath = "v2.11/me/accounts?access_token="
     static let parameters = ["fields": "name, picture.type(normal), gendar"]
+    static let publicProfile = "public_profile"
+    static let email = "email"
+    static let userFriends = "user_friends"
+    static let testMode = "testMode"
+    static let successLogin = "Log in successfully"
+    static let cancel = "Cancel"
+    static let success = "Success"
+    static let UserCellIdentifier = "FriendCell"
+    static let ListOfFriendsTVCIdentifier = "TableView"
+    static let LoginVCIdentifier = "LoginVC"
+    static let LogOut = "Log Out"
+    static let Yes = "Yes"
+    static let LogOutMessage = "Are you sure you want to log out?"
+    static let storyBoardIdentifier = "GoToSeeFriends"
+    static let Main = "Main"
+    static let users = [User(name: "Ivan Ivanov", image: UserImageData(urlData: UserImage(url: "https://cdn.pixabay.com/photo/2016/12/09/12/24/giraffe-1894778_960_720.jpg"))), User(name: "Vasiliy Vasichkin", image: UserImageData(urlData: UserImage(url: "https://cdn.pixabay.com/photo/2016/12/09/12/24/giraffe-1894778_960_720.jpg")))]
 }
 
 @objc public enum UrlType: Int {
