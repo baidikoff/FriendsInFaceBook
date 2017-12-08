@@ -20,7 +20,7 @@ class FacebookSocialService: SocialService{
     // MARK: Open
     
     open func alreadyLoggedIn() -> Bool {
-        return (FBSDKAccessToken.current() != nil) ?? false
+        return (FBSDKAccessToken.current() != nil)
     }
 
     open func requestUsers() -> Promise<Array<User>>{
@@ -31,15 +31,15 @@ class FacebookSocialService: SocialService{
                     fulfill(MockSocialService.users)
                 }
                 error.do(reject)
-                let result = users.apply{ _ -> Friends? in
-                    let object = Mapper<Friends>().map(JSON: users.flatMap(cast)!) ///////????????
-                    return object
-                    }.flatten()
-                result?.friends.do(fulfill)
+                let users:[String: Any]? = users.flatMap(cast)
+                users.do{ users in
+                    let resultUsers = Mapper<Friends>().map(JSON:users)
+                    resultUsers?.friends.do(fulfill)
+                }
             }
         }
     }
-
+    
     open func logoutUser(){
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
