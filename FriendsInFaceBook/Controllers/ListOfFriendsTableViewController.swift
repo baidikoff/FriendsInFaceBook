@@ -16,7 +16,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     // MARK: Properties
     
     var logoutButton: UIBarButtonItem?
-    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+    let storyBoard : UIStoryboard = UIStoryboard(name: Constants.Main, bundle:nil)
     var friends: Results<User>?
     fileprivate var notificationToken: NotificationToken? = nil
     var facebookSocialService: SocialService = FacebookSocialService()
@@ -32,21 +32,21 @@ class ListOfFriendsTableViewController: UITableViewController {
     // MARK: Private
     
     private func configureNavigationItems()  {
-        self.logoutButton = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logoutButtonPressed))
+        self.logoutButton = UIBarButtonItem(title: Constants.LogOut, style: .plain, target: self, action: #selector(logoutButtonPressed))
         navigationItem.rightBarButtonItem = self.logoutButton
     }
     
     @objc private func logoutButtonPressed(_ sender: UIButton) {
-        let logout = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.alert)
-        logout.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction?) in
+        let logout = UIAlertController(title: Constants.LogOut, message: Constants.LogOutMessage, preferredStyle: UIAlertControllerStyle.alert)
+        logout.addAction(UIAlertAction(title: Constants.Yes, style: .default, handler: { (action: UIAlertAction?) in
             FacebookSocialService.shared.logoutUser()
-            let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController
+            let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: Constants.LoginVCIdentifier) as? LoginViewController
             loginViewController.do{ loginVC in
                 self.present(loginVC, animated:true, completion:nil)
             }
         }))
-        logout.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction?) in
-            print("Cancel")
+        logout.addAction(UIAlertAction(title: Constants.cancel, style: .cancel, handler: { (action: UIAlertAction?) in
+            print(Constants.cancel)
         }))
         present(logout, animated: true, completion: nil)
     }
@@ -55,7 +55,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
         self.refreshControl.do({ refresh in
-             self.tableView?.insertSubview(refresh, at: 0) //how I avoided "!"
+             self.tableView?.insertSubview(refresh, at: 0)
         })
     }
     
@@ -96,7 +96,7 @@ class ListOfFriendsTableViewController: UITableViewController {
                     ServiceForData.shared.deleteAllDataInStorage()
                     self?.configureRealmNotification()
                     ServiceForData.shared.writeDataInStorage(users: users)
-                    fulfill("Success")
+                    fulfill(Constants.success)
             }
         }
     }
@@ -109,7 +109,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell",
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UserCellIdentifier,
                                                     for: indexPath) as? UserCell {
             self.friends.do({ friends in
                 let friend = friends[indexPath.row]
@@ -120,7 +120,7 @@ class ListOfFriendsTableViewController: UITableViewController {
        return UITableViewCell()
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let friendsVC = self.storyBoard.instantiateViewController(withIdentifier: "TableView") as? ListOfFriendsTableViewController
+        let friendsVC = self.storyBoard.instantiateViewController(withIdentifier: Constants.ListOfFriendsTVCIdentifier) as? ListOfFriendsTableViewController
         friendsVC.do({ friendsVC in
             self.navigationController?.pushViewController(friendsVC, animated: true)
         })

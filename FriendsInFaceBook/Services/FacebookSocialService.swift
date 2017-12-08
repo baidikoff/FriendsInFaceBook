@@ -26,9 +26,9 @@ class FacebookSocialService: SocialService{
     open func requestUsers() -> Promise<[User]>{
         return Promise<[User]>{ fulfill, reject in
             FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue]).start{ connection, users, error -> Void in
-                let testMode = ProcessInfo.processInfo.arguments.contains("testMode")
+                let testMode = ProcessInfo.processInfo.arguments.contains(Constants.testMode)
                 if testMode{
-                    fulfill(MockSocialService.users)
+                    fulfill(Constants.users)
                 }
                 error.do(reject)
                 let users:[String: Any]? = users.flatMap(cast)
@@ -48,8 +48,8 @@ class FacebookSocialService: SocialService{
     open func loginUser(){
         let loginManager = FBSDKLoginManager()
         loginManager.loginBehavior = FBSDKLoginBehavior.systemAccount
-        loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], handler: { result, error in
-            result.do({_ in print("Log in successfully")})
+        loginManager.logIn(withReadPermissions: [Constants.publicProfile, Constants.email, Constants.userFriends], handler: { result, error in
+            result.do({_ in print(Constants.successLogin)})
         })
     }
     

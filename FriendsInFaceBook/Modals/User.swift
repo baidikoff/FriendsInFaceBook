@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
-class User: Object, Mappable {
+public class User: Object, Mappable {
     
     // MARK: -
     // MARK: Properties
@@ -24,11 +24,11 @@ class User: Object, Mappable {
         self.name = name
         self.image = image
     }
-    required convenience init?(map: Map) {
+    required convenience public init?(map: Map) {
         self.init()
     }
 
-    func mapping(map: Map) {
+    public func mapping(map: Map) {
             name       <- map["name"]
             id     <- map["id"]
             image    <- map["picture"]
