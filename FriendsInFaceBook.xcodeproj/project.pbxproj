@@ -48,6 +48,8 @@
 		75CFFC811FCC724300D99385 /* FriendsInFaceBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC801FCC724300D99385 /* FriendsInFaceBookTests.swift */; };
 		75D292A71FD426110032F9BD /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A61FD426110032F9BD /* Friends.swift */; };
 		75D292A91FD450D70032F9BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A81FD450D70032F9BD /* Constants.swift */; };
+		75E0B9D71FDAB8AA00F0325D /* ServiceForFetchingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0B9D61FDAB8AA00F0325D /* ServiceForFetchingImage.swift */; };
+		75E0B9D81FDABB8300F0325D /* ServiceForFetchingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0B9D61FDAB8AA00F0325D /* ServiceForFetchingImage.swift */; };
 		75FB1B891FD52C960066DCF2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC6A1FCC724300D99385 /* LoginViewController.swift */; };
 		75FB1B8A1FD52C960066DCF2 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
 		75FB1B8B1FD52C960066DCF2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
@@ -134,6 +136,7 @@
 		75CFFC821FCC724300D99385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75D292A61FD426110032F9BD /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		75D292A81FD450D70032F9BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		75E0B9D61FDAB8AA00F0325D /* ServiceForFetchingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceForFetchingImage.swift; sourceTree = "<group>"; };
 		D70103541FD727CB002D0E6C /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		D70103561FD73B84002D0E6C /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		D7C3E00F1FD9B74F006ACA47 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 				7540782B1FD1AF1900A6E01C /* FacebookSocialService.swift */,
 				75449BFC1FD59ECE00CCDB9F /* SocialService.swift */,
 				75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */,
+				75E0B9D61FDAB8AA00F0325D /* ServiceForFetchingImage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -525,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75E0B9D81FDABB8300F0325D /* ServiceForFetchingImage.swift in Sources */,
 				75FE3E4A1FD8296600399B9C /* Optional+Extensions.swift in Sources */,
 				75FE3E4B1FD8296600399B9C /* Functions.swift in Sources */,
 				752C52121FD6D6CC0077B370 /* LoginView.swift in Sources */,
@@ -551,6 +556,7 @@
 				752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */,
 				75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */,
 				752FFAB31FCDEDB000ACA938 /* User.swift in Sources */,
+				75E0B9D71FDAB8AA00F0325D /* ServiceForFetchingImage.swift in Sources */,
 				D70103571FD73B84002D0E6C /* Functions.swift in Sources */,
 				D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */,
 				7540782C1FD1AF1900A6E01C /* FacebookSocialService.swift in Sources */,

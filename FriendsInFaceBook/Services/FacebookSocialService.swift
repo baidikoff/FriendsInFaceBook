@@ -23,8 +23,8 @@ class FacebookSocialService: SocialService{
         return (FBSDKAccessToken.current() != nil)
     }
 
-    open func requestUsers() -> Promise<Array<User>>{
-        return Promise<Array<User>>{ fulfill, reject in
+    open func requestUsers() -> Promise<[User]>{
+        return Promise<[User]>{ fulfill, reject in
             FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue]).start{ connection, users, error -> Void in
                 let testMode = ProcessInfo.processInfo.arguments.contains("testMode")
                 if testMode{

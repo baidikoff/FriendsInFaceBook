@@ -62,8 +62,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     private func getFriendsFromStorage(){
         self.friends = ServiceForData.shared.getDataFromStorage()
         self.tableView.reloadData()
-        self.refreshControl?.endRefreshing()
-        
+        self.refreshControl?.endRefreshing()     
     }
     
     private func configureRealmNotification() {

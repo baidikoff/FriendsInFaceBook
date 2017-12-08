@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol SocialService {
-    func requestUsers() -> Promise<Array<User>>
+    func requestUsers() -> Promise<[User]>
     func loginUser()
     func logoutUser()
 }
