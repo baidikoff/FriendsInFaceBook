@@ -109,15 +109,12 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UserCellIdentifier,
-                                                    for: indexPath) as? UserCell {
-            self.friends.do({ friends in
-                let friend = friends[indexPath.row]
-                cell.user = friend
-            })
-            return cell
-        }
-       return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UserCellIdentifier, for: indexPath) as? UserCell
+        self.friends.do({ friends in
+            let friend = friends[indexPath.row]
+            cell?.user = friend
+        })
+        return cell ?? UITableViewCell()
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let friendsVC = self.storyBoard.instantiateViewController(withIdentifier: Constants.ListOfFriendsTVCIdentifier) as? ListOfFriendsTableViewController
