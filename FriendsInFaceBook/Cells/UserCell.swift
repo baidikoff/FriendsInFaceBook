@@ -41,16 +41,15 @@ class UserCell: UITableViewCell {
     private func fillPhoto(with user: User) {
         let serviceForFetchingImage = ServiceForFetchingImage()
         let urlString = user.image?.urlData?.url
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-        let image = urlString
+        urlString
             .flatMap(URL.init(string:))
-            .apply(serviceForFetchingImage.fetchImage(url:)).flatten()
-            DispatchQueue.main.async {
-                let user = self?.user
-                if user?.id == self?.user?.id {
-                    self?.photoImageView?.image = image
-                }
-            }
+            .do{ url in
+                serviceForFetchingImage.fetchImage(url: url, complection: { image in
+                    let user = self.user
+                    if user?.id == self.user?.id {
+                        self.photoImageView?.image = image
+                    }
+                })
         }
     }
 }

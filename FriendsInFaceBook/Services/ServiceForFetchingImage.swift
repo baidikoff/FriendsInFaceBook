@@ -14,10 +14,13 @@ class ServiceForFetchingImage{
     // MARK: -
     // MARK: Open
     
-    open func fetchImage(url: URL) -> UIImage?{
-        let image = NSData(contentsOf: url)
-                .flatMap(cast)
-                .flatMap(UIImage.init(data:))
-         return image
+    open func fetchImage(url: URL, complection: @escaping (UIImage?) -> ()){
+        URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
+            error.do{ error in print("URLSession error: ", error); return}
+            DispatchQueue.main.async {
+                let image = data.flatMap(UIImage.init(data:))
+               complection(image)
+            }
+        }).resume()
     }
 }
