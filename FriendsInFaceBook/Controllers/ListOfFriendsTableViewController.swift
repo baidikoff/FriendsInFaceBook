@@ -72,7 +72,7 @@ class ListOfFriendsTableViewController: UITableViewController {
                 self?.tableView.reloadData()
                 break
             case .error(let error):
-                fatalError("\(error)")
+                print("Error: \(error)")
                 break
             }
         }
