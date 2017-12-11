@@ -23,6 +23,7 @@ class ListOfFriendsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl = UIRefreshControl()
         self.getFriendsFromStorage()
         self.configurePullToRefresh()
         self.configureNavigationItems()
@@ -52,7 +53,6 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     
     private func configurePullToRefresh(){
-        self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
         self.refreshControl.do({ refresh in
              self.tableView?.insertSubview(refresh, at: 0)
