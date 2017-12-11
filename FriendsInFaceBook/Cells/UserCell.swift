@@ -44,10 +44,10 @@ class UserCell: UITableViewCell {
         urlString
             .flatMap(URL.init(string:))
             .do{ url in
-                serviceForFetchingImage.fetchImage(url: url, complection: { image in
-                    let user = self.user
-                    if user?.id == self.user?.id {
-                        self.photoImageView?.image = image
+                serviceForFetchingImage.fetchImage(url: url, complection: { [weak self] image in
+                    let user = self?.user
+                    if user?.id == self?.user?.id {
+                        self?.photoImageView?.image = image
                     }
                 })
         }
