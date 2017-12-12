@@ -13,11 +13,12 @@ class LoginViewController: UIViewController {
     // MARK: -
     // MARK: Properties
     
-   // let loginView = LoginView()
+    @IBOutlet weak var loginView: LoginView?
     var hasToken = false
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        self.loginView?.loginButton?.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,10 +41,9 @@ class LoginViewController: UIViewController {
             nextViewController.do({self.present($0, animated:true, completion:nil)})
         }
     }
-    func loginButtonPressed(){
+    @objc func loginButtonPressed(){
         FacebookSocialService.shared.loginUser(complection:{
             print(Constants.successLogin)
-            self.goToNextViewController()
         })
     }
 }
