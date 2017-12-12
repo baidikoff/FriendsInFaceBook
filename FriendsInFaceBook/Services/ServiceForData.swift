@@ -37,9 +37,7 @@ class ServiceForData{
     open func getDataFromStorage() -> Results<User>?{
         var users: Results<User>? = nil
         let realm = try? Realm()
-        realm.do({ realm in
-            users = realm.objects(User.self)
-        })
+        realm.do({ users = $0.objects(User.self)})
         return users
     }
 }

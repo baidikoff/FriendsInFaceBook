@@ -19,12 +19,4 @@ class MockSocialService: SocialService{
             fulfill(Constants.users)
         }
     }
-    open func loginUser() {
-        
-    }
-    
-    open func logoutUser() {
-        
-    }
-    
 }

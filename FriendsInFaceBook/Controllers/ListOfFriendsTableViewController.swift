@@ -23,6 +23,7 @@ class ListOfFriendsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl = UIRefreshControl()
         self.getFriendsFromStorage()
         self.configurePullToRefresh()
         self.configureNavigationItems()
@@ -40,10 +41,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         let logout = UIAlertController(title: Constants.LogOut, message: Constants.LogOutMessage, preferredStyle: UIAlertControllerStyle.alert)
         logout.addAction(UIAlertAction(title: Constants.Yes, style: .default, handler: { (action: UIAlertAction?) in
             FacebookSocialService.shared.logoutUser()
-            let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: Constants.LoginVCIdentifier) as? LoginViewController
-            loginViewController.do{ loginVC in
-                self.present(loginVC, animated:true, completion:nil)
-            }
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
         }))
         logout.addAction(UIAlertAction(title: Constants.cancel, style: .cancel, handler: { (action: UIAlertAction?) in
             print(Constants.cancel)
@@ -52,11 +50,8 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     
     private func configurePullToRefresh(){
-        self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
-        self.refreshControl.do({ refresh in
-             self.tableView?.insertSubview(refresh, at: 0)
-        })
+        self.refreshControl.do({ self.tableView?.insertSubview($0, at: 0)})
     }
     
     private func getFriendsFromStorage(){
@@ -72,7 +67,7 @@ class ListOfFriendsTableViewController: UITableViewController {
                 self?.tableView.reloadData()
                 break
             case .error(let error):
-                fatalError("\(error)")
+                print("Error: \(error)")
                 break
             }
         }
@@ -118,9 +113,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let friendsVC = self.storyBoard.instantiateViewController(withIdentifier: Constants.ListOfFriendsTVCIdentifier) as? ListOfFriendsTableViewController
-        friendsVC.do({ friendsVC in
-            self.navigationController?.pushViewController(friendsVC, animated: true)
-        })
+        friendsVC.do({ self.navigationController?.pushViewController($0, animated: true)})
     }
     
 }
