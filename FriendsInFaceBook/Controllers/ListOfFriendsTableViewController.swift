@@ -41,8 +41,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         let logout = UIAlertController(title: Constants.LogOut, message: Constants.LogOutMessage, preferredStyle: UIAlertControllerStyle.alert)
         logout.addAction(UIAlertAction(title: Constants.Yes, style: .default, handler: { (action: UIAlertAction?) in
             FacebookSocialService.shared.logoutUser()
-            let loginViewController = self.storyBoard.instantiateViewController(withIdentifier: Constants.LoginVCIdentifier) as? LoginViewController
-            loginViewController.do{self.present($0, animated:true, completion:nil)}
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
         }))
         logout.addAction(UIAlertAction(title: Constants.cancel, style: .cancel, handler: { (action: UIAlertAction?) in
             print(Constants.cancel)
