@@ -15,9 +15,9 @@ class LoginViewController: UIViewController {
     
     let loginView = LoginView()
     var hasToken = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(loginView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
