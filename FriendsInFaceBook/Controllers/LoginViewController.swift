@@ -42,9 +42,7 @@ class LoginViewController: UIViewController {
     private func goToNextViewController(){
         let storyBoard : UIStoryboard = UIStoryboard(name: Constants.Main, bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: Constants.storyBoardIdentifier) as? UINavigationController
-        nextViewController.do({ nextVC in
-             self.present(nextVC, animated:true, completion:nil)
-        })
+        nextViewController.do({self.present($0, animated:true, completion:nil)})
     }
 }
 

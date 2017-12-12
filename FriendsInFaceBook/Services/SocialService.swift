@@ -11,6 +11,5 @@ import PromiseKit
 
 protocol SocialService {
     func requestUsers() -> Promise<[User]>
-    func loginUser()
-    func logoutUser()
+
 }

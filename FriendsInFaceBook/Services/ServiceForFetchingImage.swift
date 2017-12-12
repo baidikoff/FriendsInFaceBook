@@ -16,7 +16,7 @@ class ServiceForFetchingImage{
     
     open func fetchImage(url: URL, complection: @escaping (UIImage?) -> ()){
         URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
-            error.do{ error in print("URLSession error: ", error); return}
+            error.do{print("URLSession error: ", $0); return}
             DispatchQueue.main.async {
                 let image = data.flatMap(UIImage.init(data:))
                complection(image)
