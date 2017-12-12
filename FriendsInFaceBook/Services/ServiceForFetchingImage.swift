@@ -11,16 +11,19 @@ import UIKit
 
 class ServiceForFetchingImage{
     
+    let defaultSession = URLSession(configuration: .ephemeral)
+    var dataTask: URLSessionDataTask?
     // MARK: -
     // MARK: Open
     
     open func fetchImage(url: URL, complection: @escaping (UIImage?) -> ()){
-        URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
+        dataTask = defaultSession.dataTask(with: url, completionHandler: { data, response, error in
             error.do{print("URLSession error: ", $0); return}
             DispatchQueue.main.async {
                 let image = data.flatMap(UIImage.init(data:))
-               complection(image)
+                complection(image)
             }
-        }).resume()
+        })
+        dataTask?.resume()
     }
 }
