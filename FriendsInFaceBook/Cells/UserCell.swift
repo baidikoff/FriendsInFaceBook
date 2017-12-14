@@ -20,6 +20,8 @@ class UserCell: UITableViewCell {
         didSet { self.fill(with: user) }
     }
     
+    private var task = CancellableProperty()
+    
     // MARK: -
     // MARK: Open
     
@@ -39,17 +41,26 @@ class UserCell: UITableViewCell {
     // MARK: Private
     
     private func fillPhoto(with user: User) {
-        let serviceForFetchingImage = ServiceForFetchingImage()
+        let imageDownloadService = ImageDownloadServiceImpl(
+            networkService: NetworkServiceImpl(session: URLSession(configuration: .default))
+        )
+        
         let urlString = user.image?.urlData?.url
         urlString
             .flatMap(URL.init(string:))
-            .do{ url in
-                serviceForFetchingImage.fetchImage(url: url, complection: { [weak self] image in
-                    let user = self?.user
-                    if user?.id == self?.user?.id {
-                        self?.photoImageView?.image = image
+            .do { url in
+                self.task.value = imageDownloadService.fetchImage(url: url) { [weak self, user = self.user] image in
+                    let isSameUser = { user?.id == self?.user?.id }
+                    if !isSameUser() {
+                        return
                     }
-                })
+                    
+                    DispatchQueue.main.async {
+                        if !isSameUser() {
+                            self?.photoImageView?.image = image
+                        }
+                    }
+                }
         }
     }
 }

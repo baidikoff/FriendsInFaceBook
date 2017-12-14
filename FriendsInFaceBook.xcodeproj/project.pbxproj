@@ -48,8 +48,8 @@
 		75CFFC811FCC724300D99385 /* FriendsInFaceBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC801FCC724300D99385 /* FriendsInFaceBookTests.swift */; };
 		75D292A71FD426110032F9BD /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A61FD426110032F9BD /* Friends.swift */; };
 		75D292A91FD450D70032F9BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A81FD450D70032F9BD /* Constants.swift */; };
-		75E0B9D71FDAB8AA00F0325D /* ServiceForFetchingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0B9D61FDAB8AA00F0325D /* ServiceForFetchingImage.swift */; };
-		75E0B9D81FDABB8300F0325D /* ServiceForFetchingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0B9D61FDAB8AA00F0325D /* ServiceForFetchingImage.swift */; };
+		75E0B9D71FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */; };
+		75E0B9D81FDABB8300F0325D /* ImageDownloadServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */; };
 		75FB1B891FD52C960066DCF2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC6A1FCC724300D99385 /* LoginViewController.swift */; };
 		75FB1B8A1FD52C960066DCF2 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
 		75FB1B8B1FD52C960066DCF2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
@@ -67,6 +67,11 @@
 		75FE3E4B1FD8296600399B9C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
 		D70103571FD73B84002D0E6C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
+		D79BC2AF1FE2799E00F0DD87 /* ImageDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2AE1FE2799E00F0DD87 /* ImageDownloadService.swift */; };
+		D79BC2B11FE27A6900F0DD87 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */; };
+		D79BC2B41FE27E5A00F0DD87 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */; };
+		D79BC2B61FE27F7500F0DD87 /* NetworkServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B51FE27F7500F0DD87 /* NetworkServiceImpl.swift */; };
+		D79BC2B91FE2845A00F0DD87 /* CancellableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B81FE2845A00F0DD87 /* CancellableProperty.swift */; };
 		D7C3E0101FD9B759006ACA47 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C3E00F1FD9B74F006ACA47 /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,9 +141,14 @@
 		75CFFC821FCC724300D99385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75D292A61FD426110032F9BD /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		75D292A81FD450D70032F9BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		75E0B9D61FDAB8AA00F0325D /* ServiceForFetchingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceForFetchingImage.swift; sourceTree = "<group>"; };
+		75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceImpl.swift; sourceTree = "<group>"; };
 		D70103541FD727CB002D0E6C /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		D70103561FD73B84002D0E6C /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		D79BC2AE1FE2799E00F0DD87 /* ImageDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadService.swift; sourceTree = "<group>"; };
+		D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
+		D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		D79BC2B51FE27F7500F0DD87 /* NetworkServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceImpl.swift; sourceTree = "<group>"; };
+		D79BC2B81FE2845A00F0DD87 /* CancellableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableProperty.swift; sourceTree = "<group>"; };
 		D7C3E00F1FD9B74F006ACA47 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,11 +237,12 @@
 		757BAC751FD5B6A8004FDD82 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D79BC2B21FE27DC500F0DD87 /* NetworkService */,
+				D79BC2AD1FE2777300F0DD87 /* ImageDownloadService */,
 				7508DFD01FD4760C00A62241 /* ServiceForData.swift */,
 				7540782B1FD1AF1900A6E01C /* FacebookSocialService.swift */,
 				75449BFC1FD59ECE00CCDB9F /* SocialService.swift */,
 				75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */,
-				75E0B9D61FDAB8AA00F0325D /* ServiceForFetchingImage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -309,6 +320,7 @@
 		D70103521FD727AB002D0E6C /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				D79BC2B71FE2844700F0DD87 /* Types */,
 				D70103531FD727B8002D0E6C /* Extensions */,
 			);
 			path = Library;
@@ -321,6 +333,33 @@
 				D70103561FD73B84002D0E6C /* Functions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D79BC2AD1FE2777300F0DD87 /* ImageDownloadService */ = {
+			isa = PBXGroup;
+			children = (
+				75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */,
+				D79BC2AE1FE2799E00F0DD87 /* ImageDownloadService.swift */,
+			);
+			path = ImageDownloadService;
+			sourceTree = "<group>";
+		};
+		D79BC2B21FE27DC500F0DD87 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */,
+				D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */,
+				D79BC2B51FE27F7500F0DD87 /* NetworkServiceImpl.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		D79BC2B71FE2844700F0DD87 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				D79BC2B81FE2845A00F0DD87 /* CancellableProperty.swift */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,7 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75E0B9D81FDABB8300F0325D /* ServiceForFetchingImage.swift in Sources */,
+				75E0B9D81FDABB8300F0325D /* ImageDownloadServiceImpl.swift in Sources */,
 				75FE3E4A1FD8296600399B9C /* Optional+Extensions.swift in Sources */,
 				75FE3E4B1FD8296600399B9C /* Functions.swift in Sources */,
 				752C52121FD6D6CC0077B370 /* LoginView.swift in Sources */,
@@ -554,10 +593,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */,
+				D79BC2AF1FE2799E00F0DD87 /* ImageDownloadService.swift in Sources */,
 				75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */,
 				752FFAB31FCDEDB000ACA938 /* User.swift in Sources */,
-				75E0B9D71FDAB8AA00F0325D /* ServiceForFetchingImage.swift in Sources */,
+				D79BC2B41FE27E5A00F0DD87 /* NetworkService.swift in Sources */,
+				75E0B9D71FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift in Sources */,
 				D70103571FD73B84002D0E6C /* Functions.swift in Sources */,
+				D79BC2B61FE27F7500F0DD87 /* NetworkServiceImpl.swift in Sources */,
 				D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */,
 				7540782C1FD1AF1900A6E01C /* FacebookSocialService.swift in Sources */,
 				75D292A71FD426110032F9BD /* Friends.swift in Sources */,
@@ -568,6 +610,8 @@
 				75CFFC691FCC724300D99385 /* AppDelegate.swift in Sources */,
 				7569165B1FD6A75800808890 /* LoginView.swift in Sources */,
 				75D292A91FD450D70032F9BD /* Constants.swift in Sources */,
+				D79BC2B11FE27A6900F0DD87 /* NetworkTask.swift in Sources */,
+				D79BC2B91FE2845A00F0DD87 /* CancellableProperty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
