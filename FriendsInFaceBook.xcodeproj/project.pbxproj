@@ -64,7 +64,6 @@
 		75FB1B9B1FD52F430066DCF2 /* FBSDKCoreKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 75C1B4301FCDB06900496C7E /* FBSDKCoreKit.framework */; };
 		75FB1B9C1FD52F430066DCF2 /* FBSDKLoginKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 75C1B42F1FCDB06900496C7E /* FBSDKLoginKit.framework */; };
 		75FE3E4A1FD8296600399B9C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
-		75FE3E4B1FD8296600399B9C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
 		D70103571FD73B84002D0E6C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
 		D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2AE1FE2799E00F0DD87 /* ImageLoadService.swift */; };
@@ -79,6 +78,9 @@
 		D7AAF22C1FEA7E1D001E0C3B /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF22B1FEA7E1D001E0C3B /* ImageView.swift */; };
 		D7AAF22F1FEA8377001E0C3B /* Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF22E1FEA8377001E0C3B /* Tuple.swift */; };
 		D7AAF2311FEA861C001E0C3B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2301FEA861C001E0C3B /* Reusable.swift */; };
+		D7AAF2331FEA8A5C001E0C3B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2321FEA8A5C001E0C3B /* Result.swift */; };
+		D7AAF2351FEA8E58001E0C3B /* PrecedenceGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2341FEA8E58001E0C3B /* PrecedenceGroups.swift */; };
+		D7AAF2371FEA8E6B001E0C3B /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2361FEA8E6B001E0C3B /* Operators.swift */; };
 		D7C3E0101FD9B759006ACA47 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C3E00F1FD9B74F006ACA47 /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
@@ -163,6 +165,9 @@
 		D7AAF22B1FEA7E1D001E0C3B /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		D7AAF22E1FEA8377001E0C3B /* Tuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tuple.swift; sourceTree = "<group>"; };
 		D7AAF2301FEA861C001E0C3B /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		D7AAF2321FEA8A5C001E0C3B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		D7AAF2341FEA8E58001E0C3B /* PrecedenceGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecedenceGroups.swift; sourceTree = "<group>"; };
+		D7AAF2361FEA8E6B001E0C3B /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		D7C3E00F1FD9B74F006ACA47 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -348,7 +353,6 @@
 			isa = PBXGroup;
 			children = (
 				D70103541FD727CB002D0E6C /* Optional+Extensions.swift */,
-				D70103561FD73B84002D0E6C /* Functions.swift */,
 				D7AAF2291FEA7218001E0C3B /* NSLocking+Extensions.swift */,
 			);
 			path = Extensions;
@@ -377,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				D79BC2B81FE2845A00F0DD87 /* CancellableProperty.swift */,
+				D7AAF2321FEA8A5C001E0C3B /* Result.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -395,6 +400,9 @@
 			isa = PBXGroup;
 			children = (
 				D7AAF22E1FEA8377001E0C3B /* Tuple.swift */,
+				D7AAF2341FEA8E58001E0C3B /* PrecedenceGroups.swift */,
+				D70103561FD73B84002D0E6C /* Functions.swift */,
+				D7AAF2361FEA8E6B001E0C3B /* Operators.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -607,7 +615,6 @@
 			files = (
 				75E0B9D81FDABB8300F0325D /* ImageDownloadServiceImpl.swift in Sources */,
 				75FE3E4A1FD8296600399B9C /* Optional+Extensions.swift in Sources */,
-				75FE3E4B1FD8296600399B9C /* Functions.swift in Sources */,
 				752C52121FD6D6CC0077B370 /* LoginView.swift in Sources */,
 				752C52131FD6D6CC0077B370 /* FriendsInFaceBookTests.swift in Sources */,
 				75BEBB8F1FD5F11300ADE937 /* Constants.swift in Sources */,
@@ -640,6 +647,7 @@
 				D70103571FD73B84002D0E6C /* Functions.swift in Sources */,
 				D79BC2B61FE27F7500F0DD87 /* NetworkServiceImpl.swift in Sources */,
 				D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */,
+				D7AAF2371FEA8E6B001E0C3B /* Operators.swift in Sources */,
 				D7AAF2241FEA6C8D001E0C3B /* ImageModelImpl.swift in Sources */,
 				D7AAF2311FEA861C001E0C3B /* Reusable.swift in Sources */,
 				7540782C1FD1AF1900A6E01C /* FacebookSocialService.swift in Sources */,
@@ -647,6 +655,7 @@
 				752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */,
 				75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */,
 				D7AAF2221FEA6C67001E0C3B /* ImageModel.swift in Sources */,
+				D7AAF2331FEA8A5C001E0C3B /* Result.swift in Sources */,
 				D7AAF22A1FEA7218001E0C3B /* NSLocking+Extensions.swift in Sources */,
 				75449BFD1FD59ECE00CCDB9F /* SocialService.swift in Sources */,
 				7508DFD11FD4760C00A62241 /* ServiceForData.swift in Sources */,
@@ -655,6 +664,7 @@
 				7569165B1FD6A75800808890 /* LoginView.swift in Sources */,
 				75D292A91FD450D70032F9BD /* Constants.swift in Sources */,
 				D79BC2B11FE27A6900F0DD87 /* NetworkTask.swift in Sources */,
+				D7AAF2351FEA8E58001E0C3B /* PrecedenceGroups.swift in Sources */,
 				D79BC2B91FE2845A00F0DD87 /* CancellableProperty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

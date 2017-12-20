@@ -27,13 +27,8 @@ class ImageDownloadServiceImpl: ImageLoadService {
     // MARK: Open
     
     open func fetchImage(url: URL, completion: @escaping (UIImage?) -> ()) -> Cancellable {
-        // TODO: REFACTOR TO DOWNLAOD TASK
-        return self.networkService.data(at: url) { data, error in
-            if error != nil {
-                completion(nil)
-            } else {
-                completion(data.flatMap(UIImage.init(data:)))
-            }
+        return self.networkService.data(at: url) { result in
+            completion § result.map(UIImage.init).value.flatten()
         }
     }
 }

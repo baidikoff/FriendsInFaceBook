@@ -9,9 +9,10 @@
 import Foundation
 
 public enum NetworkServiceError: Error {
+    case unknown
     case failed
 }
 
 public protocol NetworkService {
-    func data(at url: URL, completion: @escaping (Data?, Error?) -> ()) -> NetworkTask
+    func data(at url: URL, completion: @escaping (Result<Data, NetworkServiceError>) -> ()) -> NetworkTask
 }

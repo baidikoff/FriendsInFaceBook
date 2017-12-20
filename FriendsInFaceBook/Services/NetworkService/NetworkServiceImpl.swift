@@ -25,13 +25,14 @@ public class NetworkServiceImpl: NetworkService {
     // MARK: -
     // MARK: Public
     
-    public func data(at url: URL, completion: @escaping (Data?, Error?) -> ()) -> NetworkTask {
+    public func data(at url: URL, completion: @escaping (Result<Data, NetworkServiceError>) -> ()) -> NetworkTask {
         let dataTask = self.session.dataTask(with: url) { data, response, error in
             DispatchQueue.global(qos: .background).async {
-                switch (data, error) {
-                case (nil, nil): completion(nil, NetworkServiceError.failed)
-                default: completion(data, error)
-                }
+                completion § Result(
+                    value: data,
+                    error: error.map(ignoreInput § returnValue § .failed),
+                    default: .unknown
+                )
             }
         }
         
