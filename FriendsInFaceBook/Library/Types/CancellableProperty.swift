@@ -9,6 +9,9 @@
 import Foundation
 
 public protocol Cancellable {
+
+    var isCancelled: Bool { get }
+    
     func cancel()
 }
 

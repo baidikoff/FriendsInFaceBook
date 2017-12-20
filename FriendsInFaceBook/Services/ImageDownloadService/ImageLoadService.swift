@@ -1,5 +1,5 @@
 //
-//  ImageDownloadService.swift
+//  ImageLoadService.swift
 //  FriendsInFaceBook
 //
 //  Created by Oleksa 'trimm' Korin on 12/14/17.
@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-public protocol ImageDownloadService {
-    func fetchImage(url: URL, completion: @escaping (UIImage?) -> ()) -> NetworkTask
+public protocol ImageLoadService {
+    func fetchImage(url: URL, completion: @escaping (UIImage?) -> ()) -> Cancellable
 }

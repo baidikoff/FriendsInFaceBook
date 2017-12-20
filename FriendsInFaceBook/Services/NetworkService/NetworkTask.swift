@@ -15,7 +15,7 @@ public class NetworkTask: Cancellable {
     
     public private(set) var isCancelled: Bool = false
     
-    private let urlSessionTask: URLSessionTask
+    private weak var urlSessionTask: URLSessionTask?
     
     // MARK: -
     // MARK: Init and Deinit
@@ -28,7 +28,7 @@ public class NetworkTask: Cancellable {
     // MARK: Public
     
     public func cancel() {
-        self.urlSessionTask.cancel()
+        self.urlSessionTask?.cancel()
         self.isCancelled = true
     }
 }

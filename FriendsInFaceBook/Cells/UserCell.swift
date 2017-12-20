@@ -61,6 +61,6 @@ class UserCell: UITableViewCell {
                         }
                     }
                 }
-        }
+            }
     }
 }
