@@ -76,6 +76,9 @@
 		D7AAF2241FEA6C8D001E0C3B /* ImageModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2231FEA6C8D001E0C3B /* ImageModelImpl.swift */; };
 		D7AAF2281FEA7070001E0C3B /* LoadedImageModelTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2271FEA7070001E0C3B /* LoadedImageModelTask.swift */; };
 		D7AAF22A1FEA7218001E0C3B /* NSLocking+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2291FEA7218001E0C3B /* NSLocking+Extensions.swift */; };
+		D7AAF22C1FEA7E1D001E0C3B /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF22B1FEA7E1D001E0C3B /* ImageView.swift */; };
+		D7AAF22F1FEA8377001E0C3B /* Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF22E1FEA8377001E0C3B /* Tuple.swift */; };
+		D7AAF2311FEA861C001E0C3B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2301FEA861C001E0C3B /* Reusable.swift */; };
 		D7C3E0101FD9B759006ACA47 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C3E00F1FD9B74F006ACA47 /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +160,9 @@
 		D7AAF2231FEA6C8D001E0C3B /* ImageModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModelImpl.swift; sourceTree = "<group>"; };
 		D7AAF2271FEA7070001E0C3B /* LoadedImageModelTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedImageModelTask.swift; sourceTree = "<group>"; };
 		D7AAF2291FEA7218001E0C3B /* NSLocking+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLocking+Extensions.swift"; sourceTree = "<group>"; };
+		D7AAF22B1FEA7E1D001E0C3B /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		D7AAF22E1FEA8377001E0C3B /* Tuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tuple.swift; sourceTree = "<group>"; };
+		D7AAF2301FEA861C001E0C3B /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		D7C3E00F1FD9B74F006ACA47 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				7569165A1FD6A75800808890 /* LoginView.swift */,
+				D7AAF22B1FEA7E1D001E0C3B /* ImageView.swift */,
+				D7AAF2301FEA861C001E0C3B /* Reusable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,6 +337,7 @@
 		D70103521FD727AB002D0E6C /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				D7AAF22D1FEA8369001E0C3B /* Functions */,
 				D79BC2B71FE2844700F0DD87 /* Types */,
 				D70103531FD727B8002D0E6C /* Extensions */,
 			);
@@ -380,6 +389,14 @@
 				D7AAF2271FEA7070001E0C3B /* LoadedImageModelTask.swift */,
 			);
 			path = ImageModel;
+			sourceTree = "<group>";
+		};
+		D7AAF22D1FEA8369001E0C3B /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				D7AAF22E1FEA8377001E0C3B /* Tuple.swift */,
+			);
+			path = Functions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -612,6 +629,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7AAF22C1FEA7E1D001E0C3B /* ImageView.swift in Sources */,
 				752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */,
 				D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */,
 				75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */,
@@ -623,6 +641,7 @@
 				D79BC2B61FE27F7500F0DD87 /* NetworkServiceImpl.swift in Sources */,
 				D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */,
 				D7AAF2241FEA6C8D001E0C3B /* ImageModelImpl.swift in Sources */,
+				D7AAF2311FEA861C001E0C3B /* Reusable.swift in Sources */,
 				7540782C1FD1AF1900A6E01C /* FacebookSocialService.swift in Sources */,
 				75D292A71FD426110032F9BD /* Friends.swift in Sources */,
 				752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */,
@@ -631,6 +650,7 @@
 				D7AAF22A1FEA7218001E0C3B /* NSLocking+Extensions.swift in Sources */,
 				75449BFD1FD59ECE00CCDB9F /* SocialService.swift in Sources */,
 				7508DFD11FD4760C00A62241 /* ServiceForData.swift in Sources */,
+				D7AAF22F1FEA8377001E0C3B /* Tuple.swift in Sources */,
 				75CFFC691FCC724300D99385 /* AppDelegate.swift in Sources */,
 				7569165B1FD6A75800808890 /* LoginView.swift in Sources */,
 				75D292A91FD450D70032F9BD /* Constants.swift in Sources */,

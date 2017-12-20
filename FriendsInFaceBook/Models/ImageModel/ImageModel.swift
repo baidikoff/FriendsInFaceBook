@@ -16,3 +16,7 @@ public protocol ImageModel {
     
     func load(completion: @escaping (UIImage?) -> ()) -> Cancellable
 }
+
+public func ==(lhs: ImageModel, rhs: ImageModel) -> Bool {
+    return lhs.url == rhs.url
+}
