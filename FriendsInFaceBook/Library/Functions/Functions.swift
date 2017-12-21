@@ -24,17 +24,17 @@ public func returnValue<Value>(_ value: Value) -> () -> Value {
     return { value }
 }
 
-public func curry<A, B, C>(_ @escaping f: (A, B) -> C) -> (A) -> (B) -> C {
+public func curry<A, B, C>(_ f: @escaping (A, B) -> C) -> (A) -> (B) -> C {
     return { a in
         { f(a, $0) }
     }
 }
 
-public func uncurry<A, B, C>(_ @escaping f: (A) -> (B) -> C) -> (A, B) -> C {
+public func uncurry<A, B, C>(_ f: @escaping (A) -> (B) -> C) -> (A, B) -> C {
     return { f($0)($1) }
 }
 
-public func flip<A, B, C>(_ @escaping f: (A) -> (B) -> C) -> (B) -> (A) -> C {
+public func flip<A, B, C>(_ f: @escaping (A) -> (B) -> C) -> (B) -> (A) -> C {
     return { b in
         { f($0)(b) }
     }
