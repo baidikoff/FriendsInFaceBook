@@ -14,7 +14,7 @@ class UserCell: UITableViewCell {
     // MARK: Properties
     
     @IBOutlet private(set) var nameLabel: UILabel?
-    @IBOutlet private(set) var photoImageView: UIImageView?
+    @IBOutlet private(set) var photoImageView: ImageView?
     
     var user: User? {
         didSet { self.fill(with: user) }
@@ -32,24 +32,19 @@ class UserCell: UITableViewCell {
         super.prepareForReuse()
         
         self.nameLabel?.text = nil
-        self.photoImageView?.image = nil
+        self.photoImageView?.prepareForReuse()
     }
     
     // MARK: -
     // MARK: Private
     
     private func fillPhoto(with user: User) {
-        let serviceForFetchingImage = ServiceForFetchingImage()
-        let urlString = user.image?.urlData?.url
-        urlString
+        let imageDownloadService = ImageDownloadServiceImpl(
+            networkService: NetworkServiceImpl(session: URLSession(configuration: .default))
+        )
+        
+        self.photoImageView?.model = (user.image?.urlData?.url)
             .flatMap(URL.init(string:))
-            .do{ url in
-                serviceForFetchingImage.fetchImage(url: url, complection: { [weak self] image in
-                    let user = self?.user
-                    if user?.id == self?.user?.id {
-                        self?.photoImageView?.image = image
-                    }
-                })
-        }
+            .map { ImageModelImpl.init(url: $0, imageLoadService: imageDownloadService) }
     }
 }

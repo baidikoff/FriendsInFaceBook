@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -85,13 +85,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ec2-SW-XyU">
-                                            <rect key="frame" x="16" y="9" width="70" height="70"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="70" id="QgM-Dz-rLy"/>
-                                                <constraint firstAttribute="width" constant="70" id="RrS-y3-MtE"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiJ-pl-aha">
                                             <rect key="frame" x="94" y="22" width="265" height="44"/>
                                             <constraints>
@@ -102,19 +95,27 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVs-WG-lag" userLabel="Photo Image View" customClass="ImageView" customModule="FriendsInFaceBook" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="9" width="70" height="70"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="NsY-qr-Pwx"/>
+                                                <constraint firstAttribute="width" constant="70" id="br0-0N-4Ub"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="ec2-SW-XyU" firstAttribute="leading" secondItem="cld-Fw-PxT" secondAttribute="leading" constant="16" id="Cwb-nH-McK"/>
-                                        <constraint firstItem="EiJ-pl-aha" firstAttribute="leading" secondItem="ec2-SW-XyU" secondAttribute="trailing" constant="8" id="EjR-j3-Q9G"/>
-                                        <constraint firstAttribute="bottom" secondItem="ec2-SW-XyU" secondAttribute="bottom" constant="10.5" id="ewu-wt-YNz"/>
-                                        <constraint firstItem="ec2-SW-XyU" firstAttribute="top" secondItem="cld-Fw-PxT" secondAttribute="top" constant="9" id="g5e-vr-CiJ"/>
+                                        <constraint firstItem="RVs-WG-lag" firstAttribute="top" secondItem="cld-Fw-PxT" secondAttribute="top" constant="9" id="7EC-3e-j1L"/>
+                                        <constraint firstItem="EiJ-pl-aha" firstAttribute="leading" secondItem="RVs-WG-lag" secondAttribute="trailing" constant="8" id="FmA-2C-Px9"/>
+                                        <constraint firstAttribute="bottom" secondItem="RVs-WG-lag" secondAttribute="bottom" constant="10" id="deC-gE-jYV"/>
                                         <constraint firstAttribute="bottom" secondItem="EiJ-pl-aha" secondAttribute="bottom" constant="23.5" id="gNy-Wm-402"/>
+                                        <constraint firstItem="RVs-WG-lag" firstAttribute="leading" secondItem="cld-Fw-PxT" secondAttribute="leading" constant="16" id="n4o-pu-6zK"/>
                                         <constraint firstItem="EiJ-pl-aha" firstAttribute="top" secondItem="cld-Fw-PxT" secondAttribute="top" constant="22" id="oM9-Zc-Tds"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="EiJ-pl-aha" id="eag-Kk-8jY"/>
-                                    <outlet property="photoImageView" destination="ec2-SW-XyU" id="bTz-hu-rdk"/>
+                                    <outlet property="photoImageView" destination="RVs-WG-lag" id="brJ-nY-Gau"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
