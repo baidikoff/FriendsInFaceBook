@@ -5,3 +5,5 @@ DerivedData/
 **/*.xcuserstate
 **/xcuserdata/
 UserInterfaceState.xcuserstate
+Pods/
+CocoaPods
