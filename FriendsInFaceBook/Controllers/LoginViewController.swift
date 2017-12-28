@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
         }
     }
     @objc func loginButtonPressed(){
-        FacebookSocialService.shared.loginUser(complection:{
+        FacebookSocialService.shared.loginUser(completion:{
             print(Constants.successLogin)
         })
     }

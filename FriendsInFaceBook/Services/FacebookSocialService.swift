@@ -45,12 +45,12 @@ class FacebookSocialService: SocialService{
         loginManager.logOut()
     }
     
-    open func loginUser(complection: @escaping () -> ()){
+    open func loginUser(completion: @escaping () -> ()){
         let loginManager = FBSDKLoginManager()
         loginManager.loginBehavior = FBSDKLoginBehavior.systemAccount
         loginManager.logIn(withReadPermissions: [Constants.publicProfile, Constants.email, Constants.userFriends], handler: { result, error in
             error.do({print("Error: ", $0)})
-            result.do{_ in complection()}
+            result.do{_ in completion()}
         })
     }    
 }
