@@ -43,26 +43,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "75F74A2B1FD18E95008B0726"
-               BuildableName = "FacebookApiTests.xctest"
-               BlueprintName = "FacebookApiTests"
-               ReferencedContainer = "container:FriendsInFaceBook.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7508DFE51FD48B4300A62241"
-               BuildableName = "LoginViewController.xctest"
-               BlueprintName = "LoginViewController"
-               ReferencedContainer = "container:FriendsInFaceBook.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "75CF4AAC1FD49DF4009AE207"
                BuildableName = "FriendsInFaceBookUITests.xctest"
                BlueprintName = "FriendsInFaceBookUITests"
