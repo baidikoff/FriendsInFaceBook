@@ -46,8 +46,8 @@ class ResultSpec: QuickSpec {
                 }
                 
                 it("should contain value, when .success") {
-                    expect(valueResult.value).to(beNil())
-                    expect(valueResult.error).to(equal(error))
+                    expect(errorResult.value).to(beNil())
+                    expect(errorResult.error).to(equal(error))
                 }
             }
             
