@@ -25,7 +25,18 @@ public enum Result<Value, Error: Swift.Error> {
     
     case success(Value)
     case failure(Error)
-
+    
+    // MARK: -
+    // MARK: Static
+    
+    private static func materialize(value: Value?, error: Error?, `default`: Error) -> Result {
+        switch (value, error) {
+        case let (_, error?): return .failure(error)
+        case let (value?, nil): return .success(value)
+        default: return .failure(`default`)
+        }
+    }
+    
     // MARK: -
     // MARK: Properties
     
@@ -41,15 +52,7 @@ public enum Result<Value, Error: Swift.Error> {
     // MARK: Init and Deinit
     
     public init(value: Value?, error: Error?, `default`: Error) {
-        if let error = error {
-            self = .failure(error)
-        }
-        
-        if let value = value {
-            self = .success(value)
-        }
-        
-        self = .failure(`default`)
+        self = .materialize(value: value, error: error, default: `default`)
     }
     
     // MARK: -
@@ -97,3 +100,4 @@ public enum Result<Value, Error: Swift.Error> {
         return f(identity, ignoreInput § returnValue § nil)
     }
 }
+

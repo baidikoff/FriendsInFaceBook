@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7508DFD11FD4760C00A62241 /* ServiceForData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508DFD01FD4760C00A62241 /* ServiceForData.swift */; };
-		752C52121FD6D6CC0077B370 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7569165A1FD6A75800808890 /* LoginView.swift */; };
-		752C52131FD6D6CC0077B370 /* FriendsInFaceBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC801FCC724300D99385 /* FriendsInFaceBookTests.swift */; };
 		752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
 		752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
 		752FFAB31FCDEDB000ACA938 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
@@ -17,29 +15,15 @@
 		75449BFD1FD59ECE00CCDB9F /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFC1FD59ECE00CCDB9F /* SocialService.swift */; };
 		75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */; };
 		7569165B1FD6A75800808890 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7569165A1FD6A75800808890 /* LoginView.swift */; };
-		75BEBB8B1FD5F0D200ADE937 /* ServiceForData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508DFD01FD4760C00A62241 /* ServiceForData.swift */; };
-		75BEBB8C1FD5F0D200ADE937 /* FacebookSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540782B1FD1AF1900A6E01C /* FacebookSocialService.swift */; };
-		75BEBB8D1FD5F0D200ADE937 /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFC1FD59ECE00CCDB9F /* SocialService.swift */; };
-		75BEBB8E1FD5F0D200ADE937 /* MockSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */; };
-		75BEBB8F1FD5F11300ADE937 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A81FD450D70032F9BD /* Constants.swift */; };
 		75CF4AB01FD49DF4009AE207 /* FriendsInFaceBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF4AAF1FD49DF4009AE207 /* FriendsInFaceBookUITests.swift */; };
 		75CFFC691FCC724300D99385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC681FCC724300D99385 /* AppDelegate.swift */; };
 		75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC6A1FCC724300D99385 /* LoginViewController.swift */; };
 		75CFFC6E1FCC724300D99385 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75CFFC6C1FCC724300D99385 /* Main.storyboard */; };
 		75CFFC731FCC724300D99385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75CFFC721FCC724300D99385 /* Assets.xcassets */; };
 		75CFFC761FCC724300D99385 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75CFFC741FCC724300D99385 /* LaunchScreen.storyboard */; };
-		75CFFC811FCC724300D99385 /* FriendsInFaceBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC801FCC724300D99385 /* FriendsInFaceBookTests.swift */; };
 		75D292A71FD426110032F9BD /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A61FD426110032F9BD /* Friends.swift */; };
 		75D292A91FD450D70032F9BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A81FD450D70032F9BD /* Constants.swift */; };
 		75E0B9D71FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */; };
-		75E0B9D81FDABB8300F0325D /* ImageDownloadServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */; };
-		75FB1B891FD52C960066DCF2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC6A1FCC724300D99385 /* LoginViewController.swift */; };
-		75FB1B8A1FD52C960066DCF2 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
-		75FB1B8B1FD52C960066DCF2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
-		75FB1B8C1FD52C960066DCF2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
-		75FB1B8D1FD52C960066DCF2 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A61FD426110032F9BD /* Friends.swift */; };
-		75FB1B8F1FD52C960066DCF2 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC771FCC724300D99385 /* Info.plist */; };
-		75FE3E4A1FD8296600399B9C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
 		7D281C86EEE5A0432A298403 /* Pods_FriendsInFaceBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520800E0F00C2FE3E55D560 /* Pods_FriendsInFaceBookTests.framework */; };
 		83FAC2863E3FD9DDE925196D /* Pods_FriendsInFaceBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C3C3507D297C3CABC1DB67 /* Pods_FriendsInFaceBookUITests.framework */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
@@ -59,6 +43,9 @@
 		D7AAF2331FEA8A5C001E0C3B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2321FEA8A5C001E0C3B /* Result.swift */; };
 		D7AAF2351FEA8E58001E0C3B /* PrecedenceGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2341FEA8E58001E0C3B /* PrecedenceGroups.swift */; };
 		D7AAF2371FEA8E6B001E0C3B /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF2361FEA8E6B001E0C3B /* Operators.swift */; };
+		D7B5231F1FF6B6DB004FBB32 /* ResultSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B5231E1FF6B6DB004FBB32 /* ResultSpec.swift */; };
+		D7B523221FF6BBB3004FBB32 /* ResultMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B523211FF6BBB3004FBB32 /* ResultMatchers.swift */; };
+		D7F56A261FF6B2470027A00F /* FriendsInFaceBookSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F56A251FF6B2470027A00F /* FriendsInFaceBookSpec.swift */; };
 		FF3B115B9D8171B438E94C2A /* Pods_FriendsInFaceBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2544222C62DD6238AFC97BCF /* Pods_FriendsInFaceBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,7 +103,6 @@
 		75CFFC751FCC724300D99385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75CFFC771FCC724300D99385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75CFFC7C1FCC724300D99385 /* FriendsInFaceBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendsInFaceBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		75CFFC801FCC724300D99385 /* FriendsInFaceBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsInFaceBookTests.swift; sourceTree = "<group>"; };
 		75CFFC821FCC724300D99385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75D292A61FD426110032F9BD /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		75D292A81FD450D70032F9BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -143,6 +129,9 @@
 		D7AAF2321FEA8A5C001E0C3B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		D7AAF2341FEA8E58001E0C3B /* PrecedenceGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecedenceGroups.swift; sourceTree = "<group>"; };
 		D7AAF2361FEA8E6B001E0C3B /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		D7B5231E1FF6B6DB004FBB32 /* ResultSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSpec.swift; sourceTree = "<group>"; };
+		D7B523211FF6BBB3004FBB32 /* ResultMatchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMatchers.swift; sourceTree = "<group>"; };
+		D7F56A251FF6B2470027A00F /* FriendsInFaceBookSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsInFaceBookSpec.swift; sourceTree = "<group>"; };
 		E5FE25772037D324AAA5D0AF /* Pods-FriendsInFaceBook.tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBook.tests.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBook/Pods-FriendsInFaceBook.tests.xcconfig"; sourceTree = "<group>"; };
 		EBEB17416ADCEBEEA8B08001 /* Pods-FriendsInFaceBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBook/Pods-FriendsInFaceBook.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C3C3507D297C3CABC1DB67 /* Pods_FriendsInFaceBookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendsInFaceBookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,7 +276,8 @@
 		75CFFC7F1FCC724300D99385 /* FriendsInFaceBookTests */ = {
 			isa = PBXGroup;
 			children = (
-				75CFFC801FCC724300D99385 /* FriendsInFaceBookTests.swift */,
+				D7B523201FF6BBA1004FBB32 /* Matchers */,
+				D7F56A241FF6B1FE0027A00F /* Specs */,
 				75CFFC821FCC724300D99385 /* Info.plist */,
 			);
 			path = FriendsInFaceBookTests;
@@ -387,6 +377,39 @@
 			path = Functions;
 			sourceTree = "<group>";
 		};
+		D7B523201FF6BBA1004FBB32 /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				D7B523211FF6BBB3004FBB32 /* ResultMatchers.swift */,
+			);
+			path = Matchers;
+			sourceTree = "<group>";
+		};
+		D7C9DAB51FF6B67A000B5E80 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D7C9DAB61FF6B683000B5E80 /* Types */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		D7C9DAB61FF6B683000B5E80 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				D7B5231E1FF6B6DB004FBB32 /* ResultSpec.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		D7F56A241FF6B1FE0027A00F /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				D7C9DAB51FF6B67A000B5E80 /* Library */,
+				D7F56A251FF6B2470027A00F /* FriendsInFaceBookSpec.swift */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -474,6 +497,7 @@
 					};
 					75CFFC7B1FCC724300D99385 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 75CFFC641FCC724300D99385;
 					};
@@ -556,6 +580,8 @@
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -566,6 +592,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -682,6 +710,8 @@
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -692,6 +722,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -723,21 +755,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75E0B9D81FDABB8300F0325D /* ImageDownloadServiceImpl.swift in Sources */,
-				75FE3E4A1FD8296600399B9C /* Optional+Extensions.swift in Sources */,
-				752C52121FD6D6CC0077B370 /* LoginView.swift in Sources */,
-				752C52131FD6D6CC0077B370 /* FriendsInFaceBookTests.swift in Sources */,
-				75BEBB8F1FD5F11300ADE937 /* Constants.swift in Sources */,
-				75BEBB8B1FD5F0D200ADE937 /* ServiceForData.swift in Sources */,
-				75BEBB8C1FD5F0D200ADE937 /* FacebookSocialService.swift in Sources */,
-				75BEBB8D1FD5F0D200ADE937 /* SocialService.swift in Sources */,
-				75BEBB8E1FD5F0D200ADE937 /* MockSocialService.swift in Sources */,
-				75FB1B891FD52C960066DCF2 /* LoginViewController.swift in Sources */,
-				75FB1B8A1FD52C960066DCF2 /* ListOfFriendsTableViewController.swift in Sources */,
-				75FB1B8B1FD52C960066DCF2 /* UserCell.swift in Sources */,
-				75FB1B8C1FD52C960066DCF2 /* User.swift in Sources */,
-				75FB1B8D1FD52C960066DCF2 /* Friends.swift in Sources */,
-				75FB1B8F1FD52C960066DCF2 /* Info.plist in Sources */,
 				75CF4AB01FD49DF4009AE207 /* FriendsInFaceBookUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,7 +800,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75CFFC811FCC724300D99385 /* FriendsInFaceBookTests.swift in Sources */,
+				D7B523221FF6BBB3004FBB32 /* ResultMatchers.swift in Sources */,
+				D7F56A261FF6B2470027A00F /* FriendsInFaceBookSpec.swift in Sources */,
+				D7B5231F1FF6B6DB004FBB32 /* ResultSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,6 +930,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -920,6 +940,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.FriendsInFaceBookTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FriendsInFaceBook.app/FriendsInFaceBook";
@@ -1161,6 +1182,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1170,6 +1192,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.FriendsInFaceBookTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FriendsInFaceBook.app/FriendsInFaceBook";
@@ -1182,6 +1205,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
