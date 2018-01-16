@@ -17,7 +17,7 @@ class OptionalSpec: QuickSpec {
             it("result value should be type Int?") {
                 let value: Int?? = 1
                 let resultValue = value.flatten()
-                expect(Optional(1)).to(equal(result))
+                expect(Optional(1)).to(equal(resultValue))
             }
         }
         

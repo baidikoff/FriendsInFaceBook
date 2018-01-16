@@ -24,37 +24,30 @@ class FunctionsSpec: QuickSpec {
         describe("cast") {
             it("it should be equal value with type as? Int") {
                 let value: Any? = 1
-                let result: Int? = value.flatMap(cast)
-                expect(value as? Int).to(equal(result))
+                let resultValue: Int? = value.flatMap(cast)
+                expect(value as? Int).to(equal(resultValue))
             }
         }
         describe("ignoreInput") {
             it("it should be true when input is ignored") {
                 let function: (Int) -> Bool = ignoreInput { true }
-                let result = function(value)
-                expect(result).to(beTrue())
+                let resultValue = function(value)
+                expect(resultValue).to(beTrue())
             }
         }
         describe("returnValue") {
             it("function should return value is equal to set value") {
                 let function: () -> Int =  returnValue(value)
-                let result = function()
-                expect(result).to(equal(value))
+                let resultValue = function()
+                expect(value).to(equal(resultValue))
             }
         }
-        //        describe("curry") {
-        //            it("") {
-        //                let function: (Bool, Int) -> Int  = self.fun1
-        //                let resultFunction: (Bool) -> (Int) -> Int
-        //                let funcj = curry(function)
-        //                expect(resultFunction as (Bool) -> (Int) -> Int).to(equal(funcj as (Bool) -> (Int) -> Int))
-        //            }
-        //        }
+        
         describe("call") {
             it("returning value should be equal to set value") {
                 let function: () -> Int =  {return value}
-                let result = call(function)
-                expect(value).to(equal(result))
+                let resultValue = call(function)
+                expect(value).to(equal(resultValue))
             }
         }
         
@@ -62,11 +55,49 @@ class FunctionsSpec: QuickSpec {
             it("result value should be equal 2 after function scope is called") {
                 var value = 1
                 scope{value += 1}
-                let result = value
-                expect(value).to(equal(result))
+                let resultValue = value
+                expect(value).to(equal(resultValue))
+            }
+        }
+        
+        describe("curry") {
+            it("result value should be equal 3 when using function curring") {
+                let function: (Double, Double) -> Double = self.divideNumber
+                let curryFunction = curry § function
+                let resultFunction = curryFunction(9)
+                let resultValue = resultFunction(3)
+               expect(3).to(equal(resultValue))
+            }
+        }
+        
+        describe("uncurry") {
+            it("result value should be equal 3 when using function curring") {
+                let function: (String) -> (Double) -> Double = self.func3
+                let uncurryFunction = uncurry § function
+                let resultValue = uncurryFunction("function uncarry is worked", 2)
+                expect(6).to(equal(resultValue))
+            }
+        }
+        
+        describe("flip") {
+            it("result value should be equal 3 when using function flip") {
+                let tuple: (Double, Double) = (3, 9)
+                let flipedFunction = flip § self.divideNumber
+                let resultValue = flipedFunction(tuple.0, tuple.1)
+                expect(3).to(equal(resultValue))
             }
         }
     }
-    
+    func divideNumber(a: Double,  b: Double) -> Double {
+        let result = a / b
+        return result
+    }
+    func func3( _ message: String) -> (Double) -> Double {
+        print(message)
+        return doubleNumber
+    }
+    func doubleNumber(_ b: Double) -> Double{
+        return b * 3
+    }
 }
 
