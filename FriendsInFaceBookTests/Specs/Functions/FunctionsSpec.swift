@@ -14,6 +14,7 @@ import Nimble
 class FunctionsSpec: QuickSpec {
     override func spec() {
         let value = 1
+        let checkingValue: Double = 3
         
         describe("identity") {
             it("it should be equal to value") {
@@ -53,7 +54,7 @@ class FunctionsSpec: QuickSpec {
         
         describe("scope") {
             it("result value should be equal 2 after function scope is called") {
-                var value = 1
+                var value = 2
                 scope{value += 1}
                 let resultValue = value
                 expect(value).to(equal(resultValue))
@@ -61,21 +62,21 @@ class FunctionsSpec: QuickSpec {
         }
         
         describe("curry") {
-            it("result value should be equal 3 when using function curring") {
+            it("result value should be equal 3 when using function curry") {
                 let function: (Double, Double) -> Double = self.divideNumber
                 let curryFunction = curry § function
                 let resultFunction = curryFunction(9)
                 let resultValue = resultFunction(3)
-               expect(3).to(equal(resultValue))
+               expect(checkingValue).to(equal(resultValue))
             }
         }
         
         describe("uncurry") {
-            it("result value should be equal 3 when using function curring") {
+            it("result value should be equal 6 when using function uncurry") {
                 let function: (String) -> (Double) -> Double = self.func3
                 let uncurryFunction = uncurry § function
-                let resultValue = uncurryFunction("function uncarry is worked", 2)
-                expect(6).to(equal(resultValue))
+                let resultValue = uncurryFunction("function uncarry is worked", 1)
+                expect(checkingValue).to(equal(resultValue))
             }
         }
         
@@ -84,7 +85,7 @@ class FunctionsSpec: QuickSpec {
                 let tuple: (Double, Double) = (3, 9)
                 let flipedFunction = flip § self.divideNumber
                 let resultValue = flipedFunction(tuple.0, tuple.1)
-                expect(3).to(equal(resultValue))
+                expect(checkingValue).to(equal(resultValue))
             }
         }
     }

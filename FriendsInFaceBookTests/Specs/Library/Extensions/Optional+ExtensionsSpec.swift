@@ -13,6 +13,7 @@ import Nimble
 
 class OptionalSpec: QuickSpec {
     override func spec() {
+        let checkingValue = 3
         describe("flatten") {
             it("result value should be type Int?") {
                 let value: Int?? = 1
@@ -26,25 +27,16 @@ class OptionalSpec: QuickSpec {
                 let value: Int? = 1
                 var resultValue = 2
                 value.do{value in resultValue += value}
-                expect(3).to(equal(resultValue))
+                expect(checkingValue).to(equal(resultValue))
+            }
+        }
+        
+        describe("apply") {
+            it("result value should be equal 3") {
+                let value: Int? = 1
+                let resultValue = value.apply { value in return value + 2}
+                expect(checkingValue).to(equal(resultValue))
             }
         }
     }
 }
-
-//public func apply<Result>(_ transform: ((Wrapped) -> Result)?) -> Result? {
-//    return self.flatMap { value in
-//        transform.map { $0(value) }
-//    }
-//}
-//
-//public func apply<Value, Result>(_ value: Value?) -> Result?
-//    where Wrapped == (Value) -> Result
-//{
-//    // ERROR: swiftc 4.0 too stupid, check back later
-//    // return value.apply(self)
-//    return self.flatMap { value.map($0) }
-//}
-//
-
-
