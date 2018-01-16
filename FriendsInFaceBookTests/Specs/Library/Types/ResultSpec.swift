@@ -69,6 +69,23 @@ class ResultSpec: QuickSpec {
                     expect(factory(nil,  nil)).to(beFailure(error: defaultError))
                 }
             }
+            
+            describe("map"){
+                let valueMap: Result = valueResult.map{$0 + 1}
+                let valueMapResult: Result = lift(2)
+                it("value should be equal Optional(2) and error is equal nil"){
+                    expect(valueMapResult.value).to(equal(valueMap.value))
+                    expect(valueMapResult.error).to(beNil())
+                }
+            }
+            
+            describe("mapError"){
+                let errorMap: Result = errorResult.mapError{_ in return defaultError}
+                it("error should be default error and value is equal nil"){
+                    expect(defaultError).to(equal(errorMap.error))
+                    expect(errorResult.value).to(beNil())
+                }
+            }
         }
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75060D70200D408F002ACA89 /* FunctionsSpec.swift */; };
+		75060D73200D42E4002ACA89 /* TupleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75060D72200D42E4002ACA89 /* TupleSpec.swift */; };
 		7508DFD11FD4760C00A62241 /* ServiceForData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508DFD01FD4760C00A62241 /* ServiceForData.swift */; };
 		752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
 		752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
@@ -15,6 +17,8 @@
 		75449BFD1FD59ECE00CCDB9F /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFC1FD59ECE00CCDB9F /* SocialService.swift */; };
 		75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */; };
 		7569165B1FD6A75800808890 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7569165A1FD6A75800808890 /* LoginView.swift */; };
+		75AD49C0200D4C9E009269FD /* TupleMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AD49BF200D4C9E009269FD /* TupleMatchers.swift */; };
+		75AD49C2200D639F009269FD /* CancellablePropertySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AD49C1200D639F009269FD /* CancellablePropertySpec.swift */; };
 		75CF4AB01FD49DF4009AE207 /* FriendsInFaceBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF4AAF1FD49DF4009AE207 /* FriendsInFaceBookUITests.swift */; };
 		75CFFC691FCC724300D99385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC681FCC724300D99385 /* AppDelegate.swift */; };
 		75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CFFC6A1FCC724300D99385 /* LoginViewController.swift */; };
@@ -84,6 +88,8 @@
 		2544222C62DD6238AFC97BCF /* Pods_FriendsInFaceBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendsInFaceBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36A7356983059FF22E368860 /* Pods-FriendsInFaceBookUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBookUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBookUITests/Pods-FriendsInFaceBookUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7252D9723766B1FA3CF9A971 /* Pods-FriendsInFaceBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBookTests/Pods-FriendsInFaceBookTests.release.xcconfig"; sourceTree = "<group>"; };
+		75060D70200D408F002ACA89 /* FunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsSpec.swift; sourceTree = "<group>"; };
+		75060D72200D42E4002ACA89 /* TupleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleSpec.swift; sourceTree = "<group>"; };
 		7508DFD01FD4760C00A62241 /* ServiceForData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceForData.swift; sourceTree = "<group>"; };
 		752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFriendsTableViewController.swift; sourceTree = "<group>"; };
 		752FFAB01FCDE98C00ACA938 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -92,6 +98,8 @@
 		75449BFC1FD59ECE00CCDB9F /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
 		75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSocialService.swift; sourceTree = "<group>"; };
 		7569165A1FD6A75800808890 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		75AD49BF200D4C9E009269FD /* TupleMatchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleMatchers.swift; sourceTree = "<group>"; };
+		75AD49C1200D639F009269FD /* CancellablePropertySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellablePropertySpec.swift; sourceTree = "<group>"; };
 		75CF4AAD1FD49DF4009AE207 /* FriendsInFaceBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendsInFaceBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75CF4AAF1FD49DF4009AE207 /* FriendsInFaceBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsInFaceBookUITests.swift; sourceTree = "<group>"; };
 		75CF4AB11FD49DF4009AE207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,6 +173,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75060D6F200D4071002ACA89 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				75060D70200D408F002ACA89 /* FunctionsSpec.swift */,
+				75060D72200D42E4002ACA89 /* TupleSpec.swift */,
+			);
+			name = Functions;
+			path = ../Functions;
+			sourceTree = "<group>";
+		};
 		7577A2671FD5E2020082F9A8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				D7B523211FF6BBB3004FBB32 /* ResultMatchers.swift */,
+				75AD49BF200D4C9E009269FD /* TupleMatchers.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -388,6 +407,7 @@
 		D7C9DAB51FF6B67A000B5E80 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				75060D6F200D4071002ACA89 /* Functions */,
 				D7C9DAB61FF6B683000B5E80 /* Types */,
 			);
 			path = Library;
@@ -397,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				D7B5231E1FF6B6DB004FBB32 /* ResultSpec.swift */,
+				75AD49C1200D639F009269FD /* CancellablePropertySpec.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -800,9 +821,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75AD49C2200D639F009269FD /* CancellablePropertySpec.swift in Sources */,
 				D7B523221FF6BBB3004FBB32 /* ResultMatchers.swift in Sources */,
 				D7F56A261FF6B2470027A00F /* FriendsInFaceBookSpec.swift in Sources */,
+				75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */,
 				D7B5231F1FF6B6DB004FBB32 /* ResultSpec.swift in Sources */,
+				75060D73200D42E4002ACA89 /* TupleSpec.swift in Sources */,
+				75AD49C0200D4C9E009269FD /* TupleMatchers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
