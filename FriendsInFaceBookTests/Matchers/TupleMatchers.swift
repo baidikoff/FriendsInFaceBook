@@ -12,7 +12,3 @@ import Nimble
 @testable import FriendsInFaceBook
 
 
-//public func beTrue(  value: (Int, Int)?, comparedValue: (Int, Int)?) -> Predicate<Bool> {
-//    return (equal(value == comparedValue))
-//}
-
