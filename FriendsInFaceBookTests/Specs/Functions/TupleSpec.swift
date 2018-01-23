@@ -16,9 +16,9 @@ class TupleSpec: QuickSpec {
         let tuple: (Int?, Int?) = (1, 2)
         let resultTuple: (Int, Int) = (1, 2)
         describe("lift") {
-            it("") {
+            it("should lift") {
                 let optionalTuple = lift(tuple)
-              // ?? tuples are not compared
+                expect(optionalTuple).to(equal(resultTuple))
             }
         }
     }
