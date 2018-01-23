@@ -48,7 +48,6 @@ public class MessageCaller: Cancellable {
     // MARK: Public
     
     public func cancel() {
-        print(self.message)
         self.isCancelled = true
     }
 }
