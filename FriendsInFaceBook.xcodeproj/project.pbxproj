@@ -33,6 +33,7 @@
 		83FAC2863E3FD9DDE925196D /* Pods_FriendsInFaceBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C3C3507D297C3CABC1DB67 /* Pods_FriendsInFaceBookUITests.framework */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
 		D70103571FD73B84002D0E6C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
+		D72C886D20175313001F85D7 /* CallSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72C886C20175313001F85D7 /* CallSpy.swift */; };
 		D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2AE1FE2799E00F0DD87 /* ImageLoadService.swift */; };
 		D79BC2B11FE27A6900F0DD87 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */; };
 		D79BC2B41FE27E5A00F0DD87 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */; };
@@ -124,6 +125,7 @@
 		B830D96C057C55D043C281A4 /* Pods-FriendsInFaceBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBook/Pods-FriendsInFaceBook.release.xcconfig"; sourceTree = "<group>"; };
 		D70103541FD727CB002D0E6C /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		D70103561FD73B84002D0E6C /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		D72C886C20175313001F85D7 /* CallSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSpy.swift; sourceTree = "<group>"; };
 		D79BC2AE1FE2799E00F0DD87 /* ImageLoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadService.swift; sourceTree = "<group>"; };
 		D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		75CFFC7F1FCC724300D99385 /* FriendsInFaceBookTests */ = {
 			isa = PBXGroup;
 			children = (
+				D72C886B201752FE001F85D7 /* Spies */,
 				D7B523201FF6BBA1004FBB32 /* Matchers */,
 				D7F56A241FF6B1FE0027A00F /* Specs */,
 				75CFFC821FCC724300D99385 /* Info.plist */,
@@ -354,6 +357,14 @@
 				D7AAF2291FEA7218001E0C3B /* NSLocking+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D72C886B201752FE001F85D7 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				D72C886C20175313001F85D7 /* CallSpy.swift */,
+			);
+			path = Spies;
 			sourceTree = "<group>";
 		};
 		D79BC2AD1FE2777300F0DD87 /* ImageDownloadService */ = {
@@ -839,6 +850,7 @@
 				75AD49C6200E14FA009269FD /* Optional+ExtensionsSpec.swift in Sources */,
 				D7B5231F1FF6B6DB004FBB32 /* ResultSpec.swift in Sources */,
 				75060D73200D42E4002ACA89 /* TupleSpec.swift in Sources */,
+				D72C886D20175313001F85D7 /* CallSpy.swift in Sources */,
 				75AD49C0200D4C9E009269FD /* TupleMatchers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
