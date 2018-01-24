@@ -79,48 +79,38 @@ class ResultSpec: QuickSpec {
                     expect(factory(nil,  nil)).to(beFailure(error: defaultError))
                 }
             }
-//            func it shouldTransform<NewValue>(){
-//                
-//            }
+            func itShouldTransform<NewValue: Equatable, NewError: Equatable>
+                (
+                expected: (value: NewValue, error: NewError),
+                transform: @escaping (SpecResult)-> Result<NewValue, NewError>
+                )
+            {
+                it("should map value"){
+                    let result: Result = transform(valueResult)
+                    expect(result).to(beSuccess(value: expected.value))
+                }
+                
+                it("should map type"){
+                    let result: Result = transform(errorResult)
+                    expect(result).to(beFailure(error: expected.error))
+                }
+            }
             describe("map"){
                 let specError = WrapperError.fail(error)
                 typealias TransformedResult = Result<String, Error>
                 let transform: (SpecResult) -> TransformedResult = { $0.map { "\($0)" } }
-                context("map"){
-                    it("should map value"){
-                        let result: Result = transform(valueResult)
-                        expect(result).to(beSuccess(value: "\(value)"))
-                    }
-                    
-                    it("should map type"){
-                        let result: Result = transform(errorResult)
-                        expect(result).to(beFailure(error: error))
-                    }
+                let transformError: (SpecResult) -> Result<Int, WrapperError> = { $0.mapError {.fail($0)} }
+                context("map") {
+                     itShouldTransform(expected: (value: "\(value)", error: error), transform: transform)
                 }
                 
-                context("bimap"){
-                    it("should map value"){
-                        let result: Result<String, WrapperError> = valueResult.bimap(success: { "\($0)" }, failure: { .fail($0) })
-                        expect(result).to(beSuccess(value: "\(value)"))
-                    }
-                    it("should map error"){
-                        let result: Result<String, WrapperError> = errorResult.bimap(success: { "\($0)" }, failure: { .fail($0) })
-                         expect(result).to(beFailure(error: specError))
-                    }
+                context("bimap") {
+                    let transformValueError:(SpecResult) -> Result<String, WrapperError> = { $0.bimap(success: { "\($0)" }, failure: { .fail($0) }) }
+                     itShouldTransform(expected: (value: "\(value)", error: specError), transform: transformValueError)
                 }
                 
-                context("mapError"){
-
-                    it("should map error"){
-                        let result: Result<Int, WrapperError> = errorResult.mapError { .fail($0) }
-                        expect(result).to(beFailure(error: specError))
-
-                    }
-
-                    it("should map error type"){
-                        let result: Result<Int, WrapperError> = valueResult.mapError() { .fail($0) }
-                        expect(result).to(beSuccess(value: value))
-                    }
+                context("mapError") {
+                    itShouldTransform(expected: (value: value, error: specError), transform: transformError)
                 }
             }
         }
