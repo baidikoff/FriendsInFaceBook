@@ -79,10 +79,10 @@ class ResultSpec: QuickSpec {
                     expect(factory(nil,  nil)).to(beFailure(error: defaultError))
                 }
             }
-            func itShouldTransform<NewValue: Equatable, NewError: Equatable>
+            func itShouldMapTransform<NewValue: Equatable, NewError: Equatable>
                 (
                 expected: (value: NewValue, error: NewError),
-                transform: @escaping (SpecResult)-> Result<NewValue, NewError>
+                transform: @escaping (SpecResult) -> Result<NewValue, NewError>
                 )
             {
                 it("should map value"){
@@ -101,16 +101,59 @@ class ResultSpec: QuickSpec {
                 let transform: (SpecResult) -> TransformedResult = { $0.map { "\($0)" } }
                 let transformError: (SpecResult) -> Result<Int, WrapperError> = { $0.mapError {.fail($0)} }
                 context("map") {
-                     itShouldTransform(expected: (value: "\(value)", error: error), transform: transform)
+                     itShouldMapTransform(expected: (value: "\(value)", error: error), transform: transform)
                 }
                 
                 context("bimap") {
                     let transformValueError:(SpecResult) -> Result<String, WrapperError> = { $0.bimap(success: { "\($0)" }, failure: { .fail($0) }) }
-                     itShouldTransform(expected: (value: "\(value)", error: specError), transform: transformValueError)
+                     itShouldMapTransform(expected: (value: "\(value)", error: specError), transform: transformValueError)
                 }
                 
                 context("mapError") {
-                    itShouldTransform(expected: (value: value, error: specError), transform: transformError)
+                    itShouldMapTransform(expected: (value: value, error: specError), transform: transformError)
+                }
+            }
+            func itShouldFlatmapTransform
+                (
+                expected: (value: Int, error: Error),
+                transform: @escaping (SpecResult) -> SpecResult
+                )
+            {
+                it("should flatmap value"){
+                    let result = transform(valueResult)
+                    print(result.value)
+                    print(expected.value)
+                    expect(result).to(beSuccess(value: expected.value))
+                }
+                it("should flatmap error"){
+                    let result = transform(errorResult)
+                    print(result)
+                    expect(result).to(beFailure(error: expected.error))
+                }
+            }
+            describe("flatmap") {
+                let expectedValue = 101
+                let expectedError = Error.unknown
+                
+                context("flatmap") {
+                    let transformFlatMap: (SpecResult) -> SpecResult = { $0.flatMap { SpecResult.init( value: $0 + 100, error: error, default: error) } }
+
+                    itShouldFlatmapTransform(expected: (value: expectedValue, error: error), transform: transformFlatMap)
+                }
+
+                context("biflatmap") {
+                    let transformBiFlatMap: (SpecResult) -> SpecResult = { $0.biflatMap (
+                        success: { SpecResult.init( value: $0 + 100, error: error, default: error) },
+                        failure: { SpecResult.init( value: value, error: expectedError, default: $0) }
+                        )
+                    }
+                    itShouldFlatmapTransform(expected: (value: expectedValue, error: expectedError), transform: transformBiFlatMap)
+                }
+                
+                context("flatmapError") {
+                    let transformFlatMapError: (SpecResult) -> SpecResult = { $0.flatMapError { SpecResult.init( value: value, error: expectedError, default: $0) }}
+                    
+                    itShouldFlatmapTransform(expected: (value: value, error: expectedError), transform: transformFlatMapError)
                 }
             }
         }
