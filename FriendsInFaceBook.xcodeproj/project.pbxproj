@@ -10,6 +10,7 @@
 		75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75060D70200D408F002ACA89 /* FunctionsSpec.swift */; };
 		75060D73200D42E4002ACA89 /* TupleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75060D72200D42E4002ACA89 /* TupleSpec.swift */; };
 		7508DFD11FD4760C00A62241 /* ServiceForData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508DFD01FD4760C00A62241 /* ServiceForData.swift */; };
+		752C21CF201A19F5009D7B0F /* CallSpyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752C21CE201A19F5009D7B0F /* CallSpyMatcher.swift */; };
 		752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
 		752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
 		752FFAB31FCDEDB000ACA938 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
@@ -93,6 +94,7 @@
 		75060D70200D408F002ACA89 /* FunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsSpec.swift; sourceTree = "<group>"; };
 		75060D72200D42E4002ACA89 /* TupleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleSpec.swift; sourceTree = "<group>"; };
 		7508DFD01FD4760C00A62241 /* ServiceForData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceForData.swift; sourceTree = "<group>"; };
+		752C21CE201A19F5009D7B0F /* CallSpyMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSpyMatcher.swift; sourceTree = "<group>"; };
 		752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFriendsTableViewController.swift; sourceTree = "<group>"; };
 		752FFAB01FCDE98C00ACA938 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		752FFAB21FCDEDB000ACA938 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 			children = (
 				D7B523211FF6BBB3004FBB32 /* ResultMatchers.swift */,
 				75AD49BF200D4C9E009269FD /* TupleMatchers.swift */,
+				752C21CE201A19F5009D7B0F /* CallSpyMatcher.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75AD49C2200D639F009269FD /* CancellablePropertySpec.swift in Sources */,
+				752C21CF201A19F5009D7B0F /* CallSpyMatcher.swift in Sources */,
 				D7B523221FF6BBB3004FBB32 /* ResultMatchers.swift in Sources */,
 				D7F56A261FF6B2470027A00F /* FriendsInFaceBookSpec.swift in Sources */,
 				75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */,

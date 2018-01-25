@@ -16,11 +16,9 @@ public class CallSpy<Argument, Result> {
     // MARK: Properties
     
     var isCalled: Bool {
-        print(self.callCount)
          return self.callCount > 0
     }
     var callCount: Int {
-        print(self.arguments.count)
         return self.arguments.count
     }
     var factory: (Argument) -> Result{
@@ -66,7 +64,5 @@ extension CallSpy where  Argument == Void {
     
     func call() {
         self.arguments.append(())
-        print(self.arguments.count)
-        print(self.arguments)
     }
 }
