@@ -11,43 +11,44 @@ import Nimble
 
 @testable import FriendsInFaceBook
 
-class CancellablePropertySpec: QuickSpec {
-    override func spec() {
-        let property = CancellableProperty()
-        let value: Cancellable = MessageCaller(message: "method cancel is called")
-        property.value = value
-        describe("CancellableProperty") {
-            it("it should be false becouse method cansel isn't called yet") {
-                expect(property.value?.isCancelled).to(beFalse())
-            }
-            
-            it("it should be true when method cancel is called") {
-                value.cancel()
-                expect(property.value?.isCancelled).to(beTrue())
-            }
-        }
-    }
-}
-public class MessageCaller: Cancellable {
+ class CancellablePropertyMock: Cancellable {
     
     // MARK: -
     // MARK: Properties
     
-    public private(set) var isCancelled: Bool = false
-    
-    private var message: String
-    
-    // MARK: -
-    // MARK: Init and Deinit
-    
-    public init(message: String) {
-        self.message = message
+    let isCancelledSpy = CallSpy<Bool, Void>()
+    private(set) var isCancelled: Bool = false {
+        didSet { self.isCancelledSpy.call(isCancelled) }
     }
     
     // MARK: -
     // MARK: Public
     
-    public func cancel() {
-        self.isCancelled = true
+    let cancelSpy = CallSpy<Void,Void>()
+
+    func cancel() {
+        self.cancelSpy.call()
+    }
+   
+}
+
+class CancellablePropertySpec: QuickSpec {
+    override func spec() {
+        let property = CancellableProperty()
+        var value = CancellablePropertyMock()
+        
+        describe("CancellableProperty") {
+            fit("it should not cancel when set") {
+                property.value = value
+                expect(value.isCancelledSpy.isCalled).to(beFalse())
+                
+            }
+            
+            it("it should cancel when new value is set") {
+                property.value = nil
+                expect(value.isCancelledSpy.isCalled).to(beTrue())
+            }
+        }
     }
 }
+

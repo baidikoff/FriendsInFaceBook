@@ -25,7 +25,6 @@ fileprivate enum WrapperError: Swift.Error, Equatable {
     }
 }
 
-
 fileprivate typealias SpecResult = FriendsInFaceBook.Result<Int, Error>
 
 class ResultSpec: QuickSpec {
@@ -95,6 +94,7 @@ class ResultSpec: QuickSpec {
                     expect(result).to(beFailure(error: expected.error))
                 }
             }
+            
             describe("map"){
                 let specError = WrapperError.fail(error)
                 typealias TransformedResult = Result<String, Error>
@@ -113,6 +113,7 @@ class ResultSpec: QuickSpec {
                     itShouldMapTransform(expected: (value: value, error: specError), transform: transformError)
                 }
             }
+            
             func itShouldFlatmapTransform
                 (
                 expected: (value: Int, error: Error),
@@ -125,12 +126,14 @@ class ResultSpec: QuickSpec {
                     print(expected.value)
                     expect(result).to(beSuccess(value: expected.value))
                 }
+                
                 it("should flatmap error"){
                     let result = transform(errorResult)
                     print(result)
                     expect(result).to(beFailure(error: expected.error))
                 }
             }
+            
             describe("flatmap") {
                 let expectedValue = 101
                 let expectedError = Error.unknown
@@ -147,6 +150,7 @@ class ResultSpec: QuickSpec {
                         failure: { SpecResult.init( value: value, error: expectedError, default: $0) }
                         )
                     }
+                    
                     itShouldFlatmapTransform(expected: (value: expectedValue, error: expectedError), transform: transformBiFlatMap)
                 }
                 
