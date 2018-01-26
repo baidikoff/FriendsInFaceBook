@@ -15,16 +15,25 @@ fileprivate enum Error: Swift.Error {
     case fail
     case unknown
 }
+fileprivate enum WrapperError: Swift.Error, Equatable {
+    case fail(Error)
+    
+    public static func ==(lhs: WrapperError, rhs: WrapperError) -> Bool {
+        switch (lhs, rhs) {
+        case (.fail(let lhs), .fail(let rhs)): return lhs == rhs
+        }
+    }
+}
 
-fileprivate typealias Result = FriendsInFaceBook.Result<Int, Error>
+fileprivate typealias SpecResult = FriendsInFaceBook.Result<Int, Error>
 
 class ResultSpec: QuickSpec {
     override func spec() {
         let value = 1
-        let valueResult: Result = lift(value)
+        let valueResult: SpecResult = lift(value)
         
         let error = Error.fail
-        let errorResult: Result = lift(error)
+        let errorResult: SpecResult = lift(error)
         
         let defaultError = Error.unknown
         
@@ -52,7 +61,7 @@ class ResultSpec: QuickSpec {
             }
             
             describe("init(value: Value?, error: Error?, `default`: Error)") {
-                let factory = { Result(value: $0, error: $1, default: defaultError) }
+                let factory = { SpecResult(value: $0, error: $1, default: defaultError) }
                 
                 it("should be .success, when Value is non-nil and error is nil") {
                     expect(factory(value, nil)).to(beSuccess(value: value))
@@ -69,21 +78,86 @@ class ResultSpec: QuickSpec {
                     expect(factory(nil,  nil)).to(beFailure(error: defaultError))
                 }
             }
-            
-            describe("map"){
-                let valueMap: Result = valueResult.map{$0 + 1}
-                let valueMapResult: Result = lift(2)
-                it("value should be equal Optional(2) and error is equal nil"){
-                    expect(valueMapResult.value).to(equal(valueMap.value))
-                    expect(valueMapResult.error).to(beNil())
+            func itShouldMapTransform<NewValue: Equatable, NewError: Equatable>
+                (
+                expected: (value: NewValue, error: NewError),
+                transform: @escaping (SpecResult) -> Result<NewValue, NewError>
+                )
+            {
+                it("should map value"){
+                    let result: Result = transform(valueResult)
+                    expect(result).to(beSuccess(value: expected.value))
+                }
+                
+                it("should map type"){
+                    let result: Result = transform(errorResult)
+                    expect(result).to(beFailure(error: expected.error))
                 }
             }
             
-            describe("mapError"){
-                let errorMap: Result = errorResult.mapError{_ in return defaultError}
-                it("error should be default error and value is equal nil"){
-                    expect(defaultError).to(equal(errorMap.error))
-                    expect(errorResult.value).to(beNil())
+            describe("map"){
+                let specError = WrapperError.fail(error)
+                typealias TransformedResult = Result<String, Error>
+                let transform: (SpecResult) -> TransformedResult = { $0.map { "\($0)" } }
+                let transformError: (SpecResult) -> Result<Int, WrapperError> = { $0.mapError {.fail($0)} }
+                context("map") {
+                     itShouldMapTransform(expected: (value: "\(value)", error: error), transform: transform)
+                }
+                
+                context("bimap") {
+                    let transformValueError:(SpecResult) -> Result<String, WrapperError> = { $0.bimap(success: { "\($0)" }, failure: { .fail($0) }) }
+                     itShouldMapTransform(expected: (value: "\(value)", error: specError), transform: transformValueError)
+                }
+                
+                context("mapError") {
+                    itShouldMapTransform(expected: (value: value, error: specError), transform: transformError)
+                }
+            }
+            
+            func itShouldFlatmapTransform
+                (
+                expected: (value: Int, error: Error),
+                transform: @escaping (SpecResult) -> SpecResult
+                )
+            {
+                it("should flatmap value"){
+                    let result = transform(valueResult)
+                    print(result.value)
+                    print(expected.value)
+                    expect(result).to(beSuccess(value: expected.value))
+                }
+                
+                it("should flatmap error"){
+                    let result = transform(errorResult)
+                    print(result)
+                    expect(result).to(beFailure(error: expected.error))
+                }
+            }
+            
+            describe("flatmap") {
+                let expectedValue = 101
+                let expectedError = Error.unknown
+                
+                context("flatmap") {
+                    let transformFlatMap: (SpecResult) -> SpecResult = { $0.flatMap { SpecResult.init( value: $0 + 100, error: error, default: error) } }
+
+                    itShouldFlatmapTransform(expected: (value: expectedValue, error: error), transform: transformFlatMap)
+                }
+
+                context("biflatmap") {
+                    let transformBiFlatMap: (SpecResult) -> SpecResult = { $0.biflatMap (
+                        success: { SpecResult.init( value: $0 + 100, error: error, default: error) },
+                        failure: { SpecResult.init( value: value, error: expectedError, default: $0) }
+                        )
+                    }
+                    
+                    itShouldFlatmapTransform(expected: (value: expectedValue, error: expectedError), transform: transformBiFlatMap)
+                }
+                
+                context("flatmapError") {
+                    let transformFlatMapError: (SpecResult) -> SpecResult = { $0.flatMapError { SpecResult.init( value: value, error: expectedError, default: $0) }}
+                    
+                    itShouldFlatmapTransform(expected: (value: value, error: expectedError), transform: transformFlatMapError)
                 }
             }
         }

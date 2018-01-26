@@ -13,11 +13,13 @@ import Nimble
 
 class OptionalSpec: QuickSpec {
     override func spec() {
-        let checkingValue = 3
+        let expectedValue = 3
         describe("flatten") {
             it("result value should be type Int?") {
                 let value: Int?? = 1
+                
                 let resultValue = value.flatten()
+                
                 expect(Optional(1)).to(equal(resultValue))
             }
         }
@@ -26,16 +28,20 @@ class OptionalSpec: QuickSpec {
             it("result value should be equal 3") {
                 let value: Int? = 1
                 var resultValue = 2
-                value.do{value in resultValue += value}
-                expect(checkingValue).to(equal(resultValue))
+                
+                value.do{ resultValue += $0 }
+                
+                expect(expectedValue).to(equal(resultValue))
             }
         }
         
         describe("apply") {
             it("result value should be equal 3") {
                 let value: Int? = 1
-                let resultValue = value.apply { value in return value + 2}
-                expect(checkingValue).to(equal(resultValue))
+                
+                let resultValue = value.apply { $0 + 2}
+                
+                expect(expectedValue).to(equal(resultValue))
             }
         }
     }

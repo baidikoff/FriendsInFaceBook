@@ -11,4 +11,12 @@ import Nimble
 
 @testable import FriendsInFaceBook
 
-
+public func equal<A: Equatable, B: Equatable>(_ expected: (A, B))
+    -> Predicate<(A,B)>
+{
+    return Predicate.define { expression in
+        let value = (try? expression.evaluate()).flatten()
+        let result = value.map { $0 == expected } ?? false
+        return PredicateResult(bool: result, message: .expectedTo(result.description))
+    }
+}

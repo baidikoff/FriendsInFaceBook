@@ -10,12 +10,14 @@
 		75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75060D70200D408F002ACA89 /* FunctionsSpec.swift */; };
 		75060D73200D42E4002ACA89 /* TupleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75060D72200D42E4002ACA89 /* TupleSpec.swift */; };
 		7508DFD11FD4760C00A62241 /* ServiceForData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508DFD01FD4760C00A62241 /* ServiceForData.swift */; };
+		752C21CF201A19F5009D7B0F /* CallSpyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752C21CE201A19F5009D7B0F /* CallSpyMatcher.swift */; };
 		752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
 		752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
 		752FFAB31FCDEDB000ACA938 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
 		7540782C1FD1AF1900A6E01C /* FacebookSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540782B1FD1AF1900A6E01C /* FacebookSocialService.swift */; };
 		75449BFD1FD59ECE00CCDB9F /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFC1FD59ECE00CCDB9F /* SocialService.swift */; };
 		75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */; };
+		75479D3C2019F8A7000536DF /* CallSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75479D3B2019F8A7000536DF /* CallSpy.swift */; };
 		7569165B1FD6A75800808890 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7569165A1FD6A75800808890 /* LoginView.swift */; };
 		75AD49C0200D4C9E009269FD /* TupleMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AD49BF200D4C9E009269FD /* TupleMatchers.swift */; };
 		75AD49C2200D639F009269FD /* CancellablePropertySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AD49C1200D639F009269FD /* CancellablePropertySpec.swift */; };
@@ -92,12 +94,14 @@
 		75060D70200D408F002ACA89 /* FunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsSpec.swift; sourceTree = "<group>"; };
 		75060D72200D42E4002ACA89 /* TupleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleSpec.swift; sourceTree = "<group>"; };
 		7508DFD01FD4760C00A62241 /* ServiceForData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceForData.swift; sourceTree = "<group>"; };
+		752C21CE201A19F5009D7B0F /* CallSpyMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSpyMatcher.swift; sourceTree = "<group>"; };
 		752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFriendsTableViewController.swift; sourceTree = "<group>"; };
 		752FFAB01FCDE98C00ACA938 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		752FFAB21FCDEDB000ACA938 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7540782B1FD1AF1900A6E01C /* FacebookSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookSocialService.swift; sourceTree = "<group>"; };
 		75449BFC1FD59ECE00CCDB9F /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
 		75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSocialService.swift; sourceTree = "<group>"; };
+		75479D3B2019F8A7000536DF /* CallSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSpy.swift; sourceTree = "<group>"; };
 		7569165A1FD6A75800808890 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		75AD49BF200D4C9E009269FD /* TupleMatchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleMatchers.swift; sourceTree = "<group>"; };
 		75AD49C1200D639F009269FD /* CancellablePropertySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellablePropertySpec.swift; sourceTree = "<group>"; };
@@ -183,6 +187,14 @@
 			);
 			name = Functions;
 			path = ../Functions;
+			sourceTree = "<group>";
+		};
+		75479D3A2019F892000536DF /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				75479D3B2019F8A7000536DF /* CallSpy.swift */,
+			);
+			path = Spies;
 			sourceTree = "<group>";
 		};
 		7577A2671FD5E2020082F9A8 /* Cells */ = {
@@ -304,6 +316,7 @@
 		75CFFC7F1FCC724300D99385 /* FriendsInFaceBookTests */ = {
 			isa = PBXGroup;
 			children = (
+				75479D3A2019F892000536DF /* Spies */,
 				D7B523201FF6BBA1004FBB32 /* Matchers */,
 				D7F56A241FF6B1FE0027A00F /* Specs */,
 				75CFFC821FCC724300D99385 /* Info.plist */,
@@ -410,6 +423,7 @@
 			children = (
 				D7B523211FF6BBB3004FBB32 /* ResultMatchers.swift */,
 				75AD49BF200D4C9E009269FD /* TupleMatchers.swift */,
+				752C21CE201A19F5009D7B0F /* CallSpyMatcher.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -833,12 +847,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				75AD49C2200D639F009269FD /* CancellablePropertySpec.swift in Sources */,
+				752C21CF201A19F5009D7B0F /* CallSpyMatcher.swift in Sources */,
 				D7B523221FF6BBB3004FBB32 /* ResultMatchers.swift in Sources */,
 				D7F56A261FF6B2470027A00F /* FriendsInFaceBookSpec.swift in Sources */,
 				75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */,
 				75AD49C6200E14FA009269FD /* Optional+ExtensionsSpec.swift in Sources */,
 				D7B5231F1FF6B6DB004FBB32 /* ResultSpec.swift in Sources */,
 				75060D73200D42E4002ACA89 /* TupleSpec.swift in Sources */,
+				75479D3C2019F8A7000536DF /* CallSpy.swift in Sources */,
 				75AD49C0200D4C9E009269FD /* TupleMatchers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
