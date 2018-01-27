@@ -81,15 +81,15 @@ public enum Result<Value, Error: Swift.Error> {
         return self.bimap(success: identity, failure: transform)
     }
     
-    public func biflatMap(success: (Value) -> Result, failure: (Error) -> Result) -> Result {
+    public func biflatMap<NewValue, NewError>(success: (Value) -> Result<NewValue, NewError>, failure: (Error) -> Result<NewValue, NewError>) -> Result<NewValue, NewError> {
         return self.analysis(success: success, failure: failure)
     }
     
-    public func flatMap(_ transform: (Value) -> Result) -> Result {
+    public func flatMap<NewValue>(_ transform: (Value) -> Result<NewValue, Error>) -> Result<NewValue, Error> {
         return self.biflatMap(success: transform, failure: lift)
     }
     
-    public func flatMapError(_ transform: (Error) -> Result) -> Result {
+    public func flatMapError<NewError>(_ transform: (Error) -> Result<Value, NewError>) -> Result<Value, NewError> {
         return self.biflatMap(success: lift, failure: transform)
     }
     
