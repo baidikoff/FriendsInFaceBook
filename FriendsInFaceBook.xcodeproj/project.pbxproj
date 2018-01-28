@@ -14,11 +14,11 @@
 		752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
 		752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
 		752FFAB31FCDEDB000ACA938 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
-		7540782C1FD1AF1900A6E01C /* FacebookSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540782B1FD1AF1900A6E01C /* FacebookSocialService.swift */; };
-		75449BFD1FD59ECE00CCDB9F /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFC1FD59ECE00CCDB9F /* SocialService.swift */; };
+		7540782C1FD1AF1900A6E01C /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540782B1FD1AF1900A6E01C /* SocialService.swift */; };
 		75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */; };
 		75479D3C2019F8A7000536DF /* CallSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75479D3B2019F8A7000536DF /* CallSpy.swift */; };
 		7569165B1FD6A75800808890 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7569165A1FD6A75800808890 /* LoginView.swift */; };
+		758156B8201DD28D0050AD31 /* FacebookApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758156B7201DD28D0050AD31 /* FacebookApi.swift */; };
 		75AD49C0200D4C9E009269FD /* TupleMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AD49BF200D4C9E009269FD /* TupleMatchers.swift */; };
 		75AD49C2200D639F009269FD /* CancellablePropertySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AD49C1200D639F009269FD /* CancellablePropertySpec.swift */; };
 		75AD49C6200E14FA009269FD /* Optional+ExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AD49C5200E14FA009269FD /* Optional+ExtensionsSpec.swift */; };
@@ -98,11 +98,11 @@
 		752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFriendsTableViewController.swift; sourceTree = "<group>"; };
 		752FFAB01FCDE98C00ACA938 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		752FFAB21FCDEDB000ACA938 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7540782B1FD1AF1900A6E01C /* FacebookSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookSocialService.swift; sourceTree = "<group>"; };
-		75449BFC1FD59ECE00CCDB9F /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
+		7540782B1FD1AF1900A6E01C /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
 		75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSocialService.swift; sourceTree = "<group>"; };
 		75479D3B2019F8A7000536DF /* CallSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSpy.swift; sourceTree = "<group>"; };
 		7569165A1FD6A75800808890 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		758156B7201DD28D0050AD31 /* FacebookApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookApi.swift; sourceTree = "<group>"; };
 		75AD49BF200D4C9E009269FD /* TupleMatchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleMatchers.swift; sourceTree = "<group>"; };
 		75AD49C1200D639F009269FD /* CancellablePropertySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellablePropertySpec.swift; sourceTree = "<group>"; };
 		75AD49C5200E14FA009269FD /* Optional+ExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+ExtensionsSpec.swift"; sourceTree = "<group>"; };
@@ -250,9 +250,9 @@
 				D79BC2B21FE27DC500F0DD87 /* NetworkService */,
 				D79BC2AD1FE2777300F0DD87 /* ImageDownloadService */,
 				7508DFD01FD4760C00A62241 /* ServiceForData.swift */,
-				7540782B1FD1AF1900A6E01C /* FacebookSocialService.swift */,
-				75449BFC1FD59ECE00CCDB9F /* SocialService.swift */,
+				7540782B1FD1AF1900A6E01C /* SocialService.swift */,
 				75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */,
+				758156B7201DD28D0050AD31 /* FacebookApi.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -823,14 +823,13 @@
 				D7AAF2371FEA8E6B001E0C3B /* Operators.swift in Sources */,
 				D7AAF2241FEA6C8D001E0C3B /* ImageModelImpl.swift in Sources */,
 				D7AAF2311FEA861C001E0C3B /* Reusable.swift in Sources */,
-				7540782C1FD1AF1900A6E01C /* FacebookSocialService.swift in Sources */,
+				7540782C1FD1AF1900A6E01C /* SocialService.swift in Sources */,
 				75D292A71FD426110032F9BD /* Friends.swift in Sources */,
 				752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */,
 				75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */,
 				D7AAF2221FEA6C67001E0C3B /* ImageModel.swift in Sources */,
 				D7AAF2331FEA8A5C001E0C3B /* Result.swift in Sources */,
 				D7AAF22A1FEA7218001E0C3B /* NSLocking+Extensions.swift in Sources */,
-				75449BFD1FD59ECE00CCDB9F /* SocialService.swift in Sources */,
 				7508DFD11FD4760C00A62241 /* ServiceForData.swift in Sources */,
 				D7AAF22F1FEA8377001E0C3B /* Tuple.swift in Sources */,
 				75CFFC691FCC724300D99385 /* AppDelegate.swift in Sources */,
@@ -839,6 +838,7 @@
 				D79BC2B11FE27A6900F0DD87 /* NetworkTask.swift in Sources */,
 				D7AAF2351FEA8E58001E0C3B /* PrecedenceGroups.swift in Sources */,
 				D79BC2B91FE2845A00F0DD87 /* CancellableProperty.swift in Sources */,
+				758156B8201DD28D0050AD31 /* FacebookApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

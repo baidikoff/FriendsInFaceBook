@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginView: LoginView?
     var hasToken = false
+    let socialService = SocialService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.hasToken = FacebookSocialService.shared.alreadyLoggedIn()
+        self.hasToken = socialService.isAlreadyLoggedIn
         self.goToNextViewController()
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -42,9 +43,7 @@ class LoginViewController: UIViewController {
         }
     }
     @objc func loginButtonPressed(){
-        FacebookSocialService.shared.loginUser(completion:{
-            print(Constants.successLogin)
-        })
+        self.socialService.loginUser()
     }
 }
 
