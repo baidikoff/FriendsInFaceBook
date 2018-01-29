@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginView: LoginView?
     var hasToken = false
-    let socialService = SocialService()
+    let socialService = SocialServiceImpl()
     
     override func viewDidLoad() {
         super.viewDidLoad()

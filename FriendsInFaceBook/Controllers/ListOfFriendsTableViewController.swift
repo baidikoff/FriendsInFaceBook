@@ -19,7 +19,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     let storyBoard : UIStoryboard = UIStoryboard(name: Constants.Main, bundle:nil)
     var friends: Results<User>?
     fileprivate var notificationToken: NotificationToken? = nil
-    var socialService = SocialService()
+    var socialService = SocialServiceImpl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,9 +85,8 @@ class ListOfFriendsTableViewController: UITableViewController {
     
     open func requestFriends() -> Promise<String>{
         return Promise<String>{ fulfill,_ in
-            firstly{
-                self.socialService.requestUsers()
-                }.then{  [weak self] users -> Void in
+                let cancellablePromise = self.socialService.requestUsers()
+            cancellablePromise.returnPromise().then{  [weak self] users -> Void in
                     ServiceForData.shared.deleteAllDataInStorage()
                     self?.configureRealmNotification()
                     ServiceForData.shared.writeDataInStorage(users: users)
