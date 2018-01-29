@@ -9,7 +9,7 @@
 import Foundation
 import PromiseKit
 
-public class SocialServiceImpl {
+public class SocialServiceImpl: SocialService {
     
     // MARK: -
     // MARK: Properties
@@ -25,6 +25,7 @@ public class SocialServiceImpl {
     public func requestUsers() -> CancellablePromise{
         return CancellablePromise(promise: self.facebookDelegate.requestUsers(), request: self.facebookDelegate)
     }
+    
     public func logoutUser(){
         self.facebookDelegate.logout()
     }

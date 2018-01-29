@@ -17,13 +17,17 @@ public class CancellablePromise: Cancellable {
     public private(set) var isCancelled: Bool = false
     let promise: Promise<[User]>
     let request: FacebookApi
+    
     // MARK: -
-    // MARK: Public
+    // MARK: Init and Deinit
     
     public init(promise: Promise<[User]>, request: FacebookApi) {
         self.promise = promise
         self.request = request
     }
+    
+    // MARK: -
+    // MARK: Public
     
     public func cancel() {
         self.isCancelled = true
@@ -32,8 +36,6 @@ public class CancellablePromise: Cancellable {
     
     public func returnPromise() -> Promise<[User]> {
         return self.promise
-    }
-    
-   
+    } 
 }
 

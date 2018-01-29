@@ -18,7 +18,7 @@ public protocol SocialService{
     // MARK: -
     // MARK: Public
     
-    func requestUsers() -> Cancellable
+    func requestUsers() -> CancellablePromise
     func logoutUser()
     func loginUser()
 }
