@@ -47,12 +47,12 @@ public class CallSpy<Argument, Result> {
     }
 }
 
-extension CallSpy where  Result == Void{
+extension CallSpy where  Result == Void {
     
     // MARK: -
     // MARK: Init and Deinit
     
-    public convenience init(){
+    public convenience init() {
         self.init( ignoreInput § returnValue § ())
     }
 }
