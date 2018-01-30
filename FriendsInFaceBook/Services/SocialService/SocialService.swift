@@ -18,8 +18,6 @@ public protocol SocialService{
     // MARK: -
     // MARK: Public
     
-    func requestUsers() -> CancellablePromise
-    func logoutUser()
-    func loginUser()
+    func requestUsers(_ completion: @escaping ([User]) -> ()) -> ServiceTask
 }
 

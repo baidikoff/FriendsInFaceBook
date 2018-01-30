@@ -35,17 +35,15 @@ public class FacebookApi {
         loginManager.logOut()
     }
     
-    func requestUsers() -> Promise<[User]>{
-        return Promise<[User]>{ fulfill, reject in
+    func requestUsers(completion: @escaping ([User]) -> ()){
             self.facebookRequest = FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue])
                 .start{ connection, users, error -> Void in
-                error.do(reject)
+               // error.do(reject)
                 let users:[String: Any]? = users.flatMap(cast)
                 users.do{
                     let resultUsers = Mapper<Friends>().map(JSON:$0)
-                    resultUsers?.friends.do(fulfill)
+                    resultUsers?.friends.do(completion)
                 }
             }
-        }
     }
 }

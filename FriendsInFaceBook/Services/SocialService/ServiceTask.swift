@@ -9,20 +9,18 @@
 import Foundation
 import PromiseKit
 
-public class CancellablePromise: Cancellable {
+public class ServiceTask: Cancellable {
     
     // MARK: -
     // MARK: Properties
     
     public private(set) var isCancelled: Bool = false
-    let promise: Promise<[User]>
     let request: FacebookApi
     
     // MARK: -
     // MARK: Init and Deinit
     
-    public init(promise: Promise<[User]>, request: FacebookApi) {
-        self.promise = promise
+    public init(request: FacebookApi) {
         self.request = request
     }
     
@@ -33,9 +31,5 @@ public class CancellablePromise: Cancellable {
         self.isCancelled = true
         self.request.facebookRequest?.cancel()
     }
-    
-    public func returnPromise() -> Promise<[User]> {
-        return self.promise
-    } 
 }
 

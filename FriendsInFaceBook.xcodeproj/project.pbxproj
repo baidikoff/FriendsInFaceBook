@@ -32,7 +32,9 @@
 		75D292A71FD426110032F9BD /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A61FD426110032F9BD /* Friends.swift */; };
 		75D292A91FD450D70032F9BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D292A81FD450D70032F9BD /* Constants.swift */; };
 		75E0B9D71FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */; };
-		75EA3F57201F35440053A423 /* CancellablePromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA3F56201F35440053A423 /* CancellablePromise.swift */; };
+		75EA3F57201F35440053A423 /* ServiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA3F56201F35440053A423 /* ServiceTask.swift */; };
+		75EA3F5B202090730053A423 /* SocialServiceImplSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA3F5A202090730053A423 /* SocialServiceImplSpec.swift */; };
+		75EA3F5E2020E3BE0053A423 /* ArrayMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA3F5D2020E3BE0053A423 /* ArrayMatchers.swift */; };
 		7D281C86EEE5A0432A298403 /* Pods_FriendsInFaceBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520800E0F00C2FE3E55D560 /* Pods_FriendsInFaceBookTests.framework */; };
 		83FAC2863E3FD9DDE925196D /* Pods_FriendsInFaceBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C3C3507D297C3CABC1DB67 /* Pods_FriendsInFaceBookUITests.framework */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
@@ -124,7 +126,9 @@
 		75D292A61FD426110032F9BD /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		75D292A81FD450D70032F9BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceImpl.swift; sourceTree = "<group>"; };
-		75EA3F56201F35440053A423 /* CancellablePromise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellablePromise.swift; sourceTree = "<group>"; };
+		75EA3F56201F35440053A423 /* ServiceTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTask.swift; sourceTree = "<group>"; };
+		75EA3F5A202090730053A423 /* SocialServiceImplSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialServiceImplSpec.swift; sourceTree = "<group>"; };
+		75EA3F5D2020E3BE0053A423 /* ArrayMatchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayMatchers.swift; sourceTree = "<group>"; };
 		8683ED6F25628A6E1DC01F72 /* Pods-FriendsInFaceBookUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBookUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBookUITests/Pods-FriendsInFaceBookUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C9395B6D38AAC7F2E11E093 /* Pods-FriendsInFaceBookUITests.tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBookUITests.tests.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBookUITests/Pods-FriendsInFaceBookUITests.tests.xcconfig"; sourceTree = "<group>"; };
 		A520800E0F00C2FE3E55D560 /* Pods_FriendsInFaceBookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendsInFaceBookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,7 +270,7 @@
 			children = (
 				7540782B1FD1AF1900A6E01C /* SocialServiceImpl.swift */,
 				758156BB201E60D90050AD31 /* SocialService.swift */,
-				75EA3F56201F35440053A423 /* CancellablePromise.swift */,
+				75EA3F56201F35440053A423 /* ServiceTask.swift */,
 			);
 			path = SocialService;
 			sourceTree = "<group>";
@@ -354,6 +358,22 @@
 				F8C3C3507D297C3CABC1DB67 /* Pods_FriendsInFaceBookUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75EA3F58202090360053A423 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				75EA3F59202090470053A423 /* SocialService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		75EA3F59202090470053A423 /* SocialService */ = {
+			isa = PBXGroup;
+			children = (
+				75EA3F5A202090730053A423 /* SocialServiceImplSpec.swift */,
+			);
+			path = SocialService;
 			sourceTree = "<group>";
 		};
 		984DB39C3889BCED9EBEEE5E /* Pods */ = {
@@ -446,6 +466,7 @@
 				D7B523211FF6BBB3004FBB32 /* ResultMatchers.swift */,
 				75AD49BF200D4C9E009269FD /* TupleMatchers.swift */,
 				752C21CE201A19F5009D7B0F /* CallSpyMatcher.swift */,
+				75EA3F5D2020E3BE0053A423 /* ArrayMatchers.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -472,6 +493,7 @@
 		D7F56A241FF6B1FE0027A00F /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				75EA3F58202090360053A423 /* Services */,
 				D7C9DAB51FF6B67A000B5E80 /* Library */,
 				D7F56A251FF6B2470027A00F /* FriendsInFaceBookSpec.swift */,
 			);
@@ -848,7 +870,7 @@
 				D7AAF2311FEA861C001E0C3B /* Reusable.swift in Sources */,
 				7540782C1FD1AF1900A6E01C /* SocialServiceImpl.swift in Sources */,
 				75D292A71FD426110032F9BD /* Friends.swift in Sources */,
-				75EA3F57201F35440053A423 /* CancellablePromise.swift in Sources */,
+				75EA3F57201F35440053A423 /* ServiceTask.swift in Sources */,
 				752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */,
 				75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */,
 				D7AAF2221FEA6C67001E0C3B /* ImageModel.swift in Sources */,
@@ -870,11 +892,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75EA3F5E2020E3BE0053A423 /* ArrayMatchers.swift in Sources */,
 				75AD49C2200D639F009269FD /* CancellablePropertySpec.swift in Sources */,
 				752C21CF201A19F5009D7B0F /* CallSpyMatcher.swift in Sources */,
 				D7B523221FF6BBB3004FBB32 /* ResultMatchers.swift in Sources */,
 				D7F56A261FF6B2470027A00F /* FriendsInFaceBookSpec.swift in Sources */,
 				75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */,
+				75EA3F5B202090730053A423 /* SocialServiceImplSpec.swift in Sources */,
 				75AD49C6200E14FA009269FD /* Optional+ExtensionsSpec.swift in Sources */,
 				D7B5231F1FF6B6DB004FBB32 /* ResultSpec.swift in Sources */,
 				75060D73200D42E4002ACA89 /* TupleSpec.swift in Sources */,

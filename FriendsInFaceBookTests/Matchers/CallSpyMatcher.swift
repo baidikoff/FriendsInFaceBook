@@ -82,7 +82,9 @@ public func notBeCalled()
     }
 }
 
-
+func ==(lhs: User, rhs: User) -> Bool {
+    return lhs.name == rhs.name
+}
 
 // MATCHERS:
 //func called()

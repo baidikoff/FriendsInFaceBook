@@ -32,7 +32,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     // MARK: -
     // MARK: Private
     
-    private func configureNavigationItems()  {
+    private func configureNavigationItems() {
         self.logoutButton = UIBarButtonItem(title: Constants.LogOut, style: .plain, target: self, action: #selector(logoutButtonPressed))
         navigationItem.rightBarButtonItem = self.logoutButton
     }
@@ -49,12 +49,12 @@ class ListOfFriendsTableViewController: UITableViewController {
         present(logout, animated: true, completion: nil)
     }
     
-    private func configurePullToRefresh(){
+    private func configurePullToRefresh() {
         self.refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
         self.refreshControl.do({ self.tableView?.insertSubview($0, at: 0)})
     }
     
-    private func getFriendsFromStorage(){
+    private func getFriendsFromStorage() {
         self.friends = ServiceForData.shared.getDataFromStorage()
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()     
@@ -73,7 +73,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         }
     }
     
-    @objc private func requestObjects(){
+    @objc private func requestObjects() {
         self.requestFriends().then{ _ -> Void in
             self.getFriendsFromStorage()
             self.refreshControl?.endRefreshing()
@@ -83,15 +83,14 @@ class ListOfFriendsTableViewController: UITableViewController {
     // MARK: -
     // MARK: Open
     
-    open func requestFriends() -> Promise<String>{
+    open func requestFriends() -> Promise<String> {
         return Promise<String>{ fulfill,_ in
-                let cancellablePromise = self.socialService.requestUsers()
-            cancellablePromise.returnPromise().then{  [weak self] users -> Void in
-                    ServiceForData.shared.deleteAllDataInStorage()
-                    self?.configureRealmNotification()
-                    ServiceForData.shared.writeDataInStorage(users: users)
-                    fulfill(Constants.success)
-            }
+            let cancellablePromise = self.socialService.requestUsers { [weak self] users in
+                ServiceForData.shared.deleteAllDataInStorage()
+                self?.configureRealmNotification()
+                ServiceForData.shared.writeDataInStorage(users: users)
+                fulfill(Constants.success)
+            }  
         }
     }
 
