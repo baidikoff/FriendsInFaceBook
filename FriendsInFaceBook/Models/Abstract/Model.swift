@@ -20,18 +20,26 @@ public class Model<Storage: RLMModel> {
     // MARK: -
     // MARK: Static
     
-    public static func instantiate(storage: StorageType) -> Self {
-        return self.init(id: storage.id)
+    public static func instantiate(storage: StorageType?) -> Self? {
+        return storage
+            .flatMap { $0.id.split(separator: "_").first }
+            .flatMap { ID(string: String($0)) }
+            .map(self.init)
     }
     
     // MARK: -
     // MARK: Properties
     
-    public let id: String
+    public let id: ID
+    
+    public var storageId: String {
+        return "\(self.id)_\(typeString(self).lowercased())"
+    }
+    
     public var storage: StorageType {
-        let id = self.id
+        let id = self.storageId
         
-        return Realm.current?.object(ofType: StorageType.self, forPrimaryKey: self.id)
+        return Realm.current?.object(ofType: StorageType.self, forPrimaryKey: id)
             ?? modify(StorageType()) { storage in
                 storage.id = id
                 Realm.write { $0.add(storage, update: true) }
@@ -45,10 +53,14 @@ public class Model<Storage: RLMModel> {
     // MARK: -
     // MARK: Init and Deinit
     
-    public required init(id: String) {
+    public required init(_ id: ID) {
         self.id = id
         
         self.configure()
+    }
+    
+    public convenience init(_ id: Int) {
+        self.init(ID(id))
     }
     
     // MARK: -
