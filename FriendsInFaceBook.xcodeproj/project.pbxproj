@@ -39,6 +39,9 @@
 		83FAC2863E3FD9DDE925196D /* Pods_FriendsInFaceBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C3C3507D297C3CABC1DB67 /* Pods_FriendsInFaceBookUITests.framework */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
 		D70103571FD73B84002D0E6C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
+		D7878A4220335E81002A7EBD /* Realm+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A4120335E81002A7EBD /* Realm+Extensions.swift */; };
+		D7878A4420335E97002A7EBD /* Realm+ExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A4320335E97002A7EBD /* Realm+ExtensionsSpec.swift */; };
+		D7878A4620336503002A7EBD /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A4520336503002A7EBD /* WeakBox.swift */; };
 		D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2AE1FE2799E00F0DD87 /* ImageLoadService.swift */; };
 		D79BC2B11FE27A6900F0DD87 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */; };
 		D79BC2B41FE27E5A00F0DD87 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */; };
@@ -136,6 +139,9 @@
 		B830D96C057C55D043C281A4 /* Pods-FriendsInFaceBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBook/Pods-FriendsInFaceBook.release.xcconfig"; sourceTree = "<group>"; };
 		D70103541FD727CB002D0E6C /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		D70103561FD73B84002D0E6C /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		D7878A4120335E81002A7EBD /* Realm+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Extensions.swift"; sourceTree = "<group>"; };
+		D7878A4320335E97002A7EBD /* Realm+ExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+ExtensionsSpec.swift"; sourceTree = "<group>"; };
+		D7878A4520336503002A7EBD /* WeakBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
 		D79BC2AE1FE2799E00F0DD87 /* ImageLoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadService.swift; sourceTree = "<group>"; };
 		D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -287,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				75AD49C5200E14FA009269FD /* Optional+ExtensionsSpec.swift */,
+				D7878A4320335E97002A7EBD /* Realm+ExtensionsSpec.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -407,6 +414,7 @@
 			children = (
 				D70103541FD727CB002D0E6C /* Optional+Extensions.swift */,
 				D7AAF2291FEA7218001E0C3B /* NSLocking+Extensions.swift */,
+				D7878A4120335E81002A7EBD /* Realm+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -435,6 +443,7 @@
 			children = (
 				D79BC2B81FE2845A00F0DD87 /* CancellableProperty.swift */,
 				D7AAF2321FEA8A5C001E0C3B /* Result.swift */,
+				D7878A4520336503002A7EBD /* WeakBox.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -854,11 +863,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				758156BC201E60D90050AD31 /* SocialService.swift in Sources */,
+				D7878A4220335E81002A7EBD /* Realm+Extensions.swift in Sources */,
 				D7AAF22C1FEA7E1D001E0C3B /* ImageView.swift in Sources */,
 				752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */,
 				D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */,
 				75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */,
 				752FFAB31FCDEDB000ACA938 /* User.swift in Sources */,
+				D7878A4620336503002A7EBD /* WeakBox.swift in Sources */,
 				D7AAF2281FEA7070001E0C3B /* LoadedImageModelTask.swift in Sources */,
 				D79BC2B41FE27E5A00F0DD87 /* NetworkService.swift in Sources */,
 				75E0B9D71FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift in Sources */,
@@ -900,6 +911,7 @@
 				75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */,
 				75EA3F5B202090730053A423 /* SocialServiceImplSpec.swift in Sources */,
 				75AD49C6200E14FA009269FD /* Optional+ExtensionsSpec.swift in Sources */,
+				D7878A4420335E97002A7EBD /* Realm+ExtensionsSpec.swift in Sources */,
 				D7B5231F1FF6B6DB004FBB32 /* ResultSpec.swift in Sources */,
 				75060D73200D42E4002ACA89 /* TupleSpec.swift in Sources */,
 				75479D3C2019F8A7000536DF /* CallSpy.swift in Sources */,

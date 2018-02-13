@@ -51,3 +51,11 @@ public func scope(_ action: () -> ()) {
 public func call<Value>(_ action: () -> Value) -> Value {
     return action()
 }
+
+public func sideEffect<Value>(action: @escaping (Value) -> ()) -> (Value) -> Value {
+    return {
+        action($0)
+        
+        return $0
+    }
+}
