@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  RealmUser.swift
 //  FriendsInFaceBook
 //
 //  Created by Viktoria on 11/28/17.
@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
-public class User: Object, Mappable {
+public class RealmUser: Object, Mappable {
     
     // MARK: -
     // MARK: Properties
@@ -34,6 +34,7 @@ public class User: Object, Mappable {
             image    <- map["picture"]
     }
 }
+
 class UserImageData: Object, Mappable {
 
     @objc dynamic var urlData: UserImage?

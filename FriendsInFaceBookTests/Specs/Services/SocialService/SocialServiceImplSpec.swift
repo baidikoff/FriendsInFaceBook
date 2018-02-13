@@ -20,10 +20,10 @@ class SocialServiceImplMock: SocialService {
     // MARK: -
     // MARK: Public
     
-    let requestUsersSpy = CallSpy<User, Void>()
+    let requestUsersSpy = CallSpy<RealmUser, Void>()
     
-    func requestUsers(_ completion: @escaping ([User]) -> ()) -> ServiceTask {
-        let users = [User(name: "Ivan", image: UserImageData(urlData: UserImage(url: "https://pp.userapi.com/c302715/v302715160/6a5c/MY7blQcR-bc.jpg")))]
+    func requestUsers(_ completion: @escaping ([RealmUser]) -> ()) -> ServiceTask {
+        let users = [RealmUser(name: "Ivan", image: UserImageData(urlData: UserImage(url: "https://pp.userapi.com/c302715/v302715160/6a5c/MY7blQcR-bc.jpg")))]
         self.requestUsersSpy.call(users[0])
         completion(users)
         return ServiceTask(request: FacebookApi())
@@ -40,7 +40,7 @@ class SocialServiceImplSpec: QuickSpec {
             }
             
             it("it should not cancel when set") {
-                let users = [User(name: "Ivan", image: UserImageData(urlData: UserImage(url: "https://pp.userapi.com/c302715/v302715160/6a5c/MY7blQcR-bc.jpg")))]
+                let users = [RealmUser(name: "Ivan", image: UserImageData(urlData: UserImage(url: "https://pp.userapi.com/c302715/v302715160/6a5c/MY7blQcR-bc.jpg")))]
                 mockRequest.requestUsers { _ in
                     expect(mockRequest.requestUsersSpy.arguments[0]).to(beCalled(argument: users[0]))
                 }

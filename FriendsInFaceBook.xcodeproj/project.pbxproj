@@ -13,7 +13,7 @@
 		752C21CF201A19F5009D7B0F /* CallSpyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752C21CE201A19F5009D7B0F /* CallSpyMatcher.swift */; };
 		752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */; };
 		752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB01FCDE98C00ACA938 /* UserCell.swift */; };
-		752FFAB31FCDEDB000ACA938 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* User.swift */; };
+		752FFAB31FCDEDB000ACA938 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FFAB21FCDEDB000ACA938 /* RealmUser.swift */; };
 		7540782C1FD1AF1900A6E01C /* SocialServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540782B1FD1AF1900A6E01C /* SocialServiceImpl.swift */; };
 		75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */; };
 		75479D3C2019F8A7000536DF /* CallSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75479D3B2019F8A7000536DF /* CallSpy.swift */; };
@@ -42,6 +42,13 @@
 		D7878A4220335E81002A7EBD /* Realm+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A4120335E81002A7EBD /* Realm+Extensions.swift */; };
 		D7878A4420335E97002A7EBD /* Realm+ExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A4320335E97002A7EBD /* Realm+ExtensionsSpec.swift */; };
 		D7878A4620336503002A7EBD /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A4520336503002A7EBD /* WeakBox.swift */; };
+		D7878A4920337FD4002A7EBD /* RLMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A4820337FD4002A7EBD /* RLMModel.swift */; };
+		D7878A4B2033807D002A7EBD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A4A2033807D002A7EBD /* Model.swift */; };
+		D7878A4F20338718002A7EBD /* RLMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A4E20338718002A7EBD /* RLMUser.swift */; };
+		D7878A5120338721002A7EBD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A5020338720002A7EBD /* User.swift */; };
+		D7878A5320338E98002A7EBD /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A5220338E98002A7EBD /* Atomic.swift */; };
+		D7878A55203393B5002A7EBD /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A54203393B5002A7EBD /* ID.swift */; };
+		D7878A58203395E6002A7EBD /* IDProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7878A57203395E6002A7EBD /* IDProvider.swift */; };
 		D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2AE1FE2799E00F0DD87 /* ImageLoadService.swift */; };
 		D79BC2B11FE27A6900F0DD87 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */; };
 		D79BC2B41FE27E5A00F0DD87 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */; };
@@ -104,7 +111,7 @@
 		752C21CE201A19F5009D7B0F /* CallSpyMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSpyMatcher.swift; sourceTree = "<group>"; };
 		752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFriendsTableViewController.swift; sourceTree = "<group>"; };
 		752FFAB01FCDE98C00ACA938 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		752FFAB21FCDEDB000ACA938 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		752FFAB21FCDEDB000ACA938 /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		7540782B1FD1AF1900A6E01C /* SocialServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialServiceImpl.swift; sourceTree = "<group>"; };
 		75449BFE1FD59FA500CCDB9F /* MockSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSocialService.swift; sourceTree = "<group>"; };
 		75479D3B2019F8A7000536DF /* CallSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSpy.swift; sourceTree = "<group>"; };
@@ -142,6 +149,13 @@
 		D7878A4120335E81002A7EBD /* Realm+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Extensions.swift"; sourceTree = "<group>"; };
 		D7878A4320335E97002A7EBD /* Realm+ExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+ExtensionsSpec.swift"; sourceTree = "<group>"; };
 		D7878A4520336503002A7EBD /* WeakBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
+		D7878A4820337FD4002A7EBD /* RLMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMModel.swift; sourceTree = "<group>"; };
+		D7878A4A2033807D002A7EBD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D7878A4E20338718002A7EBD /* RLMUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMUser.swift; sourceTree = "<group>"; };
+		D7878A5020338720002A7EBD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D7878A5220338E98002A7EBD /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
+		D7878A54203393B5002A7EBD /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
+		D7878A57203395E6002A7EBD /* IDProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDProvider.swift; sourceTree = "<group>"; };
 		D79BC2AE1FE2799E00F0DD87 /* ImageLoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadService.swift; sourceTree = "<group>"; };
 		D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -232,8 +246,10 @@
 		757BAC721FD5B65B004FDD82 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D7878A4C2033867E002A7EBD /* ActiveRecord */,
+				D7878A4720337FBB002A7EBD /* Abstract */,
 				D7AAF2201FEA6C59001E0C3B /* ImageModel */,
-				752FFAB21FCDEDB000ACA938 /* User.swift */,
+				752FFAB21FCDEDB000ACA938 /* RealmUser.swift */,
 				75D292A61FD426110032F9BD /* Friends.swift */,
 			);
 			path = Models;
@@ -419,6 +435,41 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D7878A4720337FBB002A7EBD /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				D7878A4820337FD4002A7EBD /* RLMModel.swift */,
+				D7878A4A2033807D002A7EBD /* Model.swift */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
+		D7878A4C2033867E002A7EBD /* ActiveRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D7878A4D20338707002A7EBD /* User */,
+			);
+			path = ActiveRecord;
+			sourceTree = "<group>";
+		};
+		D7878A4D20338707002A7EBD /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D7878A4E20338718002A7EBD /* RLMUser.swift */,
+				D7878A5020338720002A7EBD /* User.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		D7878A562033958E002A7EBD /* ID */ = {
+			isa = PBXGroup;
+			children = (
+				D7878A54203393B5002A7EBD /* ID.swift */,
+				D7878A57203395E6002A7EBD /* IDProvider.swift */,
+			);
+			path = ID;
+			sourceTree = "<group>";
+		};
 		D79BC2AD1FE2777300F0DD87 /* ImageDownloadService */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,9 +492,11 @@
 		D79BC2B71FE2844700F0DD87 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				D7878A562033958E002A7EBD /* ID */,
 				D79BC2B81FE2845A00F0DD87 /* CancellableProperty.swift */,
 				D7AAF2321FEA8A5C001E0C3B /* Result.swift */,
 				D7878A4520336503002A7EBD /* WeakBox.swift */,
+				D7878A5220338E98002A7EBD /* Atomic.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -866,12 +919,15 @@
 				D7878A4220335E81002A7EBD /* Realm+Extensions.swift in Sources */,
 				D7AAF22C1FEA7E1D001E0C3B /* ImageView.swift in Sources */,
 				752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */,
+				D7878A5320338E98002A7EBD /* Atomic.swift in Sources */,
 				D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */,
 				75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */,
-				752FFAB31FCDEDB000ACA938 /* User.swift in Sources */,
+				752FFAB31FCDEDB000ACA938 /* RealmUser.swift in Sources */,
+				D7878A55203393B5002A7EBD /* ID.swift in Sources */,
 				D7878A4620336503002A7EBD /* WeakBox.swift in Sources */,
 				D7AAF2281FEA7070001E0C3B /* LoadedImageModelTask.swift in Sources */,
 				D79BC2B41FE27E5A00F0DD87 /* NetworkService.swift in Sources */,
+				D7878A4920337FD4002A7EBD /* RLMModel.swift in Sources */,
 				75E0B9D71FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift in Sources */,
 				D70103571FD73B84002D0E6C /* Functions.swift in Sources */,
 				D79BC2B61FE27F7500F0DD87 /* NetworkServiceImpl.swift in Sources */,
@@ -879,15 +935,19 @@
 				D7AAF2371FEA8E6B001E0C3B /* Operators.swift in Sources */,
 				D7AAF2241FEA6C8D001E0C3B /* ImageModelImpl.swift in Sources */,
 				D7AAF2311FEA861C001E0C3B /* Reusable.swift in Sources */,
+				D7878A5120338721002A7EBD /* User.swift in Sources */,
 				7540782C1FD1AF1900A6E01C /* SocialServiceImpl.swift in Sources */,
 				75D292A71FD426110032F9BD /* Friends.swift in Sources */,
+				D7878A4F20338718002A7EBD /* RLMUser.swift in Sources */,
 				75EA3F57201F35440053A423 /* ServiceTask.swift in Sources */,
 				752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */,
 				75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */,
 				D7AAF2221FEA6C67001E0C3B /* ImageModel.swift in Sources */,
+				D7878A58203395E6002A7EBD /* IDProvider.swift in Sources */,
 				D7AAF2331FEA8A5C001E0C3B /* Result.swift in Sources */,
 				D7AAF22A1FEA7218001E0C3B /* NSLocking+Extensions.swift in Sources */,
 				7508DFD11FD4760C00A62241 /* ServiceForData.swift in Sources */,
+				D7878A4B2033807D002A7EBD /* Model.swift in Sources */,
 				D7AAF22F1FEA8377001E0C3B /* Tuple.swift in Sources */,
 				75CFFC691FCC724300D99385 /* AppDelegate.swift in Sources */,
 				7569165B1FD6A75800808890 /* LoginView.swift in Sources */,

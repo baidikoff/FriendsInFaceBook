@@ -16,7 +16,7 @@ class Friends: Mappable {
     // MARK: -
     // MARK: Properties
     
-    var friends: [User]?
+    var friends: [RealmUser]?
 
     required init?(map: Map) {
 

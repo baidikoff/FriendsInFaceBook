@@ -14,8 +14,8 @@ import PromiseKit
 //    // MARK: -
 //    // MARK: Open
 //    
-//    open func requestUsers() -> Promise<[User]> {
-//        return Promise<[User]>{ fulfill,_ in 
+//    open func requestUsers() -> Promise<[RealmUser]> {
+//        return Promise<[RealmUser]>{ fulfill,_ in 
 //            fulfill(Constants.users)
 //        }
 //    }

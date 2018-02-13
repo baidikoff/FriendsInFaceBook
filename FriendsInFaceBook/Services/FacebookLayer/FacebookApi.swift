@@ -35,7 +35,7 @@ public class FacebookApi {
         loginManager.logOut()
     }
     
-    func requestUsers(completion: @escaping ([User]) -> ()){
+    func requestUsers(completion: @escaping ([RealmUser]) -> ()){
             self.facebookRequest = FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue])
                 .start{ connection, users, error -> Void in
                // error.do(reject)

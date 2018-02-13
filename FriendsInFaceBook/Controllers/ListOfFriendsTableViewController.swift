@@ -17,7 +17,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     
     var logoutButton: UIBarButtonItem?
     let storyBoard : UIStoryboard = UIStoryboard(name: Constants.Main, bundle:nil)
-    var friends: Results<User>?
+    var friends: Results<RealmUser>?
     fileprivate var notificationToken: NotificationToken? = nil
     var socialService = SocialServiceImpl()
 

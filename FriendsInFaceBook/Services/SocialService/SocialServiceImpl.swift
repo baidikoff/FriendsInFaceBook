@@ -22,7 +22,7 @@ public class SocialServiceImpl: SocialService {
     // MARK: -
     // MARK: Public
     
-    public func requestUsers(_ completion: @escaping ([User]) -> ()) -> ServiceTask {
+    public func requestUsers(_ completion: @escaping ([RealmUser]) -> ()) -> ServiceTask {
         self.facebookDelegate.requestUsers{ users in
             completion(users)
         }

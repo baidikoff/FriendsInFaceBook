@@ -82,7 +82,7 @@ public func notBeCalled()
     }
 }
 
-func ==(lhs: User, rhs: User) -> Bool {
+func ==(lhs: RealmUser, rhs: RealmUser) -> Bool {
     return lhs.name == rhs.name
 }
 
