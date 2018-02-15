@@ -9,8 +9,6 @@
 import Foundation
 import FBSDKCoreKit
 import FBSDKLoginKit
-import PromiseKit
-import ObjectMapper
 
 public class FacebookApi {
     
@@ -35,15 +33,14 @@ public class FacebookApi {
         loginManager.logOut()
     }
     
-    func requestUsers(completion: @escaping ([User]) -> ()){
-            self.facebookRequest = FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue])
-                .start{ connection, users, error -> Void in
-               // error.do(reject)
-                let users:[String: Any]? = users.flatMap(cast)
-                users.do{
-                    let resultUsers = Mapper<Friends>().map(JSON:$0)
-                    resultUsers?.friends.do(completion)
-                }
-            }
+    func requestUsers(completion: @escaping (Result<Any?, NetworkServiceError>) -> ()) {
+        self.facebookRequest = FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue])
+            .start { connection, users, error -> Void in
+                completion § Result(
+                    value: users,
+                    error: error.map(ignoreInput § returnValue § .failed),
+                    default: .unknown
+                )
+        }
     }
 }

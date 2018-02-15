@@ -15,16 +15,18 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginView: LoginView?
     var hasToken = false
-    let socialService = SocialServiceImpl()
+    let facebookApi = FacebookApi()
+    var socialService: SocialServiceImpl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.socialService = SocialServiceImpl(facebookApi)
         self.loginView?.loginButton?.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.hasToken = socialService.isAlreadyLoggedIn
+        socialService.do { self.hasToken = $0.isAlreadyLoggedIn }
         self.goToNextViewController()
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -43,7 +45,7 @@ class LoginViewController: UIViewController {
         }
     }
     @objc func loginButtonPressed(){
-        self.socialService.loginUser()
+        self.socialService?.loginUser()
     }
 }
 
