@@ -12,11 +12,18 @@ import FBSDKLoginKit
 
 public class FacebookApi {
     
+    // MARK: -
+    // MARK: Properties
+    
     var isAlreadyLoggedIn: Bool{
         return (FBSDKAccessToken.current() != nil)
     }
     
     public var facebookRequest: FBSDKGraphRequestConnection?
+    public private(set) var users: Any?
+    
+    // MARK: -
+    // MARK: Public
     
     public func login(){
         let loginManager = FBSDKLoginManager()
@@ -33,9 +40,10 @@ public class FacebookApi {
         loginManager.logOut()
     }
     
-    func requestUsers(completion: @escaping (Result<Any?, NetworkServiceError>) -> ()) {
+    public func requestUsers(completion: @escaping (Result<Any?, NetworkServiceError>) -> ()) {
         self.facebookRequest = FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue])
             .start { connection, users, error -> Void in
+                self.users = users
                 completion § Result(
                     value: users,
                     error: error.map(ignoreInput § returnValue § .failed),

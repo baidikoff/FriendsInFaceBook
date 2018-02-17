@@ -19,35 +19,49 @@ public class SocialServiceImpl: SocialService {
     public var isAlreadyLoggedIn: Bool {
         return self.facebookApi.isAlreadyLoggedIn
     }
+    var users: [User]?
+    
+    public var isLoaded: Bool {
+        return self.facebookApi.users != nil
+    }
+    public var cancellable: Cancellable
+    private var isLoading = false
     
     // MARK: -
     // MARK: Init and Deinit
     
     public init(_ facebookApi: FacebookApi) {
         self.facebookApi = facebookApi
+        self.cancellable = ServiceTask(facebookApi)
     }
     
     // MARK: -
     // MARK: Public
     
-    public func requestUsers(_ completion: @escaping ([User]) -> ()) -> ServiceTask {
-        self.facebookApi.requestUsers { result in
-            let resultUsers = result.value.flatten()
-            let users:[String: Any]? =  resultUsers.flatMap(cast)
-            users.do{
-                let resultUsers = Mapper<Friends>().map(JSON:$0)
-                resultUsers?.friends.do(completion)
+    public func requestUsers(_ completion: @escaping ([User]) -> ()) -> Cancellable {
+        if isLoaded {
+            self.users.do(completion)
+            return ServiceTask(self.facebookApi)
+        } else {
+            self.facebookApi.requestUsers { result in
+                let resultUsers = result.value.flatten()
+                let users:[String: Any]? =  resultUsers.flatMap(cast)
+                users.do{
+                    let resultUsers = Mapper<Friends>().map(JSON:$0)
+                    self.users = resultUsers?.friends
+                    resultUsers.do {completion($0.friends) }
+                }
             }
+            return self.cancellable
         }
-        return ServiceTask(self.facebookApi)
     }
     
-    public func logoutUser() -> ServiceTask {
+    public func logoutUser() -> Cancellable {
         self.facebookApi.logout()
         return ServiceTask(self.facebookApi)
     }
     
-    public func loginUser() -> ServiceTask {
+    public func loginUser() -> Cancellable {
         self.facebookApi.login()
         return ServiceTask(self.facebookApi)
     }    

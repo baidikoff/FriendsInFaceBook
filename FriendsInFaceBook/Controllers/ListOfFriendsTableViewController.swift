@@ -79,7 +79,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     
     @objc private func requestObjects() {
-        self.requestFriends().then{ _ -> Void in
+        self.requestFriends {
             self.getFriendsFromStorage()
             self.refreshControl?.endRefreshing()
         }
@@ -88,15 +88,13 @@ class ListOfFriendsTableViewController: UITableViewController {
     // MARK: -
     // MARK: Open
     
-    open func requestFriends() -> Promise<String> {
-        return Promise<String>{ fulfill, _ in
-            let cancellablePromise = self.socialService?.requestUsers { [weak self] users in
-                ServiceForData.shared.deleteAllDataInStorage()
-                self?.configureRealmNotification()
-                ServiceForData.shared.writeDataInStorage(users: users)
-                fulfill(Constants.success)
-            }  
+    open func requestFriends(completion: @escaping () -> ()) {
+       self.cancellable = self.socialService?.requestUsers { [weak self] users in
+            ServiceForData.shared.deleteAllDataInStorage()
+            self?.configureRealmNotification()
+            ServiceForData.shared.writeDataInStorage(users: users)
         }
+        completion()
     }
 
     // MARK: -
