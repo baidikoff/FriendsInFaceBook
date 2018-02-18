@@ -26,6 +26,7 @@ public class SocialServiceImpl: SocialService {
     }
     public var cancellable: Cancellable
     private var isLoading = false
+    private let lock = NSRecursiveLock()
     
     // MARK: -
     // MARK: Init and Deinit
@@ -39,20 +40,25 @@ public class SocialServiceImpl: SocialService {
     // MARK: Public
     
     public func requestUsers(_ completion: @escaping ([User]) -> ()) -> Cancellable {
-        if isLoaded {
-            self.users.do(completion)
-            return ServiceTask(self.facebookApi)
-        } else {
-            self.facebookApi.requestUsers { result in
-                let resultUsers = result.value.flatten()
-                let users:[String: Any]? =  resultUsers.flatMap(cast)
-                users.do{
-                    let resultUsers = Mapper<Friends>().map(JSON:$0)
-                    self.users = resultUsers?.friends
-                    resultUsers.do {completion($0.friends) }
+        return self.lock.do {
+            if isLoaded {
+                self.facebookApi.users
+                print(self.users)
+                self.users.do(completion)
+                return self.cancellable
+            } else {
+                self.facebookApi.requestUsers { result in
+                    let resultUsers = result.value.flatten()
+                    let users:[String: Any]? =  resultUsers.flatMap(cast)
+                    users.do{
+                        let resultUsers = Mapper<Friends>().map(JSON:$0)
+                        self.users = resultUsers?.friends
+                        print(self.users)
+                        resultUsers.do {completion($0.friends) }
+                    }
                 }
+                return self.cancellable
             }
-            return self.cancellable
         }
     }
     

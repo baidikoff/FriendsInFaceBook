@@ -23,7 +23,6 @@ class ListOfFriendsTableViewController: UITableViewController {
     var socialService: SocialServiceImpl?
     private var cancellable: Cancellable?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.socialService = SocialServiceImpl(self.facebookApi)
@@ -89,14 +88,14 @@ class ListOfFriendsTableViewController: UITableViewController {
     // MARK: Open
     
     open func requestFriends(completion: @escaping () -> ()) {
-       self.cancellable = self.socialService?.requestUsers { [weak self] users in
+        self.cancellable = self.socialService?.requestUsers { [weak self] users in
             ServiceForData.shared.deleteAllDataInStorage()
             self?.configureRealmNotification()
             ServiceForData.shared.writeDataInStorage(users: users)
+            completion()
         }
-        completion()
     }
-
+    
     // MARK: -
     // MARK: TableView
     
