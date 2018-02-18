@@ -12,79 +12,54 @@ import Nimble
 
 @testable import FriendsInFaceBook
 
-public func beCalled()
-    -> Predicate<Int>
-{
+public func beCalled<Argument: Equatable>() -> Predicate<CallSpy<Argument, Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
-        let result = value.map { $0 > 0 } ?? false
+        let result = value.map { $0.arguments.count > 0 } ?? false
         return PredicateResult(bool: result, message: .expectedTo(result.description))
     }
 }
 
-public func beCalled(at count: Int)
-    -> Predicate<Int>
-{
+public func beCalled<Argument: Equatable>(at count: Int)  -> Predicate<CallSpy<Argument, Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
-        let result = value.map { $0 == count } ?? false
+        let result = value.map { $0.arguments.count == count } ?? false
         return PredicateResult(bool: result, message: .expectedTo(result.description))
     }
 }
 
-public func beCalledAtLeast(_ count: Int)
-    -> Predicate<Int>
-{
+public func beCalledAtLeast<Argument: Equatable>(_ count: Int) -> Predicate<CallSpy<Argument, Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
-        let result = value.map { $0 >= count } ?? false
+        let result = value.map { $0.arguments.count >= count } ?? false
         return PredicateResult(bool: result, message: .expectedTo(result.description))
     }
 }
 
-public func beCalledAtMost(_ count: Int)
-    -> Predicate<Int>
-{
+public func beCalledAtMost<Argument: Equatable>(_ count: Int) -> Predicate<CallSpy<Argument, Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
-        let result = value.map { $0 <= count } ?? false
+        let result = value.map { $0.arguments.count <= count } ?? false
         return PredicateResult(bool: result, message: .expectedTo(result.description))
     }
 }
 
-public func beCalled<Argument: Equatable>(with arguments: [Argument])
-    -> Predicate<[Argument]>
-{
+public func beCalled<Argument: Equatable>(argument: Argument) -> Predicate<CallSpy<Argument, Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
-        let result = value.map { $0 == arguments } ?? false
+        let result = value.map { $0.arguments[0] == argument } ?? false
         return PredicateResult(bool: result, message: .expectedTo(result.description))
     }
 }
 
-public func beCalled<Argument: Equatable>(argument: Argument)
-    -> Predicate<Argument>
-{
+public func beCalled<Argument: Equatable>(with arguments: [Argument]) -> Predicate<CallSpy<[Argument], Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
-        let result = value.map { $0 == argument } ?? false
-        return PredicateResult(bool: result, message: .expectedTo(result.description))
+        let result = value.map { $0.arguments[0] == arguments } ?? false
+        return PredicateResult(bool: result, message: .expectedTo(""))
     }
 }
 
-public func notBeCalled()
-    -> Predicate<Int>
-{
-    return Predicate.define { expression in
-        let value = (try? expression.evaluate()).flatten()
-        let result = value.map { $0 == 0 } ?? false
-        return PredicateResult(bool: result, message: .expectedTo(result.description))
-    }
-}
-
-func ==(lhs: User, rhs: User) -> Bool {
-    return lhs.name == rhs.name
-}
 
 // MATCHERS:
 //func called()

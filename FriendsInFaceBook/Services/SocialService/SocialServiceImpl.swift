@@ -8,33 +8,68 @@
 
 import Foundation
 import PromiseKit
+import ObjectMapper
 
 public class SocialServiceImpl: SocialService {
-
+    
     // MARK: -
     // MARK: Properties
     
-    let facebookDelegate = FacebookApi()
+    let facebookApi: FacebookApi
     public var isAlreadyLoggedIn: Bool {
-        return self.facebookDelegate.isAlreadyLoggedIn
+        return self.facebookApi.isAlreadyLoggedIn
     }
-
+    var users: [User]?
+    
+    public var isLoaded: Bool {
+        return self.facebookApi.users != nil
+    }
+    public var cancellable: Cancellable
+    private var isLoading = false
+    private let lock = NSRecursiveLock()
+    
+    // MARK: -
+    // MARK: Init and Deinit
+    
+    public init(_ facebookApi: FacebookApi) {
+        self.facebookApi = facebookApi
+        self.cancellable = ServiceTask(facebookApi)
+    }
+    
     // MARK: -
     // MARK: Public
     
-    public func requestUsers(_ completion: @escaping ([User]) -> ()) -> ServiceTask {
-        self.facebookDelegate.requestUsers{ users in
-            completion(users)
+    public func requestUsers(_ completion: @escaping ([User]) -> ()) -> Cancellable {
+        return self.lock.do {
+            if isLoaded {
+                self.facebookApi.users
+                print(self.users)
+                self.users.do(completion)
+                return self.cancellable
+            } else {
+                self.facebookApi.requestUsers { result in
+                    let resultUsers = result.value.flatten()
+                    let users:[String: Any]? =  resultUsers.flatMap(cast)
+                    users.do{
+                        let resultUsers = Mapper<Friends>().map(JSON:$0)
+                        self.users = resultUsers?.friends
+                        print(self.users)
+                        resultUsers.do {completion($0.friends) }
+                    }
+                }
+                return self.cancellable
+            }
         }
-        return ServiceTask(request: self.facebookDelegate)
     }
     
-    public func logoutUser(){
-        self.facebookDelegate.logout()
+    public func logoutUser() -> Cancellable {
+        self.facebookApi.logout()
+        return ServiceTask(self.facebookApi)
     }
     
-    public func loginUser(){
-        self.facebookDelegate.login()
+    public func loginUser() -> Cancellable {
+        self.facebookApi.login()
+        return ServiceTask(self.facebookApi)
     }    
 }
 

@@ -11,7 +11,9 @@ import Nimble
 
 @testable import FriendsInFaceBook
 
- class CancellablePropertyMock: Cancellable {
+fileprivate let string = "Called"
+
+ class CancellableMock: Cancellable {
     
     // MARK: -
     // MARK: Properties
@@ -24,10 +26,10 @@ import Nimble
     // MARK: -
     // MARK: Public
     
-    let cancelSpy = CallSpy<Void,Void>()
+    let cancelSpy = CallSpy<String,Void>()
 
     func cancel() {
-        self.cancelSpy.call()
+        self.cancelSpy.call(string)
     }
    
 }
@@ -35,48 +37,43 @@ import Nimble
 class CancellablePropertySpec: QuickSpec {
     override func spec() {
         let property = CancellableProperty()
-        let value = CancellablePropertyMock()
+        let value = CancellableMock()
         
         describe("CancellableProperty") {
-            it("it should not cancel when set") {
+            it("it should cancel when new value is set") {
                 property.value = value
-                expect(value.cancelSpy.callCount).to(notBeCalled())
+                print(value.cancelSpy.arguments.count)
+                expect(value.cancelSpy).toNot(beCalled())
             }
             
             it("it should cancel when new value is set") {
                 property.value = nil
-                expect(value.cancelSpy.callCount).to(beCalled())
+                print(value.cancelSpy.arguments.count)
+                expect(value.cancelSpy).to(beCalled())
+            }
+
+            it("it should cancel when new value is set") {
+                property.value = value
+                print(value.cancelSpy.arguments.count)
+                expect(value.cancelSpy).to(beCalled(at: 1))
             }
             
             it("it should cancel when new value is set") {
                 property.value = nil
-                expect(value.cancelSpy.callCount).to(beCalled(at: 1))
+                print(value.cancelSpy.arguments.count)
+                expect(value.cancelSpy).to(beCalledAtLeast(1))
             }
             
             it("it should cancel when new value is set") {
                 property.value = nil
-                expect(value.cancelSpy.callCount).to(beCalledAtLeast(1))
+                print(value.cancelSpy.arguments.count)
+                expect(value.cancelSpy).to(beCalledAtMost(2))
             }
-            
+
             it("it should cancel when new value is set") {
                 property.value = nil
-                expect(value.cancelSpy.callCount).to(beCalledAtMost(3))
-            }
-            
-            it("it should cancel when new value is set") {
-                property.value = nil
-                let expectedArgument = String(describing: ())
-                let argument = String(describing: value.cancelSpy.arguments[0])
-                expect(argument).to(beCalled(argument: expectedArgument))
-            }
-            
-            it("it should cancel when new value is set") {
-                property.value = nil
-                let expectedArguments = String(describing: [()])
-                let arguments = String(describing: value.cancelSpy.arguments)
-                expect(arguments).to(beCalled(argument: expectedArguments))
+                expect(value.cancelSpy).to(beCalled(argument: string))
             }
         }
     }
 }
-

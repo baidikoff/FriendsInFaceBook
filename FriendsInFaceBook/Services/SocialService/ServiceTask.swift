@@ -20,7 +20,7 @@ public class ServiceTask: Cancellable {
     // MARK: -
     // MARK: Init and Deinit
     
-    public init(request: FacebookApi) {
+    public init(_ request: FacebookApi) {
         self.request = request
     }
     

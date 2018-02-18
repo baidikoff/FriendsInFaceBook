@@ -34,7 +34,6 @@
 		75E0B9D71FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */; };
 		75EA3F57201F35440053A423 /* ServiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA3F56201F35440053A423 /* ServiceTask.swift */; };
 		75EA3F5B202090730053A423 /* SocialServiceImplSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA3F5A202090730053A423 /* SocialServiceImplSpec.swift */; };
-		75EA3F5E2020E3BE0053A423 /* ArrayMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA3F5D2020E3BE0053A423 /* ArrayMatchers.swift */; };
 		7D281C86EEE5A0432A298403 /* Pods_FriendsInFaceBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520800E0F00C2FE3E55D560 /* Pods_FriendsInFaceBookTests.framework */; };
 		83FAC2863E3FD9DDE925196D /* Pods_FriendsInFaceBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C3C3507D297C3CABC1DB67 /* Pods_FriendsInFaceBookUITests.framework */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
@@ -128,7 +127,6 @@
 		75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceImpl.swift; sourceTree = "<group>"; };
 		75EA3F56201F35440053A423 /* ServiceTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTask.swift; sourceTree = "<group>"; };
 		75EA3F5A202090730053A423 /* SocialServiceImplSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialServiceImplSpec.swift; sourceTree = "<group>"; };
-		75EA3F5D2020E3BE0053A423 /* ArrayMatchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayMatchers.swift; sourceTree = "<group>"; };
 		8683ED6F25628A6E1DC01F72 /* Pods-FriendsInFaceBookUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBookUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBookUITests/Pods-FriendsInFaceBookUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C9395B6D38AAC7F2E11E093 /* Pods-FriendsInFaceBookUITests.tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBookUITests.tests.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBookUITests/Pods-FriendsInFaceBookUITests.tests.xcconfig"; sourceTree = "<group>"; };
 		A520800E0F00C2FE3E55D560 /* Pods_FriendsInFaceBookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendsInFaceBookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -466,7 +464,6 @@
 				D7B523211FF6BBB3004FBB32 /* ResultMatchers.swift */,
 				75AD49BF200D4C9E009269FD /* TupleMatchers.swift */,
 				752C21CE201A19F5009D7B0F /* CallSpyMatcher.swift */,
-				75EA3F5D2020E3BE0053A423 /* ArrayMatchers.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -892,7 +889,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75EA3F5E2020E3BE0053A423 /* ArrayMatchers.swift in Sources */,
 				75AD49C2200D639F009269FD /* CancellablePropertySpec.swift in Sources */,
 				752C21CF201A19F5009D7B0F /* CallSpyMatcher.swift in Sources */,
 				D7B523221FF6BBB3004FBB32 /* ResultMatchers.swift in Sources */,

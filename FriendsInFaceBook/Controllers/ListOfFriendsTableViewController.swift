@@ -19,10 +19,14 @@ class ListOfFriendsTableViewController: UITableViewController {
     let storyBoard : UIStoryboard = UIStoryboard(name: Constants.Main, bundle:nil)
     var friends: Results<User>?
     fileprivate var notificationToken: NotificationToken? = nil
-    var socialService = SocialServiceImpl()
-
+    let facebookApi = FacebookApi()
+    var socialService: SocialServiceImpl?
+    private var cancellable: Cancellable?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.socialService = SocialServiceImpl(self.facebookApi)
+        self.cancellable = ServiceTask(self.facebookApi)
         self.refreshControl = UIRefreshControl()
         self.getFriendsFromStorage()
         self.configurePullToRefresh()
@@ -40,7 +44,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     @objc private func logoutButtonPressed(_ sender: UIButton) {
         let logout = UIAlertController(title: Constants.LogOut, message: Constants.LogOutMessage, preferredStyle: UIAlertControllerStyle.alert)
         logout.addAction(UIAlertAction(title: Constants.Yes, style: .default, handler: { (action: UIAlertAction?) in
-            self.socialService.logoutUser()
+            self.socialService?.logoutUser()
             self.presentingViewController?.dismiss(animated: true, completion: nil)
         }))
         logout.addAction(UIAlertAction(title: Constants.cancel, style: .cancel, handler: { (action: UIAlertAction?) in
@@ -51,7 +55,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     
     private func configurePullToRefresh() {
         self.refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
-        self.refreshControl.do({ self.tableView?.insertSubview($0, at: 0)})
+        self.refreshControl.do( { self.tableView?.insertSubview($0, at: 0) })
     }
     
     private func getFriendsFromStorage() {
@@ -74,7 +78,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     
     @objc private func requestObjects() {
-        self.requestFriends().then{ _ -> Void in
+        self.requestFriends {
             self.getFriendsFromStorage()
             self.refreshControl?.endRefreshing()
         }
@@ -83,17 +87,15 @@ class ListOfFriendsTableViewController: UITableViewController {
     // MARK: -
     // MARK: Open
     
-    open func requestFriends() -> Promise<String> {
-        return Promise<String>{ fulfill,_ in
-            let cancellablePromise = self.socialService.requestUsers { [weak self] users in
-                ServiceForData.shared.deleteAllDataInStorage()
-                self?.configureRealmNotification()
-                ServiceForData.shared.writeDataInStorage(users: users)
-                fulfill(Constants.success)
-            }  
+    open func requestFriends(completion: @escaping () -> ()) {
+        self.cancellable = self.socialService?.requestUsers { [weak self] users in
+            ServiceForData.shared.deleteAllDataInStorage()
+            self?.configureRealmNotification()
+            ServiceForData.shared.writeDataInStorage(users: users)
+            completion()
         }
     }
-
+    
     // MARK: -
     // MARK: TableView
     

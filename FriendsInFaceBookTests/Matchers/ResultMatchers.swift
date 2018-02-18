@@ -52,17 +52,20 @@ public func beResult<Value, Error>(
             default: return ResultPredicate(false, description: "unexpected")
             }
         }
-        
-        
+
         return PredicateResult(bool: result.value, message: .expectedTo(result.description))
     }
 }
 
-fileprivate func predicateIgnoringValue<Value>(_ value: Bool, description: String = "") -> ResultPredicate<(Value) -> Bool> {
+fileprivate func predicateIgnoringValue<Value>(_ value: Bool, description: String = "")
+    -> ResultPredicate<(Value) -> Bool>
+{
     return ResultPredicate(ignoreInput { value }, description: description)
 }
 
-public func beSuccess<Value, Error>(_ predicate: @escaping (Value) -> Bool, description: String) -> Predicate<Result<Value, Error>> {
+public func beSuccess<Value, Error>(_ predicate: @escaping (Value) -> Bool, description: String)
+    -> Predicate<Result<Value, Error>>
+{
     return beResult(
         success: ResultPredicate(predicate, description: description),
         failure: predicateIgnoringValue(false, description: description)
@@ -77,7 +80,9 @@ public func beSuccess<Value: Equatable, Error>(value: Value) -> Predicate<Result
     return beSuccess({ value == $0 }, description: "be .success(\(value))")
 }
 
-public func beFailure<Value, Error>(_ predicate: @escaping (Error) -> Bool, description: String) -> Predicate<Result<Value, Error>> {
+public func beFailure<Value, Error>(_ predicate: @escaping (Error) -> Bool, description: String)
+    -> Predicate<Result<Value, Error>>
+{
     return beResult(
         success: predicateIgnoringValue(false, description: description),
         failure: ResultPredicate(predicate, description: description)
