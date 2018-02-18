@@ -12,9 +12,7 @@ import Nimble
 
 @testable import FriendsInFaceBook
 
-public func beCalled<Argument: Equatable>()
-    -> Predicate<CallSpy<Argument, Void>>
-{
+public func beCalled<Argument: Equatable>() -> Predicate<CallSpy<Argument, Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
         let result = value.map { $0.arguments.count > 0 } ?? false
@@ -22,9 +20,7 @@ public func beCalled<Argument: Equatable>()
     }
 }
 
-public func beCalled<Argument>(at count: Int)
-    -> Predicate<CallSpy<Argument, Void>>
-{
+public func beCalled<Argument: Equatable>(at count: Int)  -> Predicate<CallSpy<Argument, Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
         let result = value.map { $0.arguments.count == count } ?? false
@@ -32,9 +28,7 @@ public func beCalled<Argument>(at count: Int)
     }
 }
 
-public func beCalledAtLeast<Argument>(_ count: Int)
-    -> Predicate<CallSpy<Argument, Void>>
-{
+public func beCalledAtLeast<Argument: Equatable>(_ count: Int) -> Predicate<CallSpy<Argument, Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
         let result = value.map { $0.arguments.count >= count } ?? false
@@ -42,9 +36,7 @@ public func beCalledAtLeast<Argument>(_ count: Int)
     }
 }
 
-public func beCalledAtMost<Argument>(_ count: Int)
-    -> Predicate<CallSpy<Argument, Void>>
-{
+public func beCalledAtMost<Argument: Equatable>(_ count: Int) -> Predicate<CallSpy<Argument, Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
         let result = value.map { $0.arguments.count <= count } ?? false
@@ -52,9 +44,7 @@ public func beCalledAtMost<Argument>(_ count: Int)
     }
 }
 
-public func beCalled<Argument: Equatable>(argument: Argument)
-    -> Predicate<CallSpy<Argument, Void>>
-{
+public func beCalled<Argument: Equatable>(argument: Argument) -> Predicate<CallSpy<Argument, Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
         let result = value.map { $0.arguments[0] == argument } ?? false
@@ -62,9 +52,7 @@ public func beCalled<Argument: Equatable>(argument: Argument)
     }
 }
 
-public func beCalled<Argument: Equatable>(with arguments: [Argument])
-    -> Predicate<CallSpy<[Argument], Void>>
-{
+public func beCalled<Argument: Equatable>(with arguments: [Argument]) -> Predicate<CallSpy<[Argument], Void>> {
     return Predicate.define { expression in
         let value = (try? expression.evaluate()).flatten()
         let result = value.map { $0.arguments[0] == arguments } ?? false
