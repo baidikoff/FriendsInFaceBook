@@ -36,6 +36,9 @@
 		75EA3F5B202090730053A423 /* SocialServiceImplSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA3F5A202090730053A423 /* SocialServiceImplSpec.swift */; };
 		7D281C86EEE5A0432A298403 /* Pods_FriendsInFaceBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520800E0F00C2FE3E55D560 /* Pods_FriendsInFaceBookTests.framework */; };
 		83FAC2863E3FD9DDE925196D /* Pods_FriendsInFaceBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C3C3507D297C3CABC1DB67 /* Pods_FriendsInFaceBookUITests.framework */; };
+		84CBC5B22039D31000AD29CD /* Realm+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBC5B12039D31000AD29CD /* Realm+Extensions.swift */; };
+		84CBC5B42039DBE300AD29CD /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBC5B32039DBE300AD29CD /* WeakBox.swift */; };
+		84CBC5B62039E13D00AD29CD /* WeakBoxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBC5B52039E13D00AD29CD /* WeakBoxSpec.swift */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
 		D70103571FD73B84002D0E6C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
 		D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2AE1FE2799E00F0DD87 /* ImageLoadService.swift */; };
@@ -127,6 +130,9 @@
 		75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceImpl.swift; sourceTree = "<group>"; };
 		75EA3F56201F35440053A423 /* ServiceTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTask.swift; sourceTree = "<group>"; };
 		75EA3F5A202090730053A423 /* SocialServiceImplSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialServiceImplSpec.swift; sourceTree = "<group>"; };
+		84CBC5B12039D31000AD29CD /* Realm+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Extensions.swift"; sourceTree = "<group>"; };
+		84CBC5B32039DBE300AD29CD /* WeakBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
+		84CBC5B52039E13D00AD29CD /* WeakBoxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakBoxSpec.swift; sourceTree = "<group>"; };
 		8683ED6F25628A6E1DC01F72 /* Pods-FriendsInFaceBookUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBookUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBookUITests/Pods-FriendsInFaceBookUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C9395B6D38AAC7F2E11E093 /* Pods-FriendsInFaceBookUITests.tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBookUITests.tests.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBookUITests/Pods-FriendsInFaceBookUITests.tests.xcconfig"; sourceTree = "<group>"; };
 		A520800E0F00C2FE3E55D560 /* Pods_FriendsInFaceBookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendsInFaceBookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -405,6 +411,7 @@
 			children = (
 				D70103541FD727CB002D0E6C /* Optional+Extensions.swift */,
 				D7AAF2291FEA7218001E0C3B /* NSLocking+Extensions.swift */,
+				84CBC5B12039D31000AD29CD /* Realm+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -433,6 +440,7 @@
 			children = (
 				D79BC2B81FE2845A00F0DD87 /* CancellableProperty.swift */,
 				D7AAF2321FEA8A5C001E0C3B /* Result.swift */,
+				84CBC5B32039DBE300AD29CD /* WeakBox.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -483,6 +491,7 @@
 			children = (
 				D7B5231E1FF6B6DB004FBB32 /* ResultSpec.swift */,
 				75AD49C1200D639F009269FD /* CancellablePropertySpec.swift */,
+				84CBC5B52039E13D00AD29CD /* WeakBoxSpec.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -851,11 +860,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				758156BC201E60D90050AD31 /* SocialService.swift in Sources */,
+				84CBC5B22039D31000AD29CD /* Realm+Extensions.swift in Sources */,
 				D7AAF22C1FEA7E1D001E0C3B /* ImageView.swift in Sources */,
 				752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */,
 				D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */,
 				75449BFF1FD59FA500CCDB9F /* MockSocialService.swift in Sources */,
 				752FFAB31FCDEDB000ACA938 /* User.swift in Sources */,
+				84CBC5B42039DBE300AD29CD /* WeakBox.swift in Sources */,
 				D7AAF2281FEA7070001E0C3B /* LoadedImageModelTask.swift in Sources */,
 				D79BC2B41FE27E5A00F0DD87 /* NetworkService.swift in Sources */,
 				75E0B9D71FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift in Sources */,
@@ -897,6 +908,7 @@
 				75EA3F5B202090730053A423 /* SocialServiceImplSpec.swift in Sources */,
 				75AD49C6200E14FA009269FD /* Optional+ExtensionsSpec.swift in Sources */,
 				D7B5231F1FF6B6DB004FBB32 /* ResultSpec.swift in Sources */,
+				84CBC5B62039E13D00AD29CD /* WeakBoxSpec.swift in Sources */,
 				75060D73200D42E4002ACA89 /* TupleSpec.swift in Sources */,
 				75479D3C2019F8A7000536DF /* CallSpy.swift in Sources */,
 				75AD49C0200D4C9E009269FD /* TupleMatchers.swift in Sources */,

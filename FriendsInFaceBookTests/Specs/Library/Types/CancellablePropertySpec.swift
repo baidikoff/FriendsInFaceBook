@@ -40,37 +40,32 @@ class CancellablePropertySpec: QuickSpec {
         let value = CancellableMock()
         
         describe("CancellableProperty") {
-            it("it should cancel when new value is set") {
+            it("shouldn't cancel when new value is set") {
                 property.value = value
-                print(value.cancelSpy.arguments.count)
                 expect(value.cancelSpy).toNot(beCalled())
             }
             
-            it("it should cancel when new value is set") {
+            it("should cancel when new value is set") {
                 property.value = nil
-                print(value.cancelSpy.arguments.count)
                 expect(value.cancelSpy).to(beCalled())
             }
 
-            it("it should cancel when new value is set") {
+            it("should be canceled 1 time when new value is set") {
                 property.value = value
-                print(value.cancelSpy.arguments.count)
                 expect(value.cancelSpy).to(beCalled(at: 1))
             }
             
-            it("it should cancel when new value is set") {
+            it("it should be canceled at least 1 time when new value is set twice") {
                 property.value = nil
-                print(value.cancelSpy.arguments.count)
                 expect(value.cancelSpy).to(beCalledAtLeast(1))
             }
             
-            it("it should cancel when new value is set") {
+            it("it should be canceled at most 2 time when new value is set twice") {
                 property.value = nil
-                print(value.cancelSpy.arguments.count)
                 expect(value.cancelSpy).to(beCalledAtMost(2))
             }
 
-            it("it should cancel when new value is set") {
+            it("it should be canceled with argument when new value is set twice") {
                 property.value = nil
                 expect(value.cancelSpy).to(beCalled(argument: string))
             }

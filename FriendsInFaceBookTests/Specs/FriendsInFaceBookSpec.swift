@@ -16,6 +16,7 @@ class FriendsInFaceBookSpec: QuickSpec {
         describe("FriendsInFaceBookSpec") {
             context("when using Nimble and Quick") {
                 it("should pass") {
+                    
                     expect(true).to(beTrue())
                 }
             }
