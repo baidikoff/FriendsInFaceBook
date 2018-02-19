@@ -36,6 +36,7 @@
 		75EA3F5B202090730053A423 /* SocialServiceImplSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA3F5A202090730053A423 /* SocialServiceImplSpec.swift */; };
 		7D281C86EEE5A0432A298403 /* Pods_FriendsInFaceBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520800E0F00C2FE3E55D560 /* Pods_FriendsInFaceBookTests.framework */; };
 		83FAC2863E3FD9DDE925196D /* Pods_FriendsInFaceBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C3C3507D297C3CABC1DB67 /* Pods_FriendsInFaceBookUITests.framework */; };
+		84B90E7B203B1D42009F5168 /* RealmExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B90E7A203B1D42009F5168 /* RealmExtensionsSpec.swift */; };
 		84CBC5B22039D31000AD29CD /* Realm+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBC5B12039D31000AD29CD /* Realm+Extensions.swift */; };
 		84CBC5B42039DBE300AD29CD /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBC5B32039DBE300AD29CD /* WeakBox.swift */; };
 		84CBC5B62039E13D00AD29CD /* WeakBoxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBC5B52039E13D00AD29CD /* WeakBoxSpec.swift */; };
@@ -130,6 +131,7 @@
 		75E0B9D61FDAB8AA00F0325D /* ImageDownloadServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceImpl.swift; sourceTree = "<group>"; };
 		75EA3F56201F35440053A423 /* ServiceTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTask.swift; sourceTree = "<group>"; };
 		75EA3F5A202090730053A423 /* SocialServiceImplSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialServiceImplSpec.swift; sourceTree = "<group>"; };
+		84B90E7A203B1D42009F5168 /* RealmExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtensionsSpec.swift; sourceTree = "<group>"; };
 		84CBC5B12039D31000AD29CD /* Realm+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Extensions.swift"; sourceTree = "<group>"; };
 		84CBC5B32039DBE300AD29CD /* WeakBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
 		84CBC5B52039E13D00AD29CD /* WeakBoxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakBoxSpec.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				75AD49C5200E14FA009269FD /* Optional+ExtensionsSpec.swift */,
+				84B90E7A203B1D42009F5168 /* RealmExtensionsSpec.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -902,6 +905,7 @@
 			files = (
 				75AD49C2200D639F009269FD /* CancellablePropertySpec.swift in Sources */,
 				752C21CF201A19F5009D7B0F /* CallSpyMatcher.swift in Sources */,
+				84B90E7B203B1D42009F5168 /* RealmExtensionsSpec.swift in Sources */,
 				D7B523221FF6BBB3004FBB32 /* ResultMatchers.swift in Sources */,
 				D7F56A261FF6B2470027A00F /* FriendsInFaceBookSpec.swift in Sources */,
 				75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */,
