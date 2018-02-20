@@ -9,34 +9,29 @@
 import Foundation
 import RealmSwift
 
-class User: Model<RLMUser> {
+public class User: Model<RLMUser> {
     
     // MARK: -
-    // MARK: Open
+    // MARK: Properties
     
     public var name: String? {
-        didSet {
-            self.write()
-        }
+        didSet { self.write() }
     }
     
     public var age: Int? {
-        didSet {
-            self.write()
-        }
+        didSet { self.write() }
     }
     
     // MARK: -
     // MARK: Open
     
     open override func readStorage(_ storage: StorageType) {
-       self.name = storage.name
+        self.name = storage.name
         self.age = storage.age
     }
     
     open override func writeStorage(_ storage: StorageType) {
         storage.name = self.name
-
+        storage.age = self.age
     }
-
 }

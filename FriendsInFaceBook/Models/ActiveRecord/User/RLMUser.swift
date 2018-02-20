@@ -9,9 +9,11 @@
 import Foundation
 import RealmSwift
 
-class RLMUser: RLMModel {
+public class RLMUser: RLMModel {
+    
+    // MARK: -
+    // MARK: Properties
     
     @objc dynamic var name: String?
     var age: Int?
-    
 }

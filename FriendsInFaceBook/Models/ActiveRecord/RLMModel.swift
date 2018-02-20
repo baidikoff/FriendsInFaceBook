@@ -11,8 +11,12 @@ import RealmSwift
 
 public class RLMModel: Object {
     
+    // MARK: -
+    // MARK: Properties
+    
     @objc open override class func primaryKey() -> String? {
         return "id"
     }
+    
     @objc dynamic var id = ""
 }
