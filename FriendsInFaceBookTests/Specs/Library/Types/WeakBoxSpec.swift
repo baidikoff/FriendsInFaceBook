@@ -17,10 +17,10 @@ class WeakBoxSpec: QuickSpec {
         describe("WeakBoxSpec") {
             context("when object is nil") {
                 it("should pass and weak reference should be nil") {
-                    var user: User? = User()
-                    let weakUser = WeakBox(user)
+                    var user: RealmUser? = RealmUser()
+                    let weakRealmUser = WeakBox(user)
                     user = nil
-                    expect(weakUser.wrapped).to(beNil())
+                    expect(weakRealmUser.wrapped).to(beNil())
                 }
             }
         }

@@ -25,38 +25,38 @@ class SocialServiceImplMock: SocialService {
     // MARK: -
     // MARK: Public
     
-    let requestUsersSpy = CallSpy<[User], Void>()
+    let requestRealmUsersSpy = CallSpy<[RealmUser], Void>()
     
-    func requestUsers(_ completion: @escaping ([User]) -> ()) -> Cancellable {
-        let users = [User(name: "Ivan",
-                          image: UserImageData(
-                            urlData: UserImage(
+    func requestRealmUsers(_ completion: @escaping ([RealmUser]) -> ()) -> Cancellable {
+        let users = [RealmUser(name: "Ivan",
+                          image: RealmUserImageData(
+                            urlData: RealmUserImage(
                                 url: "https://pp.userapi.com/c302715/v302715160/6a5c/MY7blQcR-bc.jpg")))
         ]
         
-        self.requestUsersSpy.call(users)
+        self.requestRealmUsersSpy.call(users)
         completion(users)
         return ServiceTask(FacebookApi())
     }
 }
 
 class SocialServiceImplSpec: QuickSpec {
-    var users: [User] = []
+    var users: [RealmUser] = []
     override func spec() {
         let mockRequest = SocialServiceImplMock()
         let request = SocialServiceImpl(FacebookApi())
        
         describe("CancellableProperty") {
             it("it should not cancel when set") {
-             //   expect(mockRequest.requestUsersSpy).toNot(beCalled(at: 0))
+             //   expect(mockRequest.requestRealmUsersSpy).toNot(beCalled(at: 0))
                 // ???????????????
             }
             
             it("it should cancel when set") {
-                request.cancellable = mockRequest.requestUsers { users in
+                request.cancellable = mockRequest.requestRealmUsers { users in
                     self.users = users
-                    print(mockRequest.requestUsersSpy)
-                    expect(mockRequest.requestUsersSpy).to(beCalled(with: self.users))
+                    print(mockRequest.requestRealmUsersSpy)
+                    expect(mockRequest.requestRealmUsersSpy).to(beCalled(with: self.users))
                 }
             }   
         }
