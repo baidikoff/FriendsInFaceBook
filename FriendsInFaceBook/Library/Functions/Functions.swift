@@ -59,3 +59,9 @@ public func sideEffect<Value>(_ action: @escaping (Value) -> ()) -> (Value) -> V
         return $0
     }
 }
+
+public func modify<Value>(_ value: Value, action: (inout Value) -> ()) -> Value {
+    var result = value
+    action(&result)
+    return result
+}

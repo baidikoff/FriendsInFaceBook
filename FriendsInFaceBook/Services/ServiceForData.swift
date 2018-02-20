@@ -26,7 +26,7 @@ class ServiceForData{
             }
         })
     }
-    open func writeDataInStorage(users: [User]) {
+    open func writeDataInStorage(users: [RealmUser]) {
         let realm = try? Realm()
         realm.do({ realm in
             try? realm.write {
@@ -34,10 +34,10 @@ class ServiceForData{
             }
         })
     }
-    open func getDataFromStorage() -> Results<User>?{
-        var users: Results<User>? = nil
+    open func getDataFromStorage() -> Results<RealmUser>?{
+        var users: Results<RealmUser>? = nil
         let realm = try? Realm()
-        realm.do({ users = $0.objects(User.self)})
+        realm.do({ users = $0.objects(RealmUser.self)})
         return users
     }
 }

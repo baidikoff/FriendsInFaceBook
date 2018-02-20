@@ -23,7 +23,7 @@ public class Constants{
     static let successLogin = "Log in successfully"
     static let cancel = "Cancel"
     static let success = "Success"
-    static let UserCellIdentifier = "FriendCell"
+    static let RealmUserCellIdentifier = "FriendCell"
     static let ListOfFriendsTVCIdentifier = "TableView"
     static let LoginVCIdentifier = "LoginVC"
     static let LogOut = "Log Out"
@@ -31,7 +31,7 @@ public class Constants{
     static let LogOutMessage = "Are you sure you want to log out?"
     static let storyBoardIdentifier = "GoToSeeFriends"
     static let Main = "Main"
-    static let users = [User(name: "Ivan Ivanov", image: UserImageData(urlData: UserImage(url: "https://cdn.pixabay.com/photo/2016/12/09/12/24/giraffe-1894778_960_720.jpg"))), User(name: "Vasiliy Vasichkin", image: UserImageData(urlData: UserImage(url: "https://cdn.pixabay.com/photo/2016/12/09/12/24/giraffe-1894778_960_720.jpg")))]
+    static let users = [RealmUser(name: "Ivan Ivanov", image: RealmUserImageData(urlData: RealmUserImage(url: "https://cdn.pixabay.com/photo/2016/12/09/12/24/giraffe-1894778_960_720.jpg"))), RealmUser(name: "Vasiliy Vasichkin", image: RealmUserImageData(urlData: RealmUserImage(url: "https://cdn.pixabay.com/photo/2016/12/09/12/24/giraffe-1894778_960_720.jpg")))]
 }
 
 @objc public enum UrlType: Int {

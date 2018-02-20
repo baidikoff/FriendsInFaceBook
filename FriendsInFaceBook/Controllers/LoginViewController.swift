@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
         }
     }
     @objc func loginButtonPressed(){
-        self.socialService?.loginUser()
+        self.socialService?.loginRealmUser()
     }
 }
 

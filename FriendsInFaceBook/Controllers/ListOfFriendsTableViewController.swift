@@ -17,7 +17,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     
     var logoutButton: UIBarButtonItem?
     let storyBoard : UIStoryboard = UIStoryboard(name: Constants.Main, bundle:nil)
-    var friends: Results<User>?
+    var friends: Results<RealmUser>?
     fileprivate var notificationToken: NotificationToken? = nil
     let facebookApi = FacebookApi()
     var socialService: SocialServiceImpl?
@@ -44,7 +44,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     @objc private func logoutButtonPressed(_ sender: UIButton) {
         let logout = UIAlertController(title: Constants.LogOut, message: Constants.LogOutMessage, preferredStyle: UIAlertControllerStyle.alert)
         logout.addAction(UIAlertAction(title: Constants.Yes, style: .default, handler: { (action: UIAlertAction?) in
-            self.socialService?.logoutUser()
+            self.socialService?.logoutRealmUser()
             self.presentingViewController?.dismiss(animated: true, completion: nil)
         }))
         logout.addAction(UIAlertAction(title: Constants.cancel, style: .cancel, handler: { (action: UIAlertAction?) in
@@ -88,7 +88,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     // MARK: Open
     
     open func requestFriends(completion: @escaping () -> ()) {
-        self.cancellable = self.socialService?.requestUsers { [weak self] users in
+        self.cancellable = self.socialService?.requestRealmUsers { [weak self] users in
             ServiceForData.shared.deleteAllDataInStorage()
             self?.configureRealmNotification()
             ServiceForData.shared.writeDataInStorage(users: users)
@@ -104,7 +104,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UserCellIdentifier, for: indexPath) as? UserCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.RealmUserCellIdentifier, for: indexPath) as? RealmUserCell
         self.friends.do({ friends in
             let friend = friends[indexPath.row]
             cell?.user = friend
