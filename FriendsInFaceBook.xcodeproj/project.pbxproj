@@ -37,6 +37,7 @@
 		7D281C86EEE5A0432A298403 /* Pods_FriendsInFaceBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A520800E0F00C2FE3E55D560 /* Pods_FriendsInFaceBookTests.framework */; };
 		83FAC2863E3FD9DDE925196D /* Pods_FriendsInFaceBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C3C3507D297C3CABC1DB67 /* Pods_FriendsInFaceBookUITests.framework */; };
 		8478310C203CD4FE00F8F991 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478310B203CD4FE00F8F991 /* Atomic.swift */; };
+		8478310E203D9E6600F8F991 /* AtomicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478310D203D9E6600F8F991 /* AtomicSpec.swift */; };
 		84B90E7B203B1D42009F5168 /* RealmExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B90E7A203B1D42009F5168 /* RealmExtensionsSpec.swift */; };
 		84B90E7E203C4EAC009F5168 /* RLMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B90E7D203C4EAC009F5168 /* RLMModel.swift */; };
 		84B90E80203C4F46009F5168 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B90E7F203C4F46009F5168 /* Model.swift */; };
@@ -137,6 +138,7 @@
 		75EA3F56201F35440053A423 /* ServiceTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTask.swift; sourceTree = "<group>"; };
 		75EA3F5A202090730053A423 /* SocialServiceImplSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialServiceImplSpec.swift; sourceTree = "<group>"; };
 		8478310B203CD4FE00F8F991 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
+		8478310D203D9E6600F8F991 /* AtomicSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicSpec.swift; sourceTree = "<group>"; };
 		84B90E7A203B1D42009F5168 /* RealmExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtensionsSpec.swift; sourceTree = "<group>"; };
 		84B90E7D203C4EAC009F5168 /* RLMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMModel.swift; sourceTree = "<group>"; };
 		84B90E7F203C4F46009F5168 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				D7B5231E1FF6B6DB004FBB32 /* ResultSpec.swift */,
 				75AD49C1200D639F009269FD /* CancellablePropertySpec.swift */,
 				84CBC5B52039E13D00AD29CD /* WeakBoxSpec.swift */,
+				8478310D203D9E6600F8F991 /* AtomicSpec.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -944,6 +947,7 @@
 				84B90E7B203B1D42009F5168 /* RealmExtensionsSpec.swift in Sources */,
 				D7B523221FF6BBB3004FBB32 /* ResultMatchers.swift in Sources */,
 				D7F56A261FF6B2470027A00F /* FriendsInFaceBookSpec.swift in Sources */,
+				8478310E203D9E6600F8F991 /* AtomicSpec.swift in Sources */,
 				75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */,
 				75EA3F5B202090730053A423 /* SocialServiceImplSpec.swift in Sources */,
 				75AD49C6200E14FA009269FD /* Optional+ExtensionsSpec.swift in Sources */,
