@@ -29,11 +29,12 @@ import Foundation
     public var didSet: PropertyObserver?
     
     private let lock: NSRecursiveLock
+    
     // MARK: -
     // MARK: Init and Deinit
     
     public init(
-        value: ValueType,
+        _ value: ValueType,
         lock: NSRecursiveLock = NSRecursiveLock(),
         didSet: PropertyObserver? = nil
         ) {

@@ -35,7 +35,7 @@ class AtomicSpec: QuickSpec {
                 let newSeason = "Summer"
                 let weather = Weather()
                 
-                let mutableWeather = Atomic<Weather>(value: weather)
+                let mutableWeather = Atomic(weather)
                 mutableWeather.modify { $0.season = newSeason }
                 
                 expect(newSeason).to(equal(weather.season))
