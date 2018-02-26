@@ -38,12 +38,8 @@ public func autoincrementedID(_ start: Int, action: ((Int) -> ())? = nil)  -> ID
     return {
         value.modify {
             let result = $0
-            print(result)
-            print($0)
             $0 += 1
             action?($0)
-            print(result)
-            print($0)
             return ID(result)
         }
     }

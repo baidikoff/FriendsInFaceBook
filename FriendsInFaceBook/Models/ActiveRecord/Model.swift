@@ -19,16 +19,20 @@ public class Model<Storage: RLMModel> {
     // MARK: -
     // MARK: Static
     
-    static func instantiate(_ storage: StorageType) -> Self {
-        return self.init(id: storage.id)
+    public static func instantiate(_ storage: StorageType?) -> Self? {
+        let id = storage?.id
+        return id
+            .flatMap { $0.split(separator: "_").first }
+            .flatMap { ID(string: String($0)) }
+            .map(self.init)
     }
     
     // MARK: -
     // MARK: Properties
     
-    public var id: String
+    public var id: ID
     public var storage: StorageType {
-        let id = self.id
+        let id = "\(self.id)_\(typeString(self).lowercased())"
         return Realm.current?.object(ofType: StorageType.self, forPrimaryKey: id)
             ?? modify(StorageType()) { storage in
                 storage.id = id
@@ -44,7 +48,7 @@ public class Model<Storage: RLMModel> {
     // MARK: -
     // MARK: Init and Deinit
     
-    public required init(id: String) {
+    public required init(id: ID) {
         self.id = id
         
         self.configure()
@@ -77,7 +81,6 @@ public class Model<Storage: RLMModel> {
                     action()
                 }
         })
-        
     }
     
     // MARK: -
@@ -101,6 +104,7 @@ public class Model<Storage: RLMModel> {
     private func locked(_ action: () ->()) {
         self.lock.do(action: action)
     }
+    
     private func configureStorageTransaction(
         exncluding: () -> (Bool),
         condition: (Bool) -> (),

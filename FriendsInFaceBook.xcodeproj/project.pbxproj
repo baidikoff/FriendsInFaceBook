@@ -40,6 +40,8 @@
 		8478310E203D9E6600F8F991 /* AtomicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478310D203D9E6600F8F991 /* AtomicSpec.swift */; };
 		84783110203DC0DD00F8F991 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478310F203DC0DD00F8F991 /* ID.swift */; };
 		84783131203E0E0E00F8F991 /* IDProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84783130203E0E0E00F8F991 /* IDProvider.swift */; };
+		847831352043FB4C00F8F991 /* ModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847831342043FB4C00F8F991 /* ModelSpec.swift */; };
+		847831382043FBE800F8F991 /* IDProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847831372043FBE800F8F991 /* IDProviderSpec.swift */; };
 		84B90E7B203B1D42009F5168 /* RealmExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B90E7A203B1D42009F5168 /* RealmExtensionsSpec.swift */; };
 		84B90E7E203C4EAC009F5168 /* RLMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B90E7D203C4EAC009F5168 /* RLMModel.swift */; };
 		84B90E80203C4F46009F5168 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B90E7F203C4F46009F5168 /* Model.swift */; };
@@ -143,6 +145,8 @@
 		8478310D203D9E6600F8F991 /* AtomicSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicSpec.swift; sourceTree = "<group>"; };
 		8478310F203DC0DD00F8F991 /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
 		84783130203E0E0E00F8F991 /* IDProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDProvider.swift; sourceTree = "<group>"; };
+		847831342043FB4C00F8F991 /* ModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSpec.swift; sourceTree = "<group>"; };
+		847831372043FBE800F8F991 /* IDProviderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDProviderSpec.swift; sourceTree = "<group>"; };
 		84B90E7A203B1D42009F5168 /* RealmExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtensionsSpec.swift; sourceTree = "<group>"; };
 		84B90E7D203C4EAC009F5168 /* RLMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMModel.swift; sourceTree = "<group>"; };
 		84B90E7F203C4F46009F5168 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -409,6 +413,30 @@
 			path = ID;
 			sourceTree = "<group>";
 		};
+		847831322043FB1800F8F991 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				847831332043FB3600F8F991 /* ActiveRecord */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		847831332043FB3600F8F991 /* ActiveRecord */ = {
+			isa = PBXGroup;
+			children = (
+				847831342043FB4C00F8F991 /* ModelSpec.swift */,
+			);
+			path = ActiveRecord;
+			sourceTree = "<group>";
+		};
+		847831362043FBD100F8F991 /* ID */ = {
+			isa = PBXGroup;
+			children = (
+				847831372043FBE800F8F991 /* IDProviderSpec.swift */,
+			);
+			path = ID;
+			sourceTree = "<group>";
+		};
 		84B90E7C203C4E85009F5168 /* ActiveRecord */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,6 +567,7 @@
 		D7C9DAB61FF6B683000B5E80 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				847831362043FBD100F8F991 /* ID */,
 				D7B5231E1FF6B6DB004FBB32 /* ResultSpec.swift */,
 				75AD49C1200D639F009269FD /* CancellablePropertySpec.swift */,
 				84CBC5B52039E13D00AD29CD /* WeakBoxSpec.swift */,
@@ -550,6 +579,7 @@
 		D7F56A241FF6B1FE0027A00F /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				847831322043FB1800F8F991 /* Models */,
 				75EA3F58202090360053A423 /* Services */,
 				D7C9DAB51FF6B67A000B5E80 /* Library */,
 				D7F56A251FF6B2470027A00F /* FriendsInFaceBookSpec.swift */,
@@ -960,11 +990,13 @@
 			files = (
 				75AD49C2200D639F009269FD /* CancellablePropertySpec.swift in Sources */,
 				752C21CF201A19F5009D7B0F /* CallSpyMatcher.swift in Sources */,
+				847831382043FBE800F8F991 /* IDProviderSpec.swift in Sources */,
 				84B90E7B203B1D42009F5168 /* RealmExtensionsSpec.swift in Sources */,
 				D7B523221FF6BBB3004FBB32 /* ResultMatchers.swift in Sources */,
 				D7F56A261FF6B2470027A00F /* FriendsInFaceBookSpec.swift in Sources */,
 				8478310E203D9E6600F8F991 /* AtomicSpec.swift in Sources */,
 				75060D71200D408F002ACA89 /* FunctionsSpec.swift in Sources */,
+				847831352043FB4C00F8F991 /* ModelSpec.swift in Sources */,
 				75EA3F5B202090730053A423 /* SocialServiceImplSpec.swift in Sources */,
 				75AD49C6200E14FA009269FD /* Optional+ExtensionsSpec.swift in Sources */,
 				D7B5231F1FF6B6DB004FBB32 /* ResultSpec.swift in Sources */,
