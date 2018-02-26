@@ -36,7 +36,7 @@ public class Model<Storage: RLMModel> {
         return Realm.current?.object(ofType: StorageType.self, forPrimaryKey: id)
             ?? modify(StorageType()) { storage in
                 storage.id = id
-                Realm.write { $0.add(storage, update: true)}
+                Realm.write { $0.add(storage, update: true) }
         }
     }
     
