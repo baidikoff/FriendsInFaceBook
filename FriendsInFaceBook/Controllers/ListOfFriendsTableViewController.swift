@@ -28,7 +28,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         self.socialService = SocialServiceImpl(self.facebookApi)
         self.cancellable = ServiceTask(self.facebookApi)
         self.refreshControl = UIRefreshControl()
-        self.getFriendsFromStorage()
+        self.requestObjects()
         self.configurePullToRefresh()
         self.configureNavigationItems()
     }
@@ -56,6 +56,7 @@ class ListOfFriendsTableViewController: UITableViewController {
     private func configurePullToRefresh() {
         self.refreshControl?.addTarget(self, action: #selector(requestObjects), for: UIControlEvents.valueChanged)
         self.refreshControl.do( { self.tableView?.insertSubview($0, at: 0) })
+        self.tableView.reloadData()
     }
     
     private func getFriendsFromStorage() {
@@ -91,6 +92,7 @@ class ListOfFriendsTableViewController: UITableViewController {
         self.cancellable = self.socialService?.requestRealmUsers { [weak self] users in
             ServiceForData.shared.deleteAllDataInStorage()
             self?.configureRealmNotification()
+            print(users)
             ServiceForData.shared.writeDataInStorage(users: users)
             completion()
         }
