@@ -42,19 +42,17 @@ public class SocialServiceImpl: SocialService {
     public func requestRealmUsers(_ completion: @escaping ([RealmUser]) -> ()) -> Cancellable {
         return self.lock.do {
             if isLoaded {
-                self.facebookApi.users
-                self.users.do(completion)
+                let users = self.parsingData(dataUsers: self.facebookApi.users)
+                users.do { completion($0.friends) }
+                
                 return self.cancellable
             } else {
                 self.facebookApi.requestRealmUsers { result in
                     let resultRealmUsers = result.value.flatten()
-                    let users:[String: Any]? =  resultRealmUsers.flatMap(cast)
-                    users.do{
-                        let resultRealmUsers = Mapper<Friends>().map(JSON:$0)
-                        self.users = resultRealmUsers?.friends
-                        resultRealmUsers.do {completion($0.friends) }
-                    }
+                    let users = self.parsingData(dataUsers: resultRealmUsers)
+                    users.do { completion($0.friends) }
                 }
+                
                 return self.cancellable
             }
         }
@@ -68,6 +66,20 @@ public class SocialServiceImpl: SocialService {
     public func loginRealmUser() -> Cancellable {
         self.facebookApi.login()
         return ServiceTask(self.facebookApi)
-    }    
+    }
+    
+    // MARK: -
+    // MARK: Private
+    
+    private func parsingData(dataUsers: Any?) -> Friends? {
+        let users:[String: Any]? =  dataUsers.flatMap(cast)
+        var friends: Friends?
+        users.do{
+            let resultRealmUsers = Mapper<Friends>().map(JSON:$0)
+            self.users = resultRealmUsers?.friends
+            friends = resultRealmUsers
+        }
+        return friends
+    }
 }
 
