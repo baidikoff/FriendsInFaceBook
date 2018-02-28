@@ -113,6 +113,35 @@ class FunctionsSpec: QuickSpec {
                 expect(checkingValue).to(equal(resultValue))
             }
         }
+        
+        describe("sideEffect") {
+            it("result value should be equal 3 when using function flip") {
+                let value = 5
+
+                let function: (Int) -> (Int) = sideEffect { print($0) }
+                let result = function(value)
+
+                expect(result).to(equal(value))
+            }
+        }
+
+        describe("modify") {
+            it("result value should be equal 3 when using function flip") {
+                let value = 10
+                let result = modify(value) { $0 += 10  }
+                
+                expect(result).to(equal(20))
+            }
+        }
+
+        describe("typeString") {
+            it("result value should be equal 3 when using function flip") {
+                let user = User(id: ID(12345))
+                let  userID = "\(user.id.value)_\(typeString(User.self).lowercased())"
+                
+                expect(userID).to(equal("12345_user"))
+            }
+        }
     }
 }
 

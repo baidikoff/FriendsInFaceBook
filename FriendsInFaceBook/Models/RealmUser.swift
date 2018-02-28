@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  RealmUser.swift
 //  FriendsInFaceBook
 //
 //  Created by Viktoria on 11/28/17.
@@ -10,16 +10,16 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
-public class User: Object, Mappable {
+public class RealmUser: Object, Mappable {
     
     // MARK: -
     // MARK: Properties
     
     @objc dynamic var name: String?
     @objc dynamic var id: String?
-    @objc dynamic var image: UserImageData?
+    @objc dynamic var image: RealmUserImageData?
     
-    convenience init(name: String, image: UserImageData) {
+    convenience init(name: String, image: RealmUserImageData) {
         self.init()
         self.name = name
         self.image = image
@@ -34,13 +34,13 @@ public class User: Object, Mappable {
             image    <- map["picture"]
     }
 }
-class UserImageData: Object, Mappable {
+class RealmUserImageData: Object, Mappable {
 
-    @objc dynamic var urlData: UserImage?
+    @objc dynamic var urlData: RealmUserImage?
     required convenience init?(map: Map) {
         self.init()
     }
-    convenience init(urlData: UserImage) {
+    convenience init(urlData: RealmUserImage) {
         self.init()
         self.urlData = urlData
     }
@@ -48,7 +48,7 @@ class UserImageData: Object, Mappable {
         urlData       <- map["data"]
     }
 }
-class UserImage: Object, Mappable{
+class RealmUserImage: Object, Mappable{
     @objc dynamic var url: String?
 
     convenience init(url: String) {

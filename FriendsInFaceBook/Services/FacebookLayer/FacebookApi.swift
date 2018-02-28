@@ -40,7 +40,7 @@ public class FacebookApi {
         loginManager.logOut()
     }
     
-    public func requestUsers(completion: @escaping (Result<Any?, NetworkServiceError>) -> ()) {
+    public func requestRealmUsers(completion: @escaping (Result<Any?, NetworkServiceError>) -> ()) {
         self.facebookRequest = FBSDKGraphRequest(graphPath: UrlType.graphPath.rawValue, parameters: [UrlType.parametersKey.rawValue: UrlType.parametersValue.rawValue])
             .start { connection, users, error -> Void in
                 self.users = users

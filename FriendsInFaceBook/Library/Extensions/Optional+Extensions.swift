@@ -39,14 +39,14 @@ public extension Optional {
 //    }
 //}
 //
-//struct User {
+//struct RealmUser {
 //    let age: Int
 //
-//    func mapAge(_ transform: (Int) -> Int) -> User {
-//        return User(age: transform(self.age))
+//    func mapAge(_ transform: (Int) -> Int) -> RealmUser {
+//        return RealmUser(age: transform(self.age))
 //    }
 //
-//    func flatMapAge(_ transform: (Int) -> User) -> User {
+//    func flatMapAge(_ transform: (Int) -> RealmUser) -> RealmUser {
 //        return transform(self.age)
 //    }
 //}

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserCell: UITableViewCell {
+class RealmUserCell: UITableViewCell {
 
     // MARK: -
     // MARK: Properties
@@ -16,14 +16,14 @@ class UserCell: UITableViewCell {
     @IBOutlet private(set) var nameLabel: UILabel?
     @IBOutlet private(set) var photoImageView: ImageView?
     
-    var user: User? {
+    var user: RealmUser? {
         didSet { self.fill(with: user) }
     }
     
     // MARK: -
     // MARK: Open
     
-    open func fill(with model: User?) {
+    open func fill(with model: RealmUser?) {
         self.nameLabel?.text = self.user?.name
         self.user.do(self.fillPhoto)
     }
@@ -38,7 +38,7 @@ class UserCell: UITableViewCell {
     // MARK: -
     // MARK: Private
     
-    private func fillPhoto(with user: User) {
+    private func fillPhoto(with user: RealmUser) {
         let imageDownloadService = ImageDownloadServiceImpl(
             networkService: NetworkServiceImpl(session: URLSession(configuration: .default))
         )

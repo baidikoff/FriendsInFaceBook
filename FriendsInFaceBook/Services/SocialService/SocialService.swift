@@ -18,6 +18,6 @@ public protocol SocialService{
     // MARK: -
     // MARK: Public
     
-    func requestUsers(_ completion: @escaping ([User]) -> ()) -> Cancellable
+    func requestRealmUsers(_ completion: @escaping ([RealmUser]) -> ()) -> Cancellable
 }
 

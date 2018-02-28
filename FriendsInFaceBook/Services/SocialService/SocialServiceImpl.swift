@@ -1,5 +1,5 @@
 //
-//  RequestUser.swift
+//  RequestRealmUser.swift
 //  FriendsInFaceBook
 //
 //  Created by Viktoria on 12/1/17.
@@ -19,7 +19,7 @@ public class SocialServiceImpl: SocialService {
     public var isAlreadyLoggedIn: Bool {
         return self.facebookApi.isAlreadyLoggedIn
     }
-    var users: [User]?
+    var users: [RealmUser]?
     
     public var isLoaded: Bool {
         return self.facebookApi.users != nil
@@ -39,22 +39,20 @@ public class SocialServiceImpl: SocialService {
     // MARK: -
     // MARK: Public
     
-    public func requestUsers(_ completion: @escaping ([User]) -> ()) -> Cancellable {
+    public func requestRealmUsers(_ completion: @escaping ([RealmUser]) -> ()) -> Cancellable {
         return self.lock.do {
             if isLoaded {
                 self.facebookApi.users
-                print(self.users)
                 self.users.do(completion)
                 return self.cancellable
             } else {
-                self.facebookApi.requestUsers { result in
-                    let resultUsers = result.value.flatten()
-                    let users:[String: Any]? =  resultUsers.flatMap(cast)
+                self.facebookApi.requestRealmUsers { result in
+                    let resultRealmUsers = result.value.flatten()
+                    let users:[String: Any]? =  resultRealmUsers.flatMap(cast)
                     users.do{
-                        let resultUsers = Mapper<Friends>().map(JSON:$0)
-                        self.users = resultUsers?.friends
-                        print(self.users)
-                        resultUsers.do {completion($0.friends) }
+                        let resultRealmUsers = Mapper<Friends>().map(JSON:$0)
+                        self.users = resultRealmUsers?.friends
+                        resultRealmUsers.do {completion($0.friends) }
                     }
                 }
                 return self.cancellable
@@ -62,12 +60,12 @@ public class SocialServiceImpl: SocialService {
         }
     }
     
-    public func logoutUser() -> Cancellable {
+    public func logoutRealmUser() -> Cancellable {
         self.facebookApi.logout()
         return ServiceTask(self.facebookApi)
     }
     
-    public func loginUser() -> Cancellable {
+    public func loginRealmUser() -> Cancellable {
         self.facebookApi.login()
         return ServiceTask(self.facebookApi)
     }    

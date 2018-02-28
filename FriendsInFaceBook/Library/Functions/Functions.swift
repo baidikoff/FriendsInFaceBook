@@ -51,3 +51,25 @@ public func scope(_ action: () -> ()) {
 public func call<Value>(_ action: () -> Value) -> Value {
     return action()
 }
+
+public func sideEffect<Value>(_ action: @escaping (Value) -> ()) -> (Value) -> Value {
+    return {
+        action($0)
+        
+        return $0
+    }
+}
+
+public func modify<Value>(_ value: Value, action: (inout Value) -> ()) -> Value {
+    var result = value
+    action(&result)
+    return result
+}
+
+public func typeString<T>(_ type: T.Type) -> String {
+    return String(describing: type)
+}
+
+public func typeString<T>(_ value: T) -> String {
+    return typeString(type(of: value))
+}
