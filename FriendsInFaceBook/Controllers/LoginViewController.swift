@@ -10,35 +10,42 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    let loginView = LoginView()
+    // MARK: -
+    // MARK: Properties
+    
+    @IBOutlet weak var loginView: LoginView?
+    var hasToken = false
+    let facebookApi = FacebookApi()
+    var socialService: SocialServiceImpl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(loginView)
+        self.socialService = SocialServiceImpl(facebookApi)
+        self.loginView?.loginButton?.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if FacebookSocialService.shared.alreadyLoggedIn() == true {
-           self.loginView.loginButton?.isHidden = true
-            self.loginView.welcomeLabel?.isHidden = true
-            self.goToNextViewController()
-        }
+        socialService.do { self.hasToken = $0.isAlreadyLoggedIn }
+        self.goToNextViewController()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if FacebookSocialService.shared.alreadyLoggedIn() == true {
-           self.goToNextViewController()
+        self.goToNextViewController()
+    }
+    
+    // MARK: -
+    // MARK: Private
+    
+    private func goToNextViewController(){
+        if hasToken {
+            let storyBoard : UIStoryboard = UIStoryboard(name: Constants.Main, bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: Constants.storyBoardIdentifier) as? UINavigationController
+            nextViewController.do({self.present($0, animated:true, completion:nil)})
         }
     }
-
-    func goToNextViewController(){
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GoToSeeFriends") as! UINavigationController
-        self.present(nextViewController, animated:true, completion:nil)
+    @objc func loginButtonPressed(){
+        self.socialService?.loginRealmUser()
     }
-
-    
-
 }
 

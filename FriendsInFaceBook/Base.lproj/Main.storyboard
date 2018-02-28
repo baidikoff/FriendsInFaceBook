@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,25 +10,22 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginViewController" customModule="FriendsInFaceBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="LoginView" customModule="FriendsInFaceBook" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2g-N9-Q6j" customClass="LoginView" customModule="FriendsInFaceBook" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tc1-hL-xNZ" customClass="FBSDKLoginButton">
-                                        <rect key="frame" x="120" y="505" width="134" height="59"/>
+                                        <rect key="frame" x="120" y="438" width="359" height="59"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="59" id="NSH-nl-Tui"/>
                                         </constraints>
                                         <state key="normal" title="Log in"/>
-                                        <connections>
-                                            <action selector="loginButtonPressed:" destination="W2g-N9-Q6j" eventType="touchUpInside" id="6jQ-tU-sD7"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi! This app allows you to see your friends in Facebook." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jF5-WT-Wfh">
-                                        <rect key="frame" x="44" y="382" width="287" height="118"/>
+                                        <rect key="frame" x="44" y="315" width="512" height="118"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="118" id="dkI-pW-wXn"/>
                                         </constraints>
@@ -65,6 +58,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="loginView" destination="W2g-N9-Q6j" id="nPy-si-JFa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,24 +71,17 @@
             <objects>
                 <tableViewController storyboardIdentifier="TableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zrd-VB-l6B" customClass="ListOfFriendsTableViewController" customModule="FriendsInFaceBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jmr-6M-2PP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="90" id="Jk7-du-9vF" customClass="FriendTableViewCell" customModule="FriendsInFaceBook" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="90" id="Jk7-du-9vF" customClass="RealmUserCell" customModule="FriendsInFaceBook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jk7-du-9vF" id="cld-Fw-PxT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ec2-SW-XyU">
-                                            <rect key="frame" x="16" y="9" width="70" height="70"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="70" id="QgM-Dz-rLy"/>
-                                                <constraint firstAttribute="width" constant="70" id="RrS-y3-MtE"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiJ-pl-aha">
                                             <rect key="frame" x="94" y="22" width="265" height="44"/>
                                             <constraints>
@@ -103,19 +92,27 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVs-WG-lag" userLabel="Photo Image View" customClass="ImageView" customModule="FriendsInFaceBook" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="9" width="70" height="70"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="NsY-qr-Pwx"/>
+                                                <constraint firstAttribute="width" constant="70" id="br0-0N-4Ub"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="ec2-SW-XyU" firstAttribute="leading" secondItem="cld-Fw-PxT" secondAttribute="leading" constant="16" id="Cwb-nH-McK"/>
-                                        <constraint firstItem="EiJ-pl-aha" firstAttribute="leading" secondItem="ec2-SW-XyU" secondAttribute="trailing" constant="8" id="EjR-j3-Q9G"/>
-                                        <constraint firstAttribute="bottom" secondItem="ec2-SW-XyU" secondAttribute="bottom" constant="10.5" id="ewu-wt-YNz"/>
-                                        <constraint firstItem="ec2-SW-XyU" firstAttribute="top" secondItem="cld-Fw-PxT" secondAttribute="top" constant="9" id="g5e-vr-CiJ"/>
+                                        <constraint firstItem="RVs-WG-lag" firstAttribute="top" secondItem="cld-Fw-PxT" secondAttribute="top" constant="9" id="7EC-3e-j1L"/>
+                                        <constraint firstItem="EiJ-pl-aha" firstAttribute="leading" secondItem="RVs-WG-lag" secondAttribute="trailing" constant="8" id="FmA-2C-Px9"/>
+                                        <constraint firstAttribute="bottom" secondItem="RVs-WG-lag" secondAttribute="bottom" constant="10" id="deC-gE-jYV"/>
                                         <constraint firstAttribute="bottom" secondItem="EiJ-pl-aha" secondAttribute="bottom" constant="23.5" id="gNy-Wm-402"/>
+                                        <constraint firstItem="RVs-WG-lag" firstAttribute="leading" secondItem="cld-Fw-PxT" secondAttribute="leading" constant="16" id="n4o-pu-6zK"/>
                                         <constraint firstItem="EiJ-pl-aha" firstAttribute="top" secondItem="cld-Fw-PxT" secondAttribute="top" constant="22" id="oM9-Zc-Tds"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="userName" destination="EiJ-pl-aha" id="AKa-Do-8hw"/>
-                                    <outlet property="userPhoto" destination="ec2-SW-XyU" id="m7N-7G-XDM"/>
+                                    <outlet property="nameLabel" destination="EiJ-pl-aha" id="eag-Kk-8jY"/>
+                                    <outlet property="photoImageView" destination="RVs-WG-lag" id="brJ-nY-Gau"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

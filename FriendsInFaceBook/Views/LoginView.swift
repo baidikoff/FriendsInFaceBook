@@ -10,13 +10,10 @@ import UIKit
 
 class LoginView: UIView {
     
-   
+    // MARK: -
+    // MARK: Properties
     
     @IBOutlet weak var loginButton: UIButton?
     @IBOutlet weak var welcomeLabel: UILabel?
    
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        FacebookSocialService.shared.loginUser()
-        
-    }
 }

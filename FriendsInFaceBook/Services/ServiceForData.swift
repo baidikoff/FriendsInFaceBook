@@ -15,36 +15,29 @@ class ServiceForData{
     static let shared = ServiceForData()
     fileprivate var notificationToken: NotificationToken? = nil
     
-    func deleteAllDataInStorage() {
-        do {
-            let realm = try Realm()
-            try realm.write {
-                realm.deleteAll()
+    // MARK: -
+    // MARK: Open
+    
+    open func deleteAllDataInStorage() {
+        let realm = try? Realm()
+        realm.do({ realm in
+            try? realm.write {
+            realm.deleteAll()
             }
-        } catch let error {
-            fatalError("\(error)")
-        }
+        })
     }
-    func writeDataInStorage(users: Array<User>) {
-        do {
-            let realm = try Realm()
-            try realm.write {
+    open func writeDataInStorage(users: [RealmUser]) {
+        let realm = try? Realm()
+        realm.do({ realm in
+            try? realm.write {
                 realm.add(users)
             }
-        } catch let error {
-            fatalError("\(error)")
-        }
+        })
     }
-    func getDataFromStorage() -> Results<User>{
-        var users: Results<User>?
-        do {
-            let realm = try Realm()
-            users = realm.objects(User.self)
-        } catch let error {
-            fatalError("\(error)")
-        }
-        return users!
+    open func getDataFromStorage() -> Results<RealmUser>?{
+        var users: Results<RealmUser>? = nil
+        let realm = try? Realm()
+        realm.do({ users = $0.objects(RealmUser.self)})
+        return users
     }
-    
-    
 }

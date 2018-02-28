@@ -4,4 +4,6 @@ DerivedData/
 /Carthage/
 **/*.xcuserstate
 **/xcuserdata/
-*.xcuserstate
+UserInterfaceState.xcuserstate
+Pods/
+CocoaPods
