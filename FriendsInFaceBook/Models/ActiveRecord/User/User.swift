@@ -9,7 +9,16 @@
 import Foundation
 import RealmSwift
 
-public class User: Model<RLMUser> {
+public protocol User: UserStorage, Modelable {
+    var didChange: (() -> ())? { get set }
+}
+
+public protocol UserStorage: class {
+    var name: String? { get set }
+    var age: Int? { get set }
+}
+
+public class UserImpl<Persistence: Persistable>: Model<Persistence>, User where Persistence.Storage: UserStorage {
     
     // MARK: -
     // MARK: Properties
@@ -22,16 +31,28 @@ public class User: Model<RLMUser> {
         didSet { self.write() }
     }
     
+    public var didChange: (() -> ())?
+    
     // MARK: -
     // MARK: Open
     
+    open override func write() {
+        super.write()
+        
+        self.didChange?()
+    }
+    
     open override func readStorage(_ storage: StorageType) {
-        self.name = storage.name
-        self.age = storage.age
+        let persistence = self.persistence
+        
+        persistence.read(storage.name, to: &self.name)
+        persistence.read(storage.age, to: &self.age)
     }
     
     open override func writeStorage(_ storage: StorageType) {
-        storage.name = self.name
-        storage.age = self.age
+        let persistence = self.persistence
+        
+        persistence.write(self.name, to: &storage.name)
+        persistence.write(self.age, to: &storage.age)
     }
 }

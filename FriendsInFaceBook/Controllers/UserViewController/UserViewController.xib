@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserViewController" customModule="FriendsInFaceBook" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="ltv-30-NXV" id="wjk-Zx-uVF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ltv-30-NXV" customClass="UserView" customModule="FriendsInFaceBook" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpX-IU-TVa" userLabel="Name Label">
+                    <rect key="frame" x="68" y="0.0" width="240" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="lo0-8H-h6O"/>
+                        <constraint firstAttribute="width" constant="240" id="nyU-qb-ArN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBL-Gt-mBc" userLabel="Age Label">
+                    <rect key="frame" x="68" y="160" width="240" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="Pix-U6-rhd"/>
+                        <constraint firstAttribute="height" constant="60" id="T5q-oU-zRs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="sBL-Gt-mBc" firstAttribute="top" secondItem="dpX-IU-TVa" secondAttribute="bottom" constant="100" id="Wbv-CT-SrN"/>
+                <constraint firstItem="dpX-IU-TVa" firstAttribute="centerX" secondItem="ltv-30-NXV" secondAttribute="centerX" id="k4l-Wo-ok8"/>
+                <constraint firstItem="sBL-Gt-mBc" firstAttribute="centerX" secondItem="dpX-IU-TVa" secondAttribute="centerX" id="uTW-OB-nGV"/>
+                <constraint firstItem="dpX-IU-TVa" firstAttribute="top" secondItem="ltv-30-NXV" secondAttribute="top" id="w2o-DI-sha"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="t5t-uw-iKp"/>
+            <connections>
+                <outlet property="ageLabel" destination="sBL-Gt-mBc" id="VA1-Gj-h2R"/>
+                <outlet property="nameLabel" destination="dpX-IU-TVa" id="FS4-T6-HVL"/>
+            </connections>
+            <point key="canvasLocation" x="-3.5" y="-333.5"/>
+        </view>
+    </objects>
+</document>

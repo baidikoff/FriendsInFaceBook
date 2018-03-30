@@ -11,6 +11,7 @@ import RealmSwift
 
 
 public extension Realm {
+    
     private struct Key {
         static let realm = "com.realm.thread"
     }
@@ -30,12 +31,14 @@ public extension Realm {
     }
     
     public static func write(_ action: (Realm) -> ()) {
-        self.current.do { realm in
-            if realm.isInWriteTransaction{
-                action(realm)
-            } else {
-                try? realm.write { action(realm) }
-            }
+        self.current.do { $0.write(action) }
+    }
+    
+    public func write(_ action: (Realm) -> ()) {
+        if self.isInWriteTransaction{
+            action(self)
+        } else {
+            try? self.write { action(self) }
         }
     }
 }

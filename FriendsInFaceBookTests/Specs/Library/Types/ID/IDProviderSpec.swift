@@ -25,7 +25,7 @@ class IDProviderSpec: QuickSpec {
                 }
                 
                 it("should pass") {
-                    let modelIdProvider: IDProvider = autoincrementedID(key: ".com.realm.model.key")
+                    let modelIdProvider: IDProvider = autoincrementedID(key: "com.realm.model.key")
                     let id = modelIdProvider()
                     let result = id.value + 1
                     let lastID = modelIdProvider()

@@ -52,6 +52,12 @@
 		84DB6FCD203C7145003FD11F /* RLMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB6FCC203C7145003FD11F /* RLMUser.swift */; };
 		D70103551FD727CB002D0E6C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103541FD727CB002D0E6C /* Optional+Extensions.swift */; };
 		D70103571FD73B84002D0E6C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70103561FD73B84002D0E6C /* Functions.swift */; };
+		D77A754F206EB1F20078BFB1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77A754E206EB1F20078BFB1 /* Persistence.swift */; };
+		D77A7552206EB3910078BFB1 /* RealmPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77A7551206EB3910078BFB1 /* RealmPersistence.swift */; };
+		D77A7554206EBF7F0078BFB1 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77A7553206EBF7F0078BFB1 /* UserFactory.swift */; };
+		D77A7557206EC44F0078BFB1 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77A7556206EC44F0078BFB1 /* UserViewController.swift */; };
+		D77A7559206EC45C0078BFB1 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77A7558206EC45C0078BFB1 /* UserView.swift */; };
+		D77A755B206EC5D30078BFB1 /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77A755A206EC5D30078BFB1 /* UserViewController.xib */; };
 		D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2AE1FE2799E00F0DD87 /* ImageLoadService.swift */; };
 		D79BC2B11FE27A6900F0DD87 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */; };
 		D79BC2B41FE27E5A00F0DD87 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */; };
@@ -162,6 +168,12 @@
 		B830D96C057C55D043C281A4 /* Pods-FriendsInFaceBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsInFaceBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsInFaceBook/Pods-FriendsInFaceBook.release.xcconfig"; sourceTree = "<group>"; };
 		D70103541FD727CB002D0E6C /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		D70103561FD73B84002D0E6C /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		D77A754E206EB1F20078BFB1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D77A7551206EB3910078BFB1 /* RealmPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPersistence.swift; sourceTree = "<group>"; };
+		D77A7553206EBF7F0078BFB1 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		D77A7556206EC44F0078BFB1 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		D77A7558206EC45C0078BFB1 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		D77A755A206EC5D30078BFB1 /* UserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
 		D79BC2AE1FE2799E00F0DD87 /* ImageLoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadService.swift; sourceTree = "<group>"; };
 		D79BC2B01FE27A6900F0DD87 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		D79BC2B31FE27E5A00F0DD87 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -273,6 +285,7 @@
 		757BAC741FD5B66D004FDD82 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D77A7555206EC4330078BFB1 /* UserViewController */,
 				752FFAAE1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift */,
 				75CFFC6A1FCC724300D99385 /* LoginViewController.swift */,
 			);
@@ -440,6 +453,7 @@
 		84B90E7C203C4E85009F5168 /* ActiveRecord */ = {
 			isa = PBXGroup;
 			children = (
+				D77A7550206EB3780078BFB1 /* Persistence */,
 				84DB6FC9203C705D003FD11F /* User */,
 				84B90E7D203C4EAC009F5168 /* RLMModel.swift */,
 				84B90E7F203C4F46009F5168 /* Model.swift */,
@@ -452,6 +466,7 @@
 			children = (
 				84DB6FCA203C7115003FD11F /* User.swift */,
 				84DB6FCC203C7145003FD11F /* RLMUser.swift */,
+				D77A7553206EBF7F0078BFB1 /* UserFactory.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -490,6 +505,25 @@
 				84CBC5B12039D31000AD29CD /* Realm+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D77A7550206EB3780078BFB1 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D77A754E206EB1F20078BFB1 /* Persistence.swift */,
+				D77A7551206EB3910078BFB1 /* RealmPersistence.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D77A7555206EC4330078BFB1 /* UserViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D77A7556206EC44F0078BFB1 /* UserViewController.swift */,
+				D77A7558206EC45C0078BFB1 /* UserView.swift */,
+				D77A755A206EC5D30078BFB1 /* UserViewController.xib */,
+			);
+			path = UserViewController;
 			sourceTree = "<group>";
 		};
 		D79BC2AD1FE2777300F0DD87 /* ImageDownloadService */ = {
@@ -713,6 +747,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75CFFC761FCC724300D99385 /* LaunchScreen.storyboard in Resources */,
+				D77A755B206EC5D30078BFB1 /* UserViewController.xib in Resources */,
 				75CFFC731FCC724300D99385 /* Assets.xcassets in Resources */,
 				75CFFC6E1FCC724300D99385 /* Main.storyboard in Resources */,
 			);
@@ -941,8 +976,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				758156BC201E60D90050AD31 /* SocialService.swift in Sources */,
+				D77A7557206EC44F0078BFB1 /* UserViewController.swift in Sources */,
 				84CBC5B22039D31000AD29CD /* Realm+Extensions.swift in Sources */,
 				D7AAF22C1FEA7E1D001E0C3B /* ImageView.swift in Sources */,
+				D77A754F206EB1F20078BFB1 /* Persistence.swift in Sources */,
 				752FFAAF1FCDC8E500ACA938 /* ListOfFriendsTableViewController.swift in Sources */,
 				8478310C203CD4FE00F8F991 /* Atomic.swift in Sources */,
 				D79BC2AF1FE2799E00F0DD87 /* ImageLoadService.swift in Sources */,
@@ -965,6 +1002,7 @@
 				75EA3F57201F35440053A423 /* ServiceTask.swift in Sources */,
 				752FFAB11FCDE98C00ACA938 /* UserCell.swift in Sources */,
 				75CFFC6B1FCC724300D99385 /* LoginViewController.swift in Sources */,
+				D77A7559206EC45C0078BFB1 /* UserView.swift in Sources */,
 				84DB6FCB203C7115003FD11F /* User.swift in Sources */,
 				D7AAF2221FEA6C67001E0C3B /* ImageModel.swift in Sources */,
 				D7AAF2331FEA8A5C001E0C3B /* Result.swift in Sources */,
@@ -976,11 +1014,13 @@
 				75CFFC691FCC724300D99385 /* AppDelegate.swift in Sources */,
 				7569165B1FD6A75800808890 /* LoginView.swift in Sources */,
 				84DB6FCD203C7145003FD11F /* RLMUser.swift in Sources */,
+				D77A7552206EB3910078BFB1 /* RealmPersistence.swift in Sources */,
 				75D292A91FD450D70032F9BD /* Constants.swift in Sources */,
 				D79BC2B11FE27A6900F0DD87 /* NetworkTask.swift in Sources */,
 				D7AAF2351FEA8E58001E0C3B /* PrecedenceGroups.swift in Sources */,
 				D79BC2B91FE2845A00F0DD87 /* CancellableProperty.swift in Sources */,
 				758156B8201DD28D0050AD31 /* FacebookApi.swift in Sources */,
+				D77A7554206EBF7F0078BFB1 /* UserFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

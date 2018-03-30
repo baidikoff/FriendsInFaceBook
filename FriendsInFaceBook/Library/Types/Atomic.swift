@@ -21,13 +21,12 @@ import Foundation
     // MARK: Properties
  
     public var value: ValueType {
-        get { return transform { $0 } }
-        set { modify { $0 = newValue } }
+        get { return self.transform { $0 } }
+        set { self.modify { $0 = newValue } }
     }
     
-    public var mutableValue: ValueType
-    public var didSet: PropertyObserver?
-    
+    private var mutableValue: ValueType
+    private var didSet: PropertyObserver?
     private let lock: NSRecursiveLock
     
     // MARK: -
@@ -37,7 +36,7 @@ import Foundation
         _ value: ValueType,
         lock: NSRecursiveLock = NSRecursiveLock(),
         didSet: PropertyObserver? = nil
-        ) {
+    ) {
         self.mutableValue = value
         self.lock = lock
         self.didSet = didSet

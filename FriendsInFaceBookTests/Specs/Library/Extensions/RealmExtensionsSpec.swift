@@ -16,6 +16,7 @@ class RealmExtensionMock: Object {
     @objc open override class func primaryKey() -> String? {
         return "id"
     }
+    
     @objc dynamic var id = ""
 }
 

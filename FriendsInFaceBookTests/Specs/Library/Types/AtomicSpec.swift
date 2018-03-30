@@ -33,12 +33,11 @@ class AtomicSpec: QuickSpec {
         describe("AtomicSpec") {
             it("should pass if season has changed") {
                 let newSeason = "Summer"
-                let weather = Weather()
                 
-                let mutableWeather = Atomic(weather)
-                mutableWeather.modify { $0.season = newSeason }
+                let atomic = Atomic(Weather())
+                atomic.modify { $0.season = newSeason }
                 
-                expect(newSeason).to(equal(weather.season))
+                expect(newSeason).to(equal(atomic.value.season))
             }
         }
     }

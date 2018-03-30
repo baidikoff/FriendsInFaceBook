@@ -9,35 +9,27 @@
 import Foundation
 import RealmSwift
 
-public class Model<Storage: RLMModel> {
+public protocol Modelable: class {
+    var id: ID { get }
+    
+    func read()
+    func write()
+    func update(_ action: () -> ())
+}
+
+public class Model<Persistence: Persistable>: Modelable where Persistence.Storage: AnyObject {
     
     // MARK: -
     // MARK: Subtypes
     
-    public typealias StorageType = Storage
-    
-    // MARK: -
-    // MARK: Static
-    
-    public static func instantiate(_ storage: StorageType?) -> Self? {
-        let id = storage?.id
-        return id
-            .flatMap { $0.split(separator: "_").first }
-            .flatMap { ID(string: String($0)) }
-            .map(self.init)
-    }
+    public typealias StorageType = Persistence.Storage
     
     // MARK: -
     // MARK: Properties
     
-    public var id: ID
+    public let id: ID
     public var storage: StorageType {
-        let id = "\(self.id)_\(typeString(self).lowercased())"
-        return Realm.current?.object(ofType: StorageType.self, forPrimaryKey: id)
-            ?? modify(StorageType()) { storage in
-                storage.id = id
-                Realm.write { $0.add(storage, update: true) }
-        }
+        return self.persistence.read(id: self.id)
     }
     
     private var lock: NSLocking = NSRecursiveLock()
@@ -45,11 +37,14 @@ public class Model<Storage: RLMModel> {
     private var isInReadTransaction = false
     private var isInWriteTransaction = false
     
+    public let persistence: Persistence
+    
     // MARK: -
     // MARK: Init and Deinit
     
-    public required init(id: ID) {
+    public required init(id: ID, persistence: Persistence) {
         self.id = id
+        self.persistence = persistence
         
         self.configure()
     }
@@ -59,28 +54,29 @@ public class Model<Storage: RLMModel> {
     
     public func read() {
         self.configureStorageTransaction(
-            exncluding: { isInWriteTransaction },
-            condition: { isInReadTransaction = $0 },
+            excluding: { self.isInWriteTransaction },
+            condition: { self.isInReadTransaction = $0 },
             action: {
                 self.readStorage(self.storage)
-        })
+            }
+        )
     }
     
     public func write() {
         self.update {
-            self.writeStorage(self.storage)
+            let storage = self.storage
+            
+            self.writeStorage(storage)
+            self.persistence.write(storage: storage)
         }
     }
     
     public func update(_ action: () -> ()) {
         self.configureStorageTransaction(
-            exncluding: { isInReadTransaction },
-            condition: { isInWriteTransaction = $0 },
-            action: {
-                Realm.write { _ in
-                    action()
-                }
-        })
+            excluding: { self.isInReadTransaction },
+            condition: { self.isInWriteTransaction = $0 },
+            action: action
+        )
     }
     
     // MARK: -
@@ -106,14 +102,15 @@ public class Model<Storage: RLMModel> {
     }
     
     private func configureStorageTransaction(
-        exncluding: () -> (Bool),
+        excluding: () -> (Bool),
         condition: (Bool) -> (),
         action: () -> ()
-        ) {
+    ) {
         self.locked {
-            if exncluding() {
+            if excluding() {
                 return
             }
+            
             condition(true)
             action()
             condition(false)
